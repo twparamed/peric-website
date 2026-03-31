@@ -1,91 +1,53 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Speakers | PERIC 2026</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <style>
-        :root { --primary-blue: #0d47a1; --secondary-blue: #1976d2; --accent-green: #2e7d32; --text-dark: #333333; --bg-light: #f8f9fa; }
-        body { font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; background-color: #ffffff; color: var(--text-dark); }
+        :root { --primary-blue: #0d47a1; --secondary-blue: #1976d2; }
+        body { font-family: 'Segoe UI', sans-serif; background-color: #ffffff; color: #333; }
         .navbar { border-bottom: 1px solid #e0e0e0; background-color: #ffffff !important; padding: 15px 0; }
         .navbar-brand { color: var(--primary-blue) !important; font-weight: 800; font-size: 1.5rem; }
         .nav-link { color: #555 !important; font-weight: 600; font-size: 1.05rem; }
         .nav-link:hover, .nav-link.active { color: var(--secondary-blue) !important; }
         .section-title { color: var(--primary-blue); font-weight: 700; border-left: 5px solid var(--secondary-blue); padding-left: 15px; margin-bottom: 40px; }
-        .speaker-card { background: #ffffff; border: 1px solid #e0e0e0; border-radius: 8px; transition: 0.3s; height: 100%; box-shadow: 0 2px 10px rgba(0,0,0,0.05); }
-        .speaker-card:hover { border-color: var(--primary-blue); transform: translateY(-5px); box-shadow: 0 10px 20px rgba(13,71,161,0.1); }
-        .speaker-name { color: var(--primary-blue); font-weight: bold; font-size: 1.3rem; }
-        .speaker-title { color: #555; font-size: 0.95rem; font-weight: 600; border-bottom: 1px solid #eee; padding-bottom: 15px; }
-        .speaker-bio { color: #444; font-size: 0.9rem; line-height: 1.6; }
-        .flag-icon { font-size: 2rem; }
-        .btn-register { background-color: var(--accent-green); color: #fff; padding: 12px 30px; font-weight: bold; border-radius: 5px; text-decoration: none; }
+        .speaker-card { background: #ffffff; border: 1px solid #e0e0e0; border-radius: 8px; height: 100%; box-shadow: 0 2px 10px rgba(0,0,0,0.05); }
     </style>
 </head>
 <body>
-
     <nav class="navbar navbar-expand-lg navbar-light sticky-top shadow-sm">
         <div class="container">
             <a class="navbar-brand" href="index.html">PERIC 2026</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-                <span class="navbar-toggler-icon"></span>
-            </button>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"><span class="navbar-toggler-icon"></span></button>
             <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav ms-auto">
+                <ul class="navbar-nav ms-auto align-items-center">
                     <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
                     <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
                     <li class="nav-item"><a class="nav-link active" href="speakers.html">Speakers</a></li>
                     <li class="nav-item"><a class="nav-link" href="program.html">Program</a></li>
                     <li class="nav-item"><a class="nav-link" href="archive.html">Archive</a></li>
-                    <li class="nav-item ms-lg-3"><a class="btn btn-register btn-sm mt-1" href="program.html#registration">Register Now</a></li>
+                    <li class="nav-item dropdown ms-lg-3 border-start ps-lg-3">
+                        <a class="nav-link dropdown-toggle fw-bold text-primary" href="#" data-bs-toggle="dropdown">🌐 English</a>
+                        <ul class="dropdown-menu dropdown-menu-end shadow-sm">
+                            <li><a class="dropdown-item fw-bold" href="speakers.html">English</a></li>
+                            <li><a class="dropdown-item" href="speakers-zh.html">繁體中文</a></li>
+                        </ul>
+                    </li>
                 </ul>
             </div>
         </div>
     </nav>
-
     <div class="container py-5">
         <h2 class="section-title">International Speakers</h2>
-        <p class="text-muted fs-5 mb-5">Bringing together global EMS leaders to share frontline clinical, academic, and technological insights.</p>
-        
         <div class="row g-4">
-            <div class="col-md-6 col-lg-3">
-                <div class="speaker-card p-4 text-center">
-                    <div class="mb-2"><span class="flag-icon">🇦🇺</span></div>
-                    <h3 class="speaker-name mt-3">Dr. David Anderson</h3>
-                    <p class="speaker-title mb-3">Executive Medical Director<br>Ambulance Victoria, Australia</p>
-                    <p class="speaker-bio text-start mb-0">A highly regarded leader and communicator, serving as a senior executive leader at one of the world's largest and busiest ambulance services. He oversees the clinical governance and clinical leadership of the entire organization.</p>
-                </div>
-            </div>
-            <div class="col-md-6 col-lg-3">
-                <div class="speaker-card p-4 text-center">
-                    <div class="mb-2"><span class="flag-icon">🇸🇦</span></div>
-                    <h3 class="speaker-name mt-3">Prof. Brett Williams</h3>
-                    <p class="speaker-title mb-3">Professor of Paramedicine<br>Imam Abdulrahman Bin Faisal University</p>
-                    <p class="speaker-bio text-start mb-0">An active leader in paramedicine research, scholarship, and mentorship for over 25 years. He has taught paramedicine curricula in 12 countries around the world and is passionate about building international capacity for paramedics.</p>
-                </div>
-            </div>
-            <div class="col-md-6 col-lg-3">
-                <div class="speaker-card p-4 text-center">
-                    <div class="mb-2"><span class="flag-icon">🇺🇸</span></div>
-                    <h3 class="speaker-name mt-3">Assoc. Prof. Justin Hunter</h3>
-                    <p class="speaker-title mb-3">Oklahoma State University OKC<br>USA</p>
-                    <p class="speaker-bio text-start mb-0">A nationally certified paramedic and flight paramedic. His focus is on moving the global paramedicine agenda forward through empirical studies, clinical practice, and human factor research projects.</p>
-                </div>
-            </div>
-            <div class="col-md-6 col-lg-3">
-                <div class="speaker-card p-4 text-center">
-                    <div class="mb-2"><span class="flag-icon">🇸🇬</span></div>
-                    <h3 class="speaker-name mt-3">Mr. Kenneth Foong</h3>
-                    <p class="speaker-title mb-3">Advanced Paramedic<br>Singapore Civil Defence Force</p>
-                    <p class="speaker-bio text-start mb-0">An experienced paramedic who plays a vital role in shaping clinical practice. He is an active NAEMT instructor, sharing his expertise in PHTLS and AMLS with paramedics across Asia.</p>
-                </div>
-            </div>
+            <div class="col-md-6 col-lg-3"><div class="speaker-card p-4 text-center"><div class="mb-2 fs-1">🇦🇺</div><h3 class="fw-bold" style="color: var(--primary-blue);">Dr. David Anderson</h3><p class="text-muted border-bottom pb-3">Executive Medical Director<br>Ambulance Victoria, Australia</p><p class="text-start small">Senior executive leader at one of the world's largest ambulance services, overseeing clinical governance.</p></div></div>
+            <div class="col-md-6 col-lg-3"><div class="speaker-card p-4 text-center"><div class="mb-2 fs-1">🇸🇦</div><h3 class="fw-bold" style="color: var(--primary-blue);">Prof. Brett Williams</h3><p class="text-muted border-bottom pb-3">Professor of Paramedicine<br>Imam Abdulrahman Bin Faisal University, Saudi Arabia</p><p class="text-start small">Active leader in paramedicine research for over 25 years, passionate about building international capacity.</p></div></div>
+            <div class="col-md-6 col-lg-3"><div class="speaker-card p-4 text-center"><div class="mb-2 fs-1">🇺🇸</div><h3 class="fw-bold" style="color: var(--primary-blue);">Assoc. Prof. Justin Hunter</h3><p class="text-muted border-bottom pb-3">Oklahoma State University OKC<br>USA</p><p class="text-start small">Nationally certified paramedic focusing on moving the global paramedicine agenda forward.</p></div></div>
+            <div class="col-md-6 col-lg-3"><div class="speaker-card p-4 text-center"><div class="mb-2 fs-1">🇸🇬</div><h3 class="fw-bold" style="color: var(--primary-blue);">Mr. Kenneth Foong</h3><p class="text-muted border-bottom pb-3">Advanced Paramedic<br>Singapore Civil Defence Force, Singapore</p><p class="text-start small">Active NAEMT instructor, sharing expertise in PHTLS and AMLS across Asia.</p></div></div>
         </div>
     </div>
-    
-    <footer class="bg-dark text-white py-4 text-center mt-5">
-        <div class="container"><p class="small text-secondary mb-0">© 2026 PERIC. All Rights Reserved.</p></div>
-    </footer>
+    <footer class="bg-dark text-white py-4 text-center mt-5"><div class="container"><p class="small text-secondary mb-0">© 2026 PERIC. All Rights Reserved.</p></div></footer>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>

@@ -1,71 +1,60 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>About | PERIC 2026</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <style>
-        :root { --primary-blue: #0d47a1; --secondary-blue: #1976d2; --accent-green: #2e7d32; --text-dark: #333333; --bg-light: #f8f9fa; }
-        body { font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; background-color: #ffffff; color: var(--text-dark); }
+        :root { --primary-blue: #0d47a1; --secondary-blue: #1976d2; --accent-green: #2e7d32; }
+        body { font-family: 'Segoe UI', sans-serif; background-color: #ffffff; color: #333; }
         .navbar { border-bottom: 1px solid #e0e0e0; background-color: #ffffff !important; padding: 15px 0; }
         .navbar-brand { color: var(--primary-blue) !important; font-weight: 800; font-size: 1.5rem; }
         .nav-link { color: #555 !important; font-weight: 600; font-size: 1.05rem; }
         .nav-link:hover, .nav-link.active { color: var(--secondary-blue) !important; }
         .section-title { color: var(--primary-blue); font-weight: 700; border-left: 5px solid var(--secondary-blue); padding-left: 15px; margin-bottom: 40px; }
-        .content-text { font-size: 1.1rem; line-height: 1.8; color: #444; }
-        .objective-box { background-color: var(--bg-light); border-left: 4px solid var(--accent-green); padding: 20px; border-radius: 4px; height: 100%; }
-        .btn-register { background-color: var(--accent-green); color: #fff; padding: 12px 30px; font-weight: bold; border-radius: 5px; text-decoration: none; }
+        .objective-box { background-color: #f8f9fa; border-left: 4px solid var(--accent-green); padding: 20px; border-radius: 4px; height: 100%; }
     </style>
 </head>
 <body>
-
     <nav class="navbar navbar-expand-lg navbar-light sticky-top shadow-sm">
         <div class="container">
             <a class="navbar-brand" href="index.html">PERIC 2026</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-                <span class="navbar-toggler-icon"></span>
-            </button>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"><span class="navbar-toggler-icon"></span></button>
             <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav ms-auto">
+                <ul class="navbar-nav ms-auto align-items-center">
                     <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
                     <li class="nav-item"><a class="nav-link active" href="about.html">About</a></li>
                     <li class="nav-item"><a class="nav-link" href="speakers.html">Speakers</a></li>
                     <li class="nav-item"><a class="nav-link" href="program.html">Program</a></li>
                     <li class="nav-item"><a class="nav-link" href="archive.html">Archive</a></li>
-                    <li class="nav-item ms-lg-3"><a class="btn btn-register btn-sm mt-1" href="program.html#registration">Register Now</a></li>
+                    <li class="nav-item dropdown ms-lg-3 border-start ps-lg-3">
+                        <a class="nav-link dropdown-toggle fw-bold text-primary" href="#" data-bs-toggle="dropdown">🌐 English</a>
+                        <ul class="dropdown-menu dropdown-menu-end shadow-sm">
+                            <li><a class="dropdown-item fw-bold" href="about.html">English</a></li>
+                            <li><a class="dropdown-item" href="about-zh.html">繁體中文</a></li>
+                        </ul>
+                    </li>
                 </ul>
             </div>
         </div>
     </nav>
-
     <div class="container py-5">
         <h2 class="section-title">About PERIC 2026</h2>
         <div class="row justify-content-center mt-5">
-            <div class="col-lg-10 content-text">
+            <div class="col-lg-10" style="font-size: 1.1rem; line-height: 1.8; color: #444;">
                 <h4 class="fw-bold mb-3" style="color: var(--primary-blue);">Background & Vision</h4>
-                <p>In the face of global challenges such as extreme weather, emerging infectious diseases, and geopolitical shifts, building "Whole-of-Society Resilience" and integrating "Smart Healthcare Technology" have become critical priorities for national security and public health.</p>
-                <p>As the frontline of the healthcare system and disaster response, Emergency Medical Services (EMS) rely heavily on systemic resilience and digital integration. PERIC 2026 focuses on the theme <strong>"Resilience and Technology in EMS"</strong> to address these pressing needs.</p>
-                
+                <p>Emergency Medical Services (EMS) rely heavily on systemic resilience and digital integration. PERIC 2026 focuses on the theme <strong>"Resilience and Technology in EMS"</strong> to address these pressing needs.</p>
                 <h4 class="fw-bold mt-5 mb-4" style="color: var(--primary-blue);">Conference Objectives</h4>
                 <div class="row g-4">
-                    <div class="col-md-6"><div class="objective-box fw-bold text-dark">Promote deep exchange among international EMS systems and forge strategic global alliances.</div></div>
-                    <div class="col-md-6"><div class="objective-box fw-bold text-dark">Explore the application of AI and smart technologies in clinical care, dispatch, and risk management.</div></div>
-                    <div class="col-md-6"><div class="objective-box fw-bold text-dark">Enhance the international perspective and professional competencies of frontline paramedics, physicians, and researchers.</div></div>
-                    <div class="col-md-6"><div class="objective-box fw-bold text-dark">Accelerate the practical implementation of smart EMS research to strengthen national disaster resilience.</div></div>
+                    <div class="col-md-6"><div class="objective-box fw-bold text-dark">Forge strategic global alliances among USA 🇺🇸, Australia 🇦🇺, Saudi Arabia 🇸🇦, Singapore 🇸🇬, and Taiwan 🇹🇼.</div></div>
+                    <div class="col-md-6"><div class="objective-box fw-bold text-dark">Explore the application of AI and smart technologies in clinical care and dispatch.</div></div>
+                    <div class="col-md-6"><div class="objective-box fw-bold text-dark">Enhance international perspectives for frontline paramedics and researchers.</div></div>
+                    <div class="col-md-6"><div class="objective-box fw-bold text-dark">Accelerate the practical implementation of smart EMS research.</div></div>
                 </div>
-
-                <h4 class="fw-bold mt-5 mb-3" style="color: var(--primary-blue);">Organizers</h4>
-                <p>Co-hosted by the <strong>Taiwan Society of Paramedicine (TSP)</strong> and the <strong>College of Health Technology, National Taipei University of Nursing and Health Sciences (NTUNHS)</strong>, ensuring the highest standards of academic excellence and practical value.</p>
             </div>
         </div>
     </div>
-
-    <footer class="bg-dark text-white py-4 text-center mt-5">
-        <div class="container">
-            <p class="fw-bold mb-2">Organizers: Taiwan Society of Paramedicine (TSP) | NTUNHS</p>
-        </div>
-    </footer>
+    <footer class="bg-dark text-white py-4 text-center mt-5"><div class="container"><p class="small text-secondary mb-0">© 2026 PERIC. All Rights Reserved.</p></div></footer>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
