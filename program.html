@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <title>議程資訊 | PERIC 2026</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        :root { --dark-bg: #0a0e17; --card-bg: #161c2d; --primary-tech: #00bcd4; --accent-gold: #ffc107; --text-light: #eceff1; }
+        body { font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; background-color: var(--dark-bg); color: var(--text-light); }
+        .section-title { color: #fff; font-weight: 700; border-left: 5px solid var(--primary-tech); padding-left: 15px; margin-bottom: 50px; }
+        .agenda-table th { background-color: #1a237e; color: #fff; text-align: center; border-color: #2a3b55; }
+        .agenda-table td { background-color: var(--card-bg); color: #b0bec5; border-color: #2a3b55; }
+        .agenda-table tr:hover td { background-color: #1a202e; color: #fff; }
+        .agenda-time { color: var(--primary-tech); font-weight: bold; width: 15%; }
+        .agenda-topic { width: 60%; }
+        .agenda-speaker { width: 25%; font-weight: 500; color: #eceff1; }
+        .btn-prem { background: linear-gradient(45deg, var(--primary-tech), #00acc1); color: #fff; border: none; padding: 12px 30px; font-weight: bold; border-radius: 5px; text-decoration: none; display: inline-block; transition: 0.3s; }
+        .btn-prem:hover { opacity: 0.9; color: #fff; transform: scale(1.02); }
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top" style="border-bottom: 1px solid #2a3b55;">
+        <div class="container">
+            <a class="navbar-brand fw-bold fs-4" href="index.html">PERIC <span style="color:var(--primary-tech)">2026</span></a>
+            <div class="collapse navbar-collapse">
+                <ul class="navbar-nav ms-auto fs-6">
+                    <li class="nav-item"><a class="nav-link" href="index.html">首頁</a></li>
+                    <li class="nav-item"><a class="nav-link" href="about.html">關於大會</a></li>
+                    <li class="nav-item"><a class="nav-link" href="speakers.html">專家講者</a></li>
+                    <li class="nav-item"><a class="nav-link active" href="program.html">議程資訊</a></li>
+                    <li class="nav-item"><a class="nav-link" href="archive.html">歷屆成果</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container py-5">
+        <h2 class="section-title">核心議程 (Program)</h2>
+        <p class="text-muted fs-5 mb-5">三天高規格學術盛宴，涵蓋智慧科技、臨床治理與國際論壇。</p>
+        
+        <h3 class="text-white mb-3 fw-bold">Day 1：2026年10月02日 (星期五)</h3>
+        <table class="table table-bordered table-hover agenda-table align-middle shadow-sm mb-5">
+            <thead>
+                <tr><th>時間</th><th>主題</th><th>講者</th></tr>
+            </thead>
+            <tbody>
+                <tr><td class="agenda-time">09:00 - 09:30</td><td class="agenda-topic">Opening Ceremony 大會開幕</td><td class="agenda-speaker">大會共同主席</td></tr>
+                <tr><td class="agenda-time">09:30 - 10:30</td><td class="agenda-topic">Keynote I | Rise of the Machines: Technological advances in cardiac care in 2026</td><td class="agenda-speaker">Dr. David Anderson (澳洲)</td></tr>
+                <tr><td class="agenda-time">10:30 - 11:00</td><td class="agenda-topic text-center text-secondary">Break</td><td>-</td></tr>
+                <tr><td class="agenda-time">11:00 - 12:00</td><td class="agenda-topic">Keynote II | Building a Resilient EMS System: Current Preparedness and Future Strategies</td><td class="agenda-speaker">Prof. Brett Williams (沙烏地阿拉伯)</td></tr>
+                <tr><td class="agenda-time">12:00 - 13:30</td><td class="agenda-topic text-center text-secondary">Lunch</td><td>-</td></tr>
+                <tr><td class="agenda-time">13:30 - 15:00</td><td class="agenda-topic">Masterclass | EMS Crew Resource Management (CRM): Human Factors in Prehospital Care</td><td class="agenda-speaker">Assoc. Prof. Justin Hunter (美國)</td></tr>
+                <tr><td class="agenda-time">15:00 - 15:30</td><td class="agenda-topic text-center text-secondary">Break</td><td>-</td></tr>
+                <tr><td class="agenda-time">15:30 - 17:00</td><td class="agenda-topic">Session | From daily practice to research topics: Paramedic Education and Professional Development</td><td class="agenda-speaker">Panel Members</td></tr>
+                <tr><td class="agenda-time">18:30 - 20:30</td><td class="agenda-topic text-center fw-bold">Grand Banquet 大會晚宴 (限受邀者)</td><td>-</td></tr>
+            </tbody>
+        </table>
+
+        <h3 class="text-white mt-5 mb-3 fw-bold">Day 2：2026年10月03日 (星期六)</h3>
+        <table class="table table-bordered table-hover agenda-table align-middle shadow-sm">
+            <thead>
+                <tr><th>時間</th><th>主題</th><th>講者</th></tr>
+            </thead>
+            <tbody>
+                <tr><td class="agenda-time">09:00 - 09:30</td><td class="agenda-topic">Day 2 Welcome 開場</td><td>-</td></tr>
+                <tr><td class="agenda-time">09:30 - 11:00</td><td class="agenda-topic">Global EMS Panel Discussion | Leading the Paramedicine Agenda (澳洲、美國、沙烏地阿拉伯、新加坡、台灣)</td><td class="agenda-speaker">Dr. Anderson, Prof. Williams, Mr. Foong 等</td></tr>
+                <tr><td class="agenda-time">11:00 - 11:30</td><td class="agenda-topic text-center text-secondary">Break</td><td>-</td></tr>
+                <tr><td class="agenda-time">11:30 - 12:30</td><td class="agenda-topic">Taiwan EMS Special | Protecting the Protectors: EMS Occupational Health and Resilience</td><td class="agenda-speaker">TSP 代表</td></tr>
+                <tr><td class="agenda-time">12:30 - 14:00</td><td class="agenda-topic text-center text-secondary">Lunch</td><td>-</td></tr>
+                <tr><td class="agenda-time">14:00 - 16:30</td><td class="agenda-topic text-start"><strong>平行論壇 (Parallel Sessions)</strong><br><ul class="small mb-0"><li>Session A: Technology, Quality, and AI in EMS</li><li>Session B: Free Paper, Poster Lightening, Oral Presentation 學術投稿發表</li></ul></td><td class="agenda-speaker fw-bold text-center">🏆 學術競賽</td></tr>
+                <tr><td class="agenda-time">16:30 - 17:00</td><td class="agenda-topic text-start fw-bold">Award and Closing Ceremony 頒獎與閉幕</td><td class="agenda-speaker">大會主席</td></tr>
+            </tbody>
+        </table>
+
+        <div id="registration" class="py-5 bg-dark mt-5 text-center" style="border-radius: 12px; border: 1px solid #2a3b55;">
+            <div class="container">
+                <h2 class="section-title text-white">線上報名中心</h2>
+                <p class="mb-4 text-muted">早鳥優惠實施中，請填寫下方表單完成報名與信用卡繳費。</p>
+                <div class="row justify-content-center">
+                    <div class="col-lg-10 bg-white p-0 overflow-hidden shadow" style="border-radius: 8px;">
+                        <iframe src="https://script.google.com/macros/s/你的GAS部署ID/exec" width="100%" height="700px" frameborder="0"></iframe>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</body>
+</html>
