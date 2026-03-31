@@ -1,89 +1,112 @@
 <!DOCTYPE html>
-<html lang="zh-TW">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>議程資訊 | PERIC 2026</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Program | PERIC 2026</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <style>
-        :root { --dark-bg: #0a0e17; --card-bg: #161c2d; --primary-tech: #00bcd4; --accent-gold: #ffc107; --text-light: #eceff1; }
-        body { font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; background-color: var(--dark-bg); color: var(--text-light); }
-        .section-title { color: #fff; font-weight: 700; border-left: 5px solid var(--primary-tech); padding-left: 15px; margin-bottom: 50px; }
-        .agenda-table th { background-color: #1a237e; color: #fff; text-align: center; border-color: #2a3b55; }
-        .agenda-table td { background-color: var(--card-bg); color: #b0bec5; border-color: #2a3b55; }
-        .agenda-table tr:hover td { background-color: #1a202e; color: #fff; }
-        .agenda-time { color: var(--primary-tech); font-weight: bold; width: 15%; }
-        .agenda-topic { width: 60%; }
-        .agenda-speaker { width: 25%; font-weight: 500; color: #eceff1; }
-        .btn-prem { background: linear-gradient(45deg, var(--primary-tech), #00acc1); color: #fff; border: none; padding: 12px 30px; font-weight: bold; border-radius: 5px; text-decoration: none; display: inline-block; transition: 0.3s; }
-        .btn-prem:hover { opacity: 0.9; color: #fff; transform: scale(1.02); }
+        :root { --primary-blue: #0d47a1; --secondary-blue: #1976d2; --accent-green: #2e7d32; --text-dark: #333333; --bg-light: #f8f9fa; }
+        body { font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; background-color: #ffffff; color: var(--text-dark); }
+        .navbar { border-bottom: 1px solid #e0e0e0; background-color: #ffffff !important; padding: 15px 0; }
+        .navbar-brand { color: var(--primary-blue) !important; font-weight: 800; font-size: 1.5rem; }
+        .nav-link { color: #555 !important; font-weight: 600; font-size: 1.05rem; }
+        .nav-link:hover, .nav-link.active { color: var(--secondary-blue) !important; }
+        .section-title { color: var(--primary-blue); font-weight: 700; border-left: 5px solid var(--secondary-blue); padding-left: 15px; margin-bottom: 40px; }
+        .agenda-table { background-color: #ffffff; box-shadow: 0 2px 8px rgba(0,0,0,0.05); }
+        .agenda-table th { background-color: var(--primary-blue); color: #fff; text-align: center; border-color: #dee2e6; }
+        .agenda-table td { color: #333; border-color: #dee2e6; vertical-align: middle; }
+        .agenda-time { color: var(--primary-blue); font-weight: bold; width: 15%; text-align: center; }
+        .agenda-topic { width: 60%; font-weight: 500; }
+        .agenda-speaker { width: 25%; font-weight: 600; color: #555; }
+        .break-row td { background-color: #f1f3f5 !important; color: #6c757d; font-style: italic; text-align: center; }
+        .btn-register { background-color: var(--accent-green); color: #fff; padding: 12px 30px; font-weight: bold; border-radius: 5px; text-decoration: none; transition: 0.3s; }
+        .btn-register:hover { background-color: #1b5e20; color: #fff; }
     </style>
 </head>
 <body>
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top" style="border-bottom: 1px solid #2a3b55;">
+
+    <nav class="navbar navbar-expand-lg navbar-light sticky-top shadow-sm">
         <div class="container">
-            <a class="navbar-brand fw-bold fs-4" href="index.html">PERIC <span style="color:var(--primary-tech)">2026</span></a>
-            <div class="collapse navbar-collapse">
-                <ul class="navbar-nav ms-auto fs-6">
-                    <li class="nav-item"><a class="nav-link" href="index.html">首頁</a></li>
-                    <li class="nav-item"><a class="nav-link" href="about.html">關於大會</a></li>
-                    <li class="nav-item"><a class="nav-link" href="speakers.html">專家講者</a></li>
-                    <li class="nav-item"><a class="nav-link active" href="program.html">議程資訊</a></li>
-                    <li class="nav-item"><a class="nav-link" href="archive.html">歷屆成果</a></li>
+            <a class="navbar-brand" href="index.html">PERIC 2026</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
+                    <li class="nav-item"><a class="nav-link" href="speakers.html">Speakers</a></li>
+                    <li class="nav-item"><a class="nav-link active" href="program.html">Program</a></li>
+                    <li class="nav-item"><a class="nav-link" href="archive.html">Archive</a></li>
+                    <li class="nav-item ms-lg-3"><a class="btn btn-register btn-sm mt-1" href="program.html#registration">Register Now</a></li>
                 </ul>
             </div>
         </div>
     </nav>
 
     <div class="container py-5">
-        <h2 class="section-title">核心議程 (Program)</h2>
-        <p class="text-muted fs-5 mb-5">三天高規格學術盛宴，涵蓋智慧科技、臨床治理與國際論壇。</p>
+        <h2 class="section-title">Conference Program</h2>
         
-        <h3 class="text-white mb-3 fw-bold">Day 1：2026年10月02日 (星期五)</h3>
-        <table class="table table-bordered table-hover agenda-table align-middle shadow-sm mb-5">
-            <thead>
-                <tr><th>時間</th><th>主題</th><th>講者</th></tr>
-            </thead>
-            <tbody>
-                <tr><td class="agenda-time">09:00 - 09:30</td><td class="agenda-topic">Opening Ceremony 大會開幕</td><td class="agenda-speaker">大會共同主席</td></tr>
-                <tr><td class="agenda-time">09:30 - 10:30</td><td class="agenda-topic">Keynote I | Rise of the Machines: Technological advances in cardiac care in 2026</td><td class="agenda-speaker">Dr. David Anderson (澳洲)</td></tr>
-                <tr><td class="agenda-time">10:30 - 11:00</td><td class="agenda-topic text-center text-secondary">Break</td><td>-</td></tr>
-                <tr><td class="agenda-time">11:00 - 12:00</td><td class="agenda-topic">Keynote II | Building a Resilient EMS System: Current Preparedness and Future Strategies</td><td class="agenda-speaker">Prof. Brett Williams (沙烏地阿拉伯)</td></tr>
-                <tr><td class="agenda-time">12:00 - 13:30</td><td class="agenda-topic text-center text-secondary">Lunch</td><td>-</td></tr>
-                <tr><td class="agenda-time">13:30 - 15:00</td><td class="agenda-topic">Masterclass | EMS Crew Resource Management (CRM): Human Factors in Prehospital Care</td><td class="agenda-speaker">Assoc. Prof. Justin Hunter (美國)</td></tr>
-                <tr><td class="agenda-time">15:00 - 15:30</td><td class="agenda-topic text-center text-secondary">Break</td><td>-</td></tr>
-                <tr><td class="agenda-time">15:30 - 17:00</td><td class="agenda-topic">Session | From daily practice to research topics: Paramedic Education and Professional Development</td><td class="agenda-speaker">Panel Members</td></tr>
-                <tr><td class="agenda-time">18:30 - 20:30</td><td class="agenda-topic text-center fw-bold">Grand Banquet 大會晚宴 (限受邀者)</td><td>-</td></tr>
-            </tbody>
-        </table>
+        <h4 class="fw-bold mb-3 mt-4" style="color: var(--primary-blue);">Day 1: October 02, 2026</h4>
+        <div class="table-responsive mb-5">
+            <table class="table table-bordered table-hover agenda-table">
+                <thead><tr><th>Time</th><th>Session</th><th>Speaker</th></tr></thead>
+                <tbody>
+                    <tr><td class="agenda-time">08:30 - 09:30</td><td class="agenda-topic">Registration</td><td class="agenda-speaker"></td></tr>
+                    <tr><td class="agenda-time">09:30 - 10:00</td><td class="agenda-topic">Opening Remarks</td><td class="agenda-speaker">Dr Chieh-Ming Fan (Chairman)</td></tr>
+                    <tr><td class="agenda-time">10:00 - 10:50</td><td class="agenda-topic">Keynote: Rise of the Machines: Technological advances in cardiac care in 2026</td><td class="agenda-speaker">Dr David Anderson</td></tr>
+                    <tr class="break-row"><td class="agenda-time">10:50 - 11:10</td><td colspan="2">Networking Break</td></tr>
+                    <tr><td class="agenda-time">11:10 - 12:00</td><td class="agenda-topic">Keynote: Building a Resilient EMS System: Current Preparedness and Future Strategies</td><td class="agenda-speaker">National Fire Agency</td></tr>
+                    <tr class="break-row"><td class="agenda-time">12:00 - 14:00</td><td colspan="2">Lunch / Platinum Sponsor Session</td></tr>
+                    <tr><td class="agenda-time">14:00 - 15:20</td><td class="agenda-topic">Masterclass: From EMS daily practice to research topics</td><td class="agenda-speaker">Assoc Prof Gary Hsiao / Prof Brett Williams</td></tr>
+                    <tr class="break-row"><td class="agenda-time">15:20 - 15:40</td><td colspan="2">Networking Break</td></tr>
+                    <tr><td class="agenda-time">15:40 - 17:00</td><td class="agenda-topic">Masterclass: EMS Crew Resource Management</td><td class="agenda-speaker">Assoc Prof Justin Hunter</td></tr>
+                    <tr><td class="agenda-time">17:00</td><td class="agenda-topic">Closing for Day 1</td><td class="agenda-speaker">Dr Chieh-Ming Fan (Chairman)</td></tr>
+                    <tr class="table-secondary"><td class="agenda-time">18:00 - 20:00</td><td class="agenda-topic fw-bold">Gala Dinner</td><td class="agenda-speaker">Organizing Committee</td></tr>
+                </tbody>
+            </table>
+        </div>
 
-        <h3 class="text-white mt-5 mb-3 fw-bold">Day 2：2026年10月03日 (星期六)</h3>
-        <table class="table table-bordered table-hover agenda-table align-middle shadow-sm">
-            <thead>
-                <tr><th>時間</th><th>主題</th><th>講者</th></tr>
-            </thead>
-            <tbody>
-                <tr><td class="agenda-time">09:00 - 09:30</td><td class="agenda-topic">Day 2 Welcome 開場</td><td>-</td></tr>
-                <tr><td class="agenda-time">09:30 - 11:00</td><td class="agenda-topic">Global EMS Panel Discussion | Leading the Paramedicine Agenda (澳洲、美國、沙烏地阿拉伯、新加坡、台灣)</td><td class="agenda-speaker">Dr. Anderson, Prof. Williams, Mr. Foong 等</td></tr>
-                <tr><td class="agenda-time">11:00 - 11:30</td><td class="agenda-topic text-center text-secondary">Break</td><td>-</td></tr>
-                <tr><td class="agenda-time">11:30 - 12:30</td><td class="agenda-topic">Taiwan EMS Special | Protecting the Protectors: EMS Occupational Health and Resilience</td><td class="agenda-speaker">TSP 代表</td></tr>
-                <tr><td class="agenda-time">12:30 - 14:00</td><td class="agenda-topic text-center text-secondary">Lunch</td><td>-</td></tr>
-                <tr><td class="agenda-time">14:00 - 16:30</td><td class="agenda-topic text-start"><strong>平行論壇 (Parallel Sessions)</strong><br><ul class="small mb-0"><li>Session A: Technology, Quality, and AI in EMS</li><li>Session B: Free Paper, Poster Lightening, Oral Presentation 學術投稿發表</li></ul></td><td class="agenda-speaker fw-bold text-center">🏆 學術競賽</td></tr>
-                <tr><td class="agenda-time">16:30 - 17:00</td><td class="agenda-topic text-start fw-bold">Award and Closing Ceremony 頒獎與閉幕</td><td class="agenda-speaker">大會主席</td></tr>
-            </tbody>
-        </table>
+        <h4 class="fw-bold mb-3 mt-5" style="color: var(--primary-blue);">Day 2: October 03, 2026</h4>
+        <div class="table-responsive">
+            <table class="table table-bordered table-hover agenda-table">
+                <thead><tr><th>Time</th><th>Session</th><th>Speaker</th></tr></thead>
+                <tbody>
+                    <tr><td class="agenda-time">08:30 - 09:30</td><td class="agenda-topic">Registration</td><td class="agenda-speaker"></td></tr>
+                    <tr><td class="agenda-time">09:30 - 09:40</td><td class="agenda-topic">Opening Remark for the International Paramedicine Forum</td><td class="agenda-speaker"></td></tr>
+                    <tr><td class="agenda-time">09:40 - 10:00</td><td class="agenda-topic">Australia: The roles and competencies of EMS Medical Directors and Clinical Instructors</td><td class="agenda-speaker">Prof Brett Williams</td></tr>
+                    <tr><td class="agenda-time">10:00 - 10:20</td><td class="agenda-topic">USA: US HEMS and prehospital blood transfusion practice</td><td class="agenda-speaker">Dr David Anderson</td></tr>
+                    <tr class="break-row"><td class="agenda-time">10:20 - 10:40</td><td colspan="2">Break</td></tr>
+                    <tr><td class="agenda-time">10:40 - 11:00</td><td class="agenda-topic">Saudi Arabia: From Consensus to Curriculum: Advancing Non-Technical Skills in EMS Across Asian Systems</td><td class="agenda-speaker">Assoc Prof Justin Hunter</td></tr>
+                    <tr><td class="agenda-time">11:00 - 11:20</td><td class="agenda-topic">Singapore: Smart EMS Technologies and the Road to EMS ASIA 2026</td><td class="agenda-speaker">Mr Kenneth Foong</td></tr>
+                    <tr><td class="agenda-time">11:20 - 11:40</td><td class="agenda-topic">Taiwan: Protecting the Protectors: EMS Occupational Health and Resilience</td><td class="agenda-speaker">Assist Prof Jack Chang</td></tr>
+                    <tr><td class="agenda-time">11:40 - 12:00</td><td class="agenda-topic">Global EMS Panel Discussion</td><td class="agenda-speaker">All speakers</td></tr>
+                    <tr class="break-row"><td class="agenda-time">12:00 - 14:00</td><td colspan="2">Lunch / World EMS Café (Platinum Exclusive) / Platinum Sponsor Session</td><td class="agenda-speaker" style="display:none;">Mr Kenneth Foong</td></tr>
+                    <tr><td class="agenda-time">14:00 - 14:30</td><td class="agenda-topic">Academic Presentation Session Opening Address: Why is Research Important in Paramedicine?</td><td class="agenda-speaker">Assoc Prof Gary Hsiao / Assist Prof Jack Chang</td></tr>
+                    <tr><td class="agenda-time">14:30 - 16:00</td><td class="agenda-topic">Poster Lightening Presentation / Oral Presentation</td><td class="agenda-speaker"></td></tr>
+                    <tr><td class="agenda-time">16:00 - 16:30</td><td class="agenda-topic">Closing Ceremony & Award Presentation</td><td class="agenda-speaker">Dr Chieh-Ming Fan (Chairman)</td></tr>
+                </tbody>
+            </table>
+        </div>
 
-        <div id="registration" class="py-5 bg-dark mt-5 text-center" style="border-radius: 12px; border: 1px solid #2a3b55;">
+        <div id="registration" class="py-5 bg-light mt-5 text-center" style="border-radius: 8px; border: 1px solid #e0e0e0;">
             <div class="container">
-                <h2 class="section-title text-white">線上報名中心</h2>
-                <p class="mb-4 text-muted">早鳥優惠實施中，請填寫下方表單完成報名與信用卡繳費。</p>
+                <h3 class="fw-bold mb-3" style="color: var(--primary-blue);">Online Registration</h3>
+                <p class="mb-4 text-muted">Early bird rates apply. Please fill out the form below to register and proceed to payment.</p>
                 <div class="row justify-content-center">
-                    <div class="col-lg-10 bg-white p-0 overflow-hidden shadow" style="border-radius: 8px;">
-                        <iframe src="https://script.google.com/macros/s/你的GAS部署ID/exec" width="100%" height="700px" frameborder="0"></iframe>
+                    <div class="col-lg-10 bg-white p-0 shadow-sm border" style="border-radius: 8px; overflow: hidden;">
+                        <iframe src="https://script.google.com/macros/s/你的GAS部署ID/exec" width="100%" height="750px" frameborder="0"></iframe>
                     </div>
                 </div>
             </div>
         </div>
 
     </div>
+    
+    <footer class="bg-dark text-white py-4 text-center mt-5">
+        <div class="container"><p class="small text-secondary mb-0">© 2026 PERIC. All Rights Reserved.</p></div>
+    </footer>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
