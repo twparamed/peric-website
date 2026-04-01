@@ -11,37 +11,14 @@
     <div class="container py-5">
         <h2 class="section-title">國際專家講者陣容</h2>
         <div class="row g-4">
-            <div class="col-md-6 col-lg-3"><div class="speaker-card p-4 text-center"><div class="mb-3"><img src="https://flagcdn.com/h40/au.png" class="flag-img" alt="澳洲"></div><h3 class="fw-bold" style="color: var(--primary-blue);">Dr. David Anderson</h3><p class="text-muted border-bottom pb-3">Executive Medical Director<br>Ambulance Victoria, 澳洲</p><p class="text-start small">全球最大救護機構之一的高階主管，負責組織的臨床治理與領導。</p></div></div>
-            <div class="col-md-6 col-lg-3"><div class="speaker-card p-4 text-center"><div class="mb-3"><img src="https://flagcdn.com/h40/sa.png" class="flag-img" alt="沙烏地阿拉伯"></div><h3 class="fw-bold" style="color: var(--primary-blue);">Prof. Brett Williams</h3><p class="text-muted border-bottom pb-3">Professor of Paramedicine<br>Imam Abdulrahman Bin Faisal University, 沙烏地阿拉伯</p><p class="text-start small">在救護研究與學術界擁有超過 25 年的領導經驗，致力於推動全球救護量能。</p></div></div>
+            <div class="col-md-6 col-lg-3"><div class="speaker-card p-4 text-center"><div class="mb-3"><img src="https://flagcdn.com/h40/au.png" class="flag-img" alt="澳洲"></div><h3 class="fw-bold" style="color: var(--primary-blue);">Dr. David Anderson</h3><p class="text-muted border-bottom pb-3">Executive Medical Director<br>Ambulance Victoria, 澳洲</p><p class="text-start small">全球最大救護機構之一的醫療指導醫師，負責組織的臨床治理與領導。</p></div></div>
+            <div class="col-md-6 col-lg-3"><div class="speaker-card p-4 text-center"><div class="mb-3"><img src="https://flagcdn.com/h40/au.png" class="flag-img" alt="澳洲"><img src="https://flagcdn.com/h40/sa.png" class="flag-img" alt="沙烏地阿拉伯"></div><h3 class="fw-bold" style="color: var(--primary-blue);">Prof. Brett Williams</h3><p class="text-muted border-bottom pb-3">Professor of Paramedicine<br>Imam Abdulrahman Bin Faisal University, 沙烏地阿拉伯</p><p class="text-start small">在救護研究與學術界擁有超過 25 年的領導經驗，致力於推動全球救護量能。</p></div></div>
             <div class="col-md-6 col-lg-3"><div class="speaker-card p-4 text-center"><div class="mb-3"><img src="https://flagcdn.com/h40/us.png" class="flag-img" alt="美國"></div><h3 class="fw-bold" style="color: var(--primary-blue);">Assoc. Prof. Justin Hunter</h3><p class="text-muted border-bottom pb-3">Oklahoma State University OKC<br>美國</p><p class="text-start small">國家認證飛行救護員，專注於推動全球救護議程與人為因素研究。</p></div></div>
-            <div class="col-md-6 col-lg-3"><div class="speaker-card p-4 text-center"><div class="mb-3"><img src="https://flagcdn.com/h40/sg.png" class="flag-img" alt="新加坡"></div><h3 class="fw-bold" style="color: var(--primary-blue);">Mr. Kenneth Foong</h3><p class="text-muted border-bottom pb-3">Advanced Paramedic<br>Singapore Civil Defence Force, 新加坡</p><p class="text-start small">活躍的 NAEMT 講師，致力於亞太救護人員的 PHTLS 與 AMLS 臨床教育培訓。</p></div></div>
+            <div class="col-md-6 col-lg-3"><div class="speaker-card p-4 text-center"><div class="mb-3"><img src="https://flagcdn.com/h40/sg.png" class="flag-img" alt="新加坡"></div><h3 class="fw-bold" style="color: var(--primary-blue);">Mr. Kenneth Foong</h3><p class="text-muted border-bottom pb-3">Advanced Paramedic<br> 新加坡</p><p class="text-start small">活躍的 NAEMT 講師，致力於亞太救護人員的 PHTLS 與 AMLS 臨床教育培訓。</p></div></div>
         </div>
     </div>
-   <div id="footer-placeholder"></div>
+  <div id="footer-placeholder"></div>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 <script src="main.js"></script>
-<script>
-    // 1. 自動載入共用 Navbar
-    fetch('navbar-zh.html')
-        .then(response => response.text())
-        .then(data => {
-            document.getElementById('navbar-placeholder').innerHTML = data;
-            
-            // 2. 自動判斷目前網址，將對應的選單加上 active (亮燈)
-            let currentPath = window.location.pathname.split('/').pop();
-            if (currentPath === '') currentPath = 'index-zh.html'; 
-            
-            const navLinks = document.querySelectorAll('.nav-link');
-            navLinks.forEach(link => {
-                if (link.getAttribute('href') === currentPath) {
-                    link.classList.add('active');
-                }
-            });
-
-            // 3. 自動設定「語系切換按鈕」的正確網址 (把 -zh 拿掉就是英文版)
-            let enPath = currentPath.replace('-zh', '');
-            document.getElementById('lang-switch-en').setAttribute('href', enPath);
-        });
-</script>
 </body>
 </html>
