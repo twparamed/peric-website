@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>報名費用 | PERIC 2026</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="style.css" rel="stylesheet">
+</head>
+<body>
+    <div id="navbar-placeholder"></div>
+
+    <div class="container py-5">
+        <div class="text-center mb-5">
+            <h2 class="fw-bold" style="color: var(--primary-blue);">大會報名費用 (Registration Fees)</h2>
+            <p class="text-muted fs-5">早鳥優惠 (Early Bird) 至 <strong class="text-danger">2026年03月24日</strong> 截止，敬請把握機會。</p>
+        </div>
+
+        <div class="row justify-content-center g-4">
+            <div class="col-lg-5">
+                <div class="pricing-card">
+                    <div class="pricing-header">
+                        <h4 class="mb-0 fw-bold">一日參加 (1-Day Pass)</h4>
+                        <p class="mb-0 small text-light">任選 10/02 或 10/03 單日議程</p>
+                    </div>
+                    <div class="p-4">
+                        <div class="mb-4 pb-3 border-bottom">
+                            <span class="badge bg-success mb-2">TSP 學會會員</span>
+                            <div class="d-flex justify-content-between align-items-end">
+                                <div>
+                                    <span class="early-bird-price">早鳥 8 折：NT$ 1,000</span><br>
+                                    <span class="old-price">原價：NT$ 1,250</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="mb-4">
+                            <span class="badge bg-secondary mb-2">非會員 (一般民眾/外賓)</span>
+                            <div class="d-flex justify-content-between align-items-end">
+                                <div>
+                                    <span class="early-bird-price">早鳥 8 折：NT$ 1,400</span><br>
+                                    <span class="old-price">原價：NT$ 1,750</span>
+                                </div>
+                            </div>
+                        </div>
+                        <ul class="list-unstyled text-muted small mb-4">
+                            <li>✔️ 單日論壇入場資格</li>
+                            <li>✔️ 大會精美手冊與紀念品</li>
+                            <li>✔️ 單日午餐與茶點</li>
+                            <li>❌ 不含 10/02 大會晚宴</li>
+                        </ul>
+                        <a href="program-zh.html#registration" class="btn-register">選擇此方案</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-5">
+                <div class="pricing-card" style="transform: scale(1.05); border-color: var(--secondary-blue); z-index: 10;">
+                    <div class="pricing-header highlight">
+                        <h4 class="mb-0 fw-bold">二日基本套票 (2-Day Full Pass)</h4>
+                        <p class="mb-0 small text-dark fw-bold">最推薦！完整參與國際盛會</p>
+                    </div>
+                    <div class="p-4">
+                        <div class="mb-4 pb-3 border-bottom">
+                            <span class="badge bg-success mb-2">TSP 學會會員</span>
+                            <div class="d-flex justify-content-between align-items-end">
+                                <div>
+                                    <span class="early-bird-price">早鳥 8 折：NT$ 2,400</span><br>
+                                    <span class="old-price">原價：NT$ 3,000</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="mb-4">
+                            <span class="badge bg-secondary mb-2">非會員 (一般民眾/外賓)</span>
+                            <div class="d-flex justify-content-between align-items-end">
+                                <div>
+                                    <span class="early-bird-price">早鳥 8 折：NT$ 2,800</span><br>
+                                    <span class="old-price">原價：NT$ 3,500</span>
+                                </div>
+                            </div>
+                        </div>
+                        <ul class="list-unstyled text-muted small mb-4">
+                            <li><strong class="text-dark">✔️ 完整兩日所有 Keynote 與論壇入場</strong></li>
+                            <li>✔️ 大會精美手冊與紀念品</li>
+                            <li>✔️ 兩日午餐與茶點</li>
+                            <li>✔️ 大會晚宴 (Gala Dinner) 優先候補權</li>
+                        </ul>
+                        <a href="program-zh.html#registration" class="btn-register" style="background-color: var(--secondary-blue); color: #000;">選擇此方案</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="mt-5 p-4 bg-white border rounded shadow-sm">
+            <h5 class="fw-bold text-danger mb-3">⚠️ 繳費注意事項</h5>
+            <ol class="text-muted mb-0 small" style="line-height: 1.8;">
+                <li>本大會報名系統已串接綠界科技 (ECPay) 安全金流，支援各家信用卡線上刷卡。</li>
+                <li>系統將自動透過您的身分證字號/護照號碼，即時連線 TSP 學會資料庫驗證您的會員資格，並自動帶入優惠票價。</li>
+                <li>繳費完成後，系統將自動寄發「報名成功確認信與電子收據」至您的 Email 信箱，請妥善留存。</li>
+            </ol>
+        </div>
+    </div>
+
+    <div id="footer-placeholder"></div>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+<script src="main.js"></script>
+
+<script>
+    // 1. 自動載入共用 Navbar
+    fetch('navbar-zh.html')
+        .then(response => response.text())
+        .then(data => {
+            document.getElementById('navbar-placeholder').innerHTML = data;
+            
+            // 2. 自動判斷目前網址，將對應的選單加上 active (亮燈)
+            let currentPath = window.location.pathname.split('/').pop();
+            if (currentPath === '') currentPath = 'index-zh.html'; 
+            
+            const navLinks = document.querySelectorAll('.nav-link');
+            navLinks.forEach(link => {
+                if (link.getAttribute('href') === currentPath) {
+                    link.classList.add('active');
+                }
+            });
+
+            // 3. 自動設定「語系切換按鈕」的正確網址 (把 -zh 拿掉就是英文版)
+            let enPath = currentPath.replace('-zh', '');
+            document.getElementById('lang-switch-en').setAttribute('href', enPath);
+        });
+</script>
+</body>
+</html>

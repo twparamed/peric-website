@@ -4,42 +4,10 @@
     <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>PERIC 2026 | 醫療救護與緊急應變國際研討會</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    <style>
-        :root { --primary-blue: #0d47a1; --secondary-blue: #1976d2; --accent-green: #2e7d32; }
-        body { font-family: 'Segoe UI', sans-serif; background-color: #ffffff; color: #333; }
-        .navbar { border-bottom: 1px solid #e0e0e0; background-color: #ffffff !important; padding: 15px 0; }
-        .navbar-brand { color: var(--primary-blue) !important; font-weight: 800; font-size: 1.5rem; }
-        .nav-link { color: #555 !important; font-weight: 600; font-size: 1.05rem; }
-        .nav-link:hover, .nav-link.active { color: var(--secondary-blue) !important; }
-        .hero-section { background: linear-gradient(rgba(255,255,255,0.9), rgba(255,255,255,0.9)), url('https://images.unsplash.com/photo-1516549655169-df83a0774514?auto=format&fit=crop&q=80') center/cover; padding: 120px 0; border-bottom: 1px solid #eee; }
-        .section-title { color: var(--primary-blue); font-weight: 700; border-left: 5px solid var(--secondary-blue); padding-left: 15px; margin-bottom: 40px; }
-        .card-custom { background-color: #fff; border: 1px solid #e0e0e0; border-radius: 8px; box-shadow: 0 4px 6px rgba(0,0,0,0.05); height: 100%; }
-        .btn-register { background-color: var(--accent-green); color: #fff; padding: 12px 30px; font-weight: bold; border-radius: 5px; text-decoration: none; }
-    </style>
+    <link href="style.css" rel="stylesheet">
 </head>
 <body>
-    <nav class="navbar navbar-expand-lg navbar-light sticky-top shadow-sm">
-        <div class="container">
-            <a class="navbar-brand" href="index-zh.html">PERIC 2026</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"><span class="navbar-toggler-icon"></span></button>
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav ms-auto align-items-center">
-                    <li class="nav-item"><a class="nav-link active" href="index-zh.html">首頁</a></li>
-                    <li class="nav-item"><a class="nav-link" href="about-zh.html">關於大會</a></li>
-                    <li class="nav-item"><a class="nav-link" href="speakers-zh.html">專家講者</a></li>
-                    <li class="nav-item"><a class="nav-link" href="program-zh.html">議程資訊</a></li>
-                    <li class="nav-item"><a class="nav-link" href="archive-zh.html">歷屆成果</a></li>
-                    <li class="nav-item dropdown ms-lg-3 border-start ps-lg-3">
-                        <a class="nav-link dropdown-toggle fw-bold text-primary" href="#" data-bs-toggle="dropdown">🌐 繁體中文</a>
-                        <ul class="dropdown-menu dropdown-menu-end shadow-sm">
-                            <li><a class="dropdown-item fw-bold" href="index-zh.html">繁體中文</a></li>
-                            <li><a class="dropdown-item" href="index.html">English</a></li>
-                        </ul>
-                    </li>
-                </ul>
-            </div>
-        </div>
-    </nav>
+    <div id="navbar-placeholder"></div>
     <header class="hero-section text-center">
         <div class="container">
             <span class="badge bg-primary px-3 py-2 fs-6 mb-3">🇹🇼 2026年10月02日 - 10月03日 | 台灣 北投會館</span>
@@ -58,7 +26,32 @@
             </div>
         </div>
     </section>
-    <footer class="bg-dark text-white py-4 text-center mt-auto"><div class="container"><p class="small text-secondary mb-0">© 2026 PERIC. All Rights Reserved.</p></div></footer>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <div id="footer-placeholder"></div>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+<script src="main.js"></script>
+<script>
+    // 1. 自動載入共用 Navbar
+    fetch('navbar-zh.html')
+        .then(response => response.text())
+        .then(data => {
+            document.getElementById('navbar-placeholder').innerHTML = data;
+            
+            // 2. 自動判斷目前網址，將對應的選單加上 active (亮燈)
+            let currentPath = window.location.pathname.split('/').pop();
+            if (currentPath === '') currentPath = 'index-zh.html'; 
+            
+            const navLinks = document.querySelectorAll('.nav-link');
+            navLinks.forEach(link => {
+                if (link.getAttribute('href') === currentPath) {
+                    link.classList.add('active');
+                }
+            });
+
+            // 3. 自動設定「語系切換按鈕」的正確網址 (把 -zh 拿掉就是英文版)
+            let enPath = currentPath.replace('-zh', '');
+            document.getElementById('lang-switch-en').setAttribute('href', enPath);
+        });
+</script>
+
 </body>
 </html>
