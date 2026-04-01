@@ -1,28 +1,181 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Archive | PERIC 2026</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-   <link href="style.css?v=1.0" rel="stylesheet">
+    <link href="style.css?v=1.1" rel="stylesheet">
+    <style>
+        .archive-stats-box { background-color: #f8f9fa; border-radius: 8px; padding: 20px; border-top: 3px solid var(--secondary-blue); height: 100%; }
+        .archive-stats-title { font-size: 0.9rem; color: #6c757d; font-weight: bold; text-transform: uppercase; margin-bottom: 5px; }
+        .archive-stats-value { font-size: 1.5rem; color: var(--primary-blue); font-weight: 800; }
+        .award-list li { margin-bottom: 15px; border-bottom: 1px dashed #e0e0e0; padding-bottom: 10px; }
+        .award-list li:last-child { border-bottom: none; margin-bottom: 0; padding-bottom: 0; }
+        .gallery-img { width: 100%; height: 200px; object-fit: cover; border-radius: 8px; transition: 0.3s; cursor: pointer; box-shadow: 0 4px 6px rgba(0,0,0,0.1); }
+        .gallery-img:hover { transform: scale(1.03); box-shadow: 0 8px 15px rgba(0,0,0,0.2); }
+        .accordion-button:not(.collapsed) { background-color: rgba(11, 25, 44, 0.05); color: var(--primary-blue); font-weight: bold; }
+        .accordion-button { font-size: 1.25rem; font-weight: bold; color: #444; }
+    </style>
 </head>
 <body>
     <div id="navbar-placeholder"></div>
+
     <div class="container py-5">
-        <h2 class="section-title">PERIC 2025 Retrospective</h2>
-        <div class="row g-4 mb-5">
-            <div class="col-md-3"><div class="stats-box"><h2 class="display-4 fw-bold" style="color: var(--primary-blue);">330+</h2><p class="fw-bold mb-0">Total Attendees</p></div></div>
-            <div class="col-md-3"><div class="stats-box"><h2 class="display-4 fw-bold" style="color: var(--primary-blue);">7</h2><p class="fw-bold mb-0">Countries/Regions</p></div></div>
-            <div class="col-md-3"><div class="stats-box"><h2 class="display-4 fw-bold" style="color: var(--primary-blue);">24</h2><p class="fw-bold mb-0">Academic Papers</p></div></div>
-            <div class="col-md-3"><div class="stats-box"><h2 class="display-4 fw-bold" style="color: var(--primary-blue);">10</h2><p class="fw-bold mb-0">Forums & Workshops</p></div></div>
-        </div>
-        <div class="p-4 bg-light border-start border-primary border-4 mb-4">
-            <h4 class="fw-bold text-dark">🌐 Establishing the Asia-Pacific EMS Network</h4>
-            <p class="text-muted mb-0">PERIC 2025 successfully gathered experts from Australia <img src="https://flagcdn.com/w40/au.png" width="24" alt="Australia">, Japan <img src="https://flagcdn.com/w40/jp.png" width="24" alt="Japan">, Singapore <img src="https://flagcdn.com/w40/sg.png" width="24" alt="Singapore">, Philippines <img src="https://flagcdn.com/w40/ph.png" width="24" alt="Philippines">, Malaysia <img src="https://flagcdn.com/w40/my.png" width="24" alt="Malaysia">, Thailand <img src="https://flagcdn.com/w40/th.png" width="24" alt="Thailand">, and Hong Kong <img src="https://flagcdn.com/w40/hk.png" width="24" alt="Hong Kong">.</p>
+        <h2 class="section-title">Archive</h2>
+        <p class="text-muted fs-5 mb-5">Looking back at our journey of building a strong and resilient EMS academic network. Explore the highlights and achievements from previous conferences below.</p>
+
+        <div class="accordion shadow-sm" id="archiveAccordion">
+            
+            <div class="accordion-item">
+                <h2 class="accordion-header" id="heading2025">
+                    <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse2025" aria-expanded="true">
+                        🏆 PERIC 2025 (National Taipei University of Nursing and Health Sciences)
+                    </button>
+                </h2>
+                <div id="collapse2025" class="accordion-collapse collapse show" data-bs-parent="#archiveAccordion">
+                    <div class="accordion-body p-4">
+                        <div class="row g-4 mb-5">
+                            <div class="col-md-3"><div class="archive-stats-box"><div class="archive-stats-title">Date</div><div class="archive-stats-value">July 11-13, 2025</div></div></div>
+                            <div class="col-md-3"><div class="archive-stats-box"><div class="archive-stats-title">Attendees</div><div class="archive-stats-value">330</div></div></div>
+                            <div class="col-md-3"><div class="archive-stats-box"><div class="archive-stats-title">Countries</div><div class="archive-stats-value">7</div></div></div>
+                            <div class="col-md-3"><div class="archive-stats-box"><div class="archive-stats-title">Presentations</div><div class="archive-stats-value">29 <span class="fs-6 text-muted fw-normal">(Oral 5 / Poster 24)</span></div></div></div>
+                        </div>
+
+                        <div class="row g-5">
+                            <div class="col-lg-7">
+                                <h4 class="fw-bold mb-4" style="color: var(--primary-blue);">🎖️ Award Winners</h4>
+                                <h6 class="fw-bold text-success mb-3">🏅 Best Oral Presentation</h6>
+                                <ul class="list-unstyled award-list mb-4 text-muted">
+                                    <li><strong>Hung-Yi Su, Wen-Chi Wu</strong><br>The Relationship between Organizational Climate and Workplace Bullying Experiences of Taiwanese Firefighters</li>
+                                    <li><strong>Pei-Ling Lee, et al.</strong><br>Impact Analysis of Traumatic Hypothermia on Mortality in Major Trauma Patients</li>
+                                </ul>
+                                
+                                <h6 class="fw-bold text-success mb-3 mt-4">🏅 Best Poster Presentation</h6>
+                                <ul class="list-unstyled award-list text-muted">
+                                    <li><strong>Yu-Tse Liu, et al.</strong><br>Integration of Flipped Teaching and Experiential Learning in University First Aid General Education Courses</li>
+                                    <li><strong>Yi-Fen Liang, et al.</strong><br>Technology Empowered First Aid Teaching: QCPR Real-time Feedback System in Junior High School</li>
+                                    <li><strong>Chih-Ting Lin, et al.</strong><br>Silent Heart Crisis: Case Discussion of Atypical Acute Coronary Syndrome</li>
+                                    <li><strong>Po-Chun Liu</strong><br>Secrets in the Medicine Bag: Challenges of Prehospital Poison Identification</li>
+                                </ul>
+                            </div>
+                            <div class="col-lg-5">
+                                <h4 class="fw-bold mb-4" style="color: var(--primary-blue);">📚 Academic Resources</h4>
+                                <a href="https://www.airitilibrary.com/Publication/Information?publicationID=P20210804002&type=%E6%9C%9F%E5%88%8A&tabName=2&issueYear=2025&issueID=N202512040011&publisherID=U20210804002" target="_blank" rel="noopener noreferrer" class="btn btn-outline-primary w-100 mb-4 py-3 fw-bold">Download 2025 Proceedings</a>
+                                
+                                <h4 class="fw-bold mb-3 mt-4" style="color: var(--primary-blue);">📸 Highlight Gallery</h4>
+                                <div class="row g-2">
+                                    <div class="col-6"><img src="peric202501.jpg" alt="2025 Gallery 1" class="gallery-img"></div>
+                                    <div class="col-6"><img src="peric202502.jpg" alt="2025 Gallery 2" class="gallery-img"></div>
+                                    <div class="col-12"><img src="peric202503.jpg" alt="2025 Gallery 3" class="gallery-img" style="height: 150px;"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="accordion-item">
+                <h2 class="accordion-header" id="heading2024">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse2024" aria-expanded="false">
+                        🏆 PERIC 2024 (Taipei Tzu Chi Hospital)
+                    </button>
+                </h2>
+                <div id="collapse2024" class="accordion-collapse collapse" data-bs-parent="#archiveAccordion">
+                    <div class="accordion-body p-4">
+                        <div class="row g-4 mb-5">
+                            <div class="col-md-3"><div class="archive-stats-box"><div class="archive-stats-title">Date</div><div class="archive-stats-value">June 30, 2024</div></div></div>
+                            <div class="col-md-3"><div class="archive-stats-box"><div class="archive-stats-title">Attendees</div><div class="archive-stats-value">100</div></div></div>
+                            <div class="col-md-3"><div class="archive-stats-box"><div class="archive-stats-title">Countries</div><div class="archive-stats-value">2</div></div></div>
+                            <div class="col-md-3"><div class="archive-stats-box"><div class="archive-stats-title">Presentations</div><div class="archive-stats-value">31 <span class="fs-6 text-muted fw-normal">(Oral 10 / Poster 21)</span></div></div></div>
+                        </div>
+
+                        <div class="row g-5">
+                            <div class="col-lg-7">
+                                <h4 class="fw-bold mb-4" style="color: var(--primary-blue);">🎖️ Award Winners</h4>
+                                <h6 class="fw-bold text-success mb-3">🏅 Best Oral Presentation</h6>
+                                <ul class="list-unstyled award-list mb-4 text-muted">
+                                    <li><strong>Ting-Ju Ko</strong><br>The Most Familiar Stranger: Spinal Motion Restriction and Return to Midline</li>
+                                    <li><strong>Ting-Yu Chou, et al.</strong><br>Spatial Analysis of Head Trauma Associated Factors: A Case Study in Southern Taiwan</li>
+                                    <li><strong>Cheng-Wei Ma, et al.</strong><br>Enhancing EMS Quality: Is CPR Mandatory on a Backboard or Hard Surface?</li>
+                                </ul>
+                                
+                                <h6 class="fw-bold text-success mb-3 mt-4">🏅 Best Poster Presentation</h6>
+                                <ul class="list-unstyled award-list text-muted">
+                                    <li><strong>Yi-Hsin Shen, Yu-Han Huang</strong><br>The Necessity of Medication Safety: 3 Checks and 5 Rights</li>
+                                    <li><strong>Tung-Hsiu Hung, et al.</strong><br>Investigation on the Continued Use of EMT-established IV Lines Post-hospitalization</li>
+                                    <li><strong>Fang-Cheng Shih, Yi-Chin Hu</strong><br>Study on Stress Coping Strategies of EMTs during Severe Infectious Pneumonia</li>
+                                </ul>
+                            </div>
+                            <div class="col-lg-5">
+                                <h4 class="fw-bold mb-4" style="color: var(--primary-blue);">📚 Academic Resources</h4>
+                                <a href="https://www.airitilibrary.com/Publication/Information?publicationID=P20210804002&type=%E6%9C%9F%E5%88%8A&tabName=2&issueYear=2024&issueID=N202501150014&publisherID=U20210804002" target="_blank" rel="noopener noreferrer" class="btn btn-outline-primary w-100 mb-4 py-3 fw-bold">Download 2024 Proceedings</a>
+                                
+                                <h4 class="fw-bold mb-3 mt-4" style="color: var(--primary-blue);">📸 Highlight Gallery</h4>
+                                <div class="row g-2">
+                                    <div class="col-6"><img src="peric202401.jpg" alt="2024 Gallery 1" class="gallery-img"></div>
+                                    <div class="col-6"><img src="peric202402.jpg" alt="2024 Gallery 2" class="gallery-img"></div>
+                                    <div class="col-12"><img src="peric202403.jpg" alt="2024 Gallery 3" class="gallery-img" style="height: 150px;"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="accordion-item">
+                <h2 class="accordion-header" id="heading2023">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse2023" aria-expanded="false">
+                        🏆 PERIC 2023 (Chien Tan Overseas Youth Activity Center)
+                    </button>
+                </h2>
+                <div id="collapse2023" class="accordion-collapse collapse" data-bs-parent="#archiveAccordion">
+                    <div class="accordion-body p-4">
+                        <div class="row g-4 mb-5">
+                            <div class="col-md-3"><div class="archive-stats-box"><div class="archive-stats-title">Date</div><div class="archive-stats-value">Sept 23-24, 2023</div></div></div>
+                            <div class="col-md-3"><div class="archive-stats-box"><div class="archive-stats-title">Attendees</div><div class="archive-stats-value">160</div></div></div>
+                            <div class="col-md-3"><div class="archive-stats-box"><div class="archive-stats-title">Countries</div><div class="archive-stats-value">2</div></div></div>
+                            <div class="col-md-3"><div class="archive-stats-box"><div class="archive-stats-title">Presentations</div><div class="archive-stats-value">43 <span class="fs-6 text-muted fw-normal">(Oral 13 / Poster 30)</span></div></div></div>
+                        </div>
+
+                        <div class="row g-5">
+                            <div class="col-lg-7">
+                                <h4 class="fw-bold mb-4" style="color: var(--primary-blue);">🎖️ Award Winners</h4>
+                                <h6 class="fw-bold text-success mb-3">🏅 Best Oral Presentation</h6>
+                                <ul class="list-unstyled award-list mb-4 text-muted">
+                                    <li><strong>Yung-Hsiang Chang</strong><br>The effect of time from patient approached to epinephrine administrated on OHCA outcomes</li>
+                                    <li><strong>Yu-Han Liu, et al.</strong><br>Preparing for a Mass casualty incident and disasters in the campus</li>
+                                    <li><strong>Ting-Ju Ko</strong><br>Improving Emergency Medical Quality: Enhancing Defibrillation Success Rate by Verifying AED Pad Placement</li>
+                                </ul>
+                                
+                                <h6 class="fw-bold text-success mb-3 mt-4">🏅 Best Poster Presentation</h6>
+                                <ul class="list-unstyled award-list text-muted">
+                                    <li><strong>Yen-Yu Lin, et al.</strong><br>Traumatic Cardiac Arrest Patients: LOAD AND GO, GO WHERE?</li>
+                                    <li><strong>Yi-Fen Liang, et al.</strong><br>Research on Musculoskeletal Injuries in Junior High School Sports Talent Class Athletes</li>
+                                    <li><strong>Chia-Ming Lin, et al.</strong><br>What's the benefit to the patient if recognizes STEMI equivalent prehospital</li>
+                                </ul>
+                            </div>
+                            <div class="col-lg-5">
+                                <h4 class="fw-bold mb-4" style="color: var(--primary-blue);">📚 Academic Resources</h4>
+                                <a href="https://www.airitilibrary.com/Publication/Information?publicationID=P20210804002&type=%E6%9C%9F%E5%88%8A&tabName=2&issueYear=2023&issueID=N202311070009&publisherID=U20210804002" target="_blank" rel="noopener noreferrer" class="btn btn-outline-primary w-100 mb-4 py-3 fw-bold">Download 2023 Proceedings</a>
+                                
+                                <h4 class="fw-bold mb-3 mt-4" style="color: var(--primary-blue);">📸 Highlight Gallery</h4>
+                                <div class="row g-2">
+                                    <div class="col-6"><img src="peric202301.jpg" alt="2023 Gallery 1" class="gallery-img"></div>
+                                    <div class="col-6"><img src="peric202302.jpg" alt="2023 Gallery 2" class="gallery-img"></div>
+                                    <div class="col-12"><img src="peric202303.jpg" alt="2023 Gallery 3" class="gallery-img" style="height: 150px;"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
         </div>
     </div>
-   <div id="footer-placeholder"></div>
+    
+    <div id="footer-placeholder"></div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="main.js?v=1.0"></script>
+    <script src="main.js?v=1.1"></script>
 </body>
 </html>

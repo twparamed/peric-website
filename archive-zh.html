@@ -1,28 +1,181 @@
 <!DOCTYPE html>
 <html lang="zh-TW">
 <head>
-    <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>歷屆成果 | PERIC 2026</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-   <link href="style.css?v=1.0" rel="stylesheet">
+    <link href="style.css?v=1.1" rel="stylesheet">
+    <style>
+        .archive-stats-box { background-color: #f8f9fa; border-radius: 8px; padding: 20px; border-top: 3px solid var(--secondary-blue); height: 100%; }
+        .archive-stats-title { font-size: 0.9rem; color: #6c757d; font-weight: bold; text-transform: uppercase; margin-bottom: 5px; }
+        .archive-stats-value { font-size: 1.5rem; color: var(--primary-blue); font-weight: 800; }
+        .award-list li { margin-bottom: 15px; border-bottom: 1px dashed #e0e0e0; padding-bottom: 10px; }
+        .award-list li:last-child { border-bottom: none; margin-bottom: 0; padding-bottom: 0; }
+        .gallery-img { width: 100%; height: 200px; object-fit: cover; border-radius: 8px; transition: 0.3s; cursor: pointer; box-shadow: 0 4px 6px rgba(0,0,0,0.1); }
+        .gallery-img:hover { transform: scale(1.03); box-shadow: 0 8px 15px rgba(0,0,0,0.2); }
+        .accordion-button:not(.collapsed) { background-color: rgba(11, 25, 44, 0.05); color: var(--primary-blue); font-weight: bold; }
+        .accordion-button { font-size: 1.25rem; font-weight: bold; color: #444; }
+    </style>
 </head>
 <body>
-  <div id="navbar-placeholder"></div>
+    <div id="navbar-placeholder"></div>
+
     <div class="container py-5">
-        <h2 class="section-title">歷屆輝煌成果：PERIC 2025</h2>
-        <div class="row g-4 mb-5">
-            <div class="col-md-3"><div class="stats-box"><h2 class="display-4 fw-bold" style="color: var(--primary-blue);">330+</h2><p class="fw-bold mb-0">總參與人次</p></div></div>
-            <div class="col-md-3"><div class="stats-box"><h2 class="display-4 fw-bold" style="color: var(--primary-blue);">7</h2><p class="fw-bold mb-0">參與國家/地區</p></div></div>
-            <div class="col-md-3"><div class="stats-box"><h2 class="display-4 fw-bold" style="color: var(--primary-blue);">24</h2><p class="fw-bold mb-0">學術論文發表</p></div></div>
-            <div class="col-md-3"><div class="stats-box"><h2 class="display-4 fw-bold" style="color: var(--primary-blue);">10</h2><p class="fw-bold mb-0">專題論壇與工作坊</p></div></div>
-        </div>
-        <div class="p-4 bg-light border-start border-primary border-4 mb-4">
-            <h4 class="fw-bold text-dark">🌐 成功建立亞太救護網絡</h4>
-            <p class="text-muted mb-0">PERIC 2025 成功邀集來自澳洲 <img src="https://flagcdn.com/w40/au.png" width="24" alt="Australia">、日本 <img src="https://flagcdn.com/w40/jp.png" width="24" alt="Japan">、新加坡 <img src="https://flagcdn.com/w40/sg.png" width="24" alt="Singapore">、菲律賓 <img src="https://flagcdn.com/w40/ph.png" width="24" alt="Philippines">、馬來西亞 <img src="https://flagcdn.com/w40/my.png" width="24" alt="Malaysia">、泰國 <img src="https://flagcdn.com/w40/th.png" width="24" alt="Thailand"> 及香港 <img src="https://flagcdn.com/w40/hk.png" width="24" alt="Hong Kong"> 等 7 個國家/地區之專家學者。</p>
+        <h2 class="section-title">歷屆成果 (Archive)</h2>
+        <p class="text-muted fs-5 mb-5">回顧過往，我們致力於建立強大的緊急救護學術網絡。以下為歷屆大會的豐碩成果與精華。</p>
+
+        <div class="accordion shadow-sm" id="archiveAccordion">
+            
+            <div class="accordion-item">
+                <h2 class="accordion-header" id="heading2025">
+                    <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse2025" aria-expanded="true">
+                        🏆 PERIC 2025 (國立臺北護理健康大學)
+                    </button>
+                </h2>
+                <div id="collapse2025" class="accordion-collapse collapse show" data-bs-parent="#archiveAccordion">
+                    <div class="accordion-body p-4">
+                        <div class="row g-4 mb-5">
+                            <div class="col-md-3"><div class="archive-stats-box"><div class="archive-stats-title">舉辦日期</div><div class="archive-stats-value">2025/7/11-13</div></div></div>
+                            <div class="col-md-3"><div class="archive-stats-box"><div class="archive-stats-title">參與人次</div><div class="archive-stats-value">330 人</div></div></div>
+                            <div class="col-md-3"><div class="archive-stats-box"><div class="archive-stats-title">參與國家</div><div class="archive-stats-value">7 國</div></div></div>
+                            <div class="col-md-3"><div class="archive-stats-box"><div class="archive-stats-title">論文發表</div><div class="archive-stats-value">29 篇 <span class="fs-6 text-muted fw-normal">(口頭5 / 海報24)</span></div></div></div>
+                        </div>
+
+                        <div class="row g-5">
+                            <div class="col-lg-7">
+                                <h4 class="fw-bold mb-4" style="color: var(--primary-blue);">🎖️ 榮譽榜 (Award Winners)</h4>
+                                <h6 class="fw-bold text-success mb-3">🏅 最佳學術口頭發表獎</h6>
+                                <ul class="list-unstyled award-list mb-4 text-muted">
+                                    <li><strong>蘇紘億、吳文琪</strong><br>「組織氣氛與臺灣消防員職場霸凌經驗的關聯：以順序邏輯迴歸模式進行分析」</li>
+                                    <li><strong>李佩玲、唐貞綾、沈光漢、林彥宇、吳亦軒、胡悛愉</strong><br>「創傷性低體溫對重大外傷病人死亡率之影響分析：單一中心回溯性研究」</li>
+                                </ul>
+                                
+                                <h6 class="fw-bold text-success mb-3 mt-4">🏅 最佳學術海報發表獎</h6>
+                                <ul class="list-unstyled award-list text-muted">
+                                    <li><strong>柳育澤、徐翊倫、柳育漢</strong><br>「翻轉教學融入體驗式學習在大學急救通識課程之探討」</li>
+                                    <li><strong>梁宜芬、游琬瑜、苗迺芳</strong><br>「科技賦能急救教學：QCPR 即時回饋系統導入國中生CPR學習成效分析」</li>
+                                    <li><strong>林智庭、李基佑、蔡函原、黃文龍、鄭文傑、嚴羚瑋、劉柏群</strong><br>「沉默的心臟危機：非典型急性冠心症的個案討論」</li>
+                                    <li><strong>劉柏群</strong><br>「藥袋裡的秘密：到院前中毒辨識大挑戰」</li>
+                                </ul>
+                            </div>
+                            <div class="col-lg-5">
+                                <h4 class="fw-bold mb-4" style="color: var(--primary-blue);">📚 學術資源</h4>
+                                <a href="https://www.airitilibrary.com/Publication/Information?publicationID=P20210804002&type=%E6%9C%9F%E5%88%8A&tabName=2&issueYear=2025&issueID=N202512040011&publisherID=U20210804002" target="_blank" rel="noopener noreferrer" class="btn btn-outline-primary w-100 mb-4 py-3 fw-bold">下載 2025 論文摘要集 (Proceedings)</a>
+                                
+                                <h4 class="fw-bold mb-3 mt-4" style="color: var(--primary-blue);">📸 精彩花絮</h4>
+                                <div class="row g-2">
+                                    <div class="col-6"><img src="peric202501.jpg" alt="2025 Gallery 1" class="gallery-img"></div>
+                                    <div class="col-6"><img src="peric202502.jpg" alt="2025 Gallery 2" class="gallery-img"></div>
+                                    <div class="col-12"><img src="peric202503.jpg" alt="2025 Gallery 3" class="gallery-img" style="height: 150px;"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="accordion-item">
+                <h2 class="accordion-header" id="heading2024">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse2024" aria-expanded="false">
+                        🏆 PERIC 2024 (台北慈濟醫院)
+                    </button>
+                </h2>
+                <div id="collapse2024" class="accordion-collapse collapse" data-bs-parent="#archiveAccordion">
+                    <div class="accordion-body p-4">
+                        <div class="row g-4 mb-5">
+                            <div class="col-md-3"><div class="archive-stats-box"><div class="archive-stats-title">舉辦日期</div><div class="archive-stats-value">2024/6/30</div></div></div>
+                            <div class="col-md-3"><div class="archive-stats-box"><div class="archive-stats-title">參與人次</div><div class="archive-stats-value">100 人</div></div></div>
+                            <div class="col-md-3"><div class="archive-stats-box"><div class="archive-stats-title">參與國家</div><div class="archive-stats-value">2 國</div></div></div>
+                            <div class="col-md-3"><div class="archive-stats-box"><div class="archive-stats-title">論文發表</div><div class="archive-stats-value">31 篇 <span class="fs-6 text-muted fw-normal">(口頭10 / 海報21)</span></div></div></div>
+                        </div>
+
+                        <div class="row g-5">
+                            <div class="col-lg-7">
+                                <h4 class="fw-bold mb-4" style="color: var(--primary-blue);">🎖️ 榮譽榜 (Award Winners)</h4>
+                                <h6 class="fw-bold text-success mb-3">🏅 最佳學術口頭發表獎</h6>
+                                <ul class="list-unstyled award-list mb-4 text-muted">
+                                    <li><strong>柯廷儒</strong><br>「最熟悉的陌生人：淺談脊椎活動限制與移回正中軸線」</li>
+                                    <li><strong>周廷郁、宋佳臻、林天愛、王韻嫻、張育通</strong><br>「利用空間分析方法初探頭部外傷之相關因素以南部某醫院創傷登錄資料為例」</li>
+                                    <li><strong>馬承瑋、徐煒舜、陳孟昇、羅祐旻、陳宇峻、葉竣豪</strong><br>「提升救護品質：CPR 是否一定要在背板上或是堅硬的地板上操作？」</li>
+                                </ul>
+                                
+                                <h6 class="fw-bold text-success mb-3 mt-4">🏅 最佳學術海報發表獎</h6>
+                                <ul class="list-unstyled award-list text-muted">
+                                    <li><strong>沈怡欣、黃昱翰</strong><br>「藥給你安全3讀5對的必要性」</li>
+                                    <li><strong>洪東秀、王英任、楊子毅、劉名洲、簡振宇</strong><br>「EMT 建立之輸液管徑到院後是否延用之調查報告」</li>
+                                    <li><strong>拾方正、胡益進</strong><br>「緊急救護技術員對嚴重特殊傳染性肺炎壓力因應策略之相關因素研究—以臺北市政府消防局高級救護分隊為例」</li>
+                                </ul>
+                            </div>
+                            <div class="col-lg-5">
+                                <h4 class="fw-bold mb-4" style="color: var(--primary-blue);">📚 學術資源</h4>
+                                <a href="https://www.airitilibrary.com/Publication/Information?publicationID=P20210804002&type=%E6%9C%9F%E5%88%8A&tabName=2&issueYear=2024&issueID=N202501150014&publisherID=U20210804002" target="_blank" rel="noopener noreferrer" class="btn btn-outline-primary w-100 mb-4 py-3 fw-bold">下載 2024 論文摘要集 (Proceedings)</a>
+                                
+                                <h4 class="fw-bold mb-3 mt-4" style="color: var(--primary-blue);">📸 精彩花絮</h4>
+                                <div class="row g-2">
+                                    <div class="col-6"><img src="peric202401.jpg" alt="2024 Gallery 1" class="gallery-img"></div>
+                                    <div class="col-6"><img src="peric202402.jpg" alt="2024 Gallery 2" class="gallery-img"></div>
+                                    <div class="col-12"><img src="peric202403.jpg" alt="2024 Gallery 3" class="gallery-img" style="height: 150px;"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="accordion-item">
+                <h2 class="accordion-header" id="heading2023">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse2023" aria-expanded="false">
+                        🏆 PERIC 2023 (劍潭青年活動中心)
+                    </button>
+                </h2>
+                <div id="collapse2023" class="accordion-collapse collapse" data-bs-parent="#archiveAccordion">
+                    <div class="accordion-body p-4">
+                        <div class="row g-4 mb-5">
+                            <div class="col-md-3"><div class="archive-stats-box"><div class="archive-stats-title">舉辦日期</div><div class="archive-stats-value">2023/9/23-24</div></div></div>
+                            <div class="col-md-3"><div class="archive-stats-box"><div class="archive-stats-title">參與人次</div><div class="archive-stats-value">160 人</div></div></div>
+                            <div class="col-md-3"><div class="archive-stats-box"><div class="archive-stats-title">參與國家</div><div class="archive-stats-value">2 國</div></div></div>
+                            <div class="col-md-3"><div class="archive-stats-box"><div class="archive-stats-title">論文發表</div><div class="archive-stats-value">43 篇 <span class="fs-6 text-muted fw-normal">(口頭13 / 海報30)</span></div></div></div>
+                        </div>
+
+                        <div class="row g-5">
+                            <div class="col-lg-7">
+                                <h4 class="fw-bold mb-4" style="color: var(--primary-blue);">🎖️ 榮譽榜 (Award Winners)</h4>
+                                <h6 class="fw-bold text-success mb-3">🏅 最佳學術口頭發表獎</h6>
+                                <ul class="list-unstyled award-list mb-4 text-muted">
+                                    <li><strong>張詠翔</strong><br>「患者接受給予腎上腺素的時間對到院前心肺功能停止預後的影響：一項觀察性研究」</li>
+                                    <li><strong>柳育漢、蕭雅文、王為德、柳育澤、陳俊宏</strong><br>「校園大量傷患及災難應變準備—以某縣市學校護理師緊急救護訓練為例」</li>
+                                    <li><strong>柯廷儒</strong><br>「提升救護品質：通過確認 AED貼片位置提高電擊成功率—以永利分隊為例」</li>
+                                </ul>
+                                
+                                <h6 class="fw-bold text-success mb-3 mt-4">🏅 最佳學術海報發表獎</h6>
+                                <ul class="list-unstyled award-list text-muted">
+                                    <li><strong>林彥宇、唐貞綾、李佩玲、吳亦軒</strong><br>「創傷心臟驟停病患 LOAD AND GO, GO WHERE? —以台灣南部城市為例」</li>
+                                    <li><strong>梁宜芬、張維綱、陳雅琳、胡益進、苗迺芳</strong><br>「國中體育班運動員肌肉骨骼系統運動傷害調查」</li>
+                                    <li><strong>林嘉銘、黃正豪、廖永富、林義峰、賴虹憶、黃孟翔、林世佳</strong><br>「若院前判斷出來是 STEMI equivalent 對患者有什麼益處」</li>
+                                </ul>
+                            </div>
+                            <div class="col-lg-5">
+                                <h4 class="fw-bold mb-4" style="color: var(--primary-blue);">📚 學術資源</h4>
+                                <a href="https://www.airitilibrary.com/Publication/Information?publicationID=P20210804002&type=%E6%9C%9F%E5%88%8A&tabName=2&issueYear=2023&issueID=N202311070009&publisherID=U20210804002" target="_blank" rel="noopener noreferrer" class="btn btn-outline-primary w-100 mb-4 py-3 fw-bold">下載 2023 論文摘要集 (Proceedings)</a>
+                                
+                                <h4 class="fw-bold mb-3 mt-4" style="color: var(--primary-blue);">📸 精彩花絮</h4>
+                                <div class="row g-2">
+                                    <div class="col-6"><img src="peric202301.jpg" alt="2023 Gallery 1" class="gallery-img"></div>
+                                    <div class="col-6"><img src="peric202302.jpg" alt="2023 Gallery 2" class="gallery-img"></div>
+                                    <div class="col-12"><img src="peric202303.jpg" alt="2023 Gallery 3" class="gallery-img" style="height: 150px;"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
         </div>
     </div>
+    
     <div id="footer-placeholder"></div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="main.js?v=1.0"></script>
+    <script src="main.js?v=1.1"></script>
 </body>
 </html>
