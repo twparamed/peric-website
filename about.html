@@ -1,54 +1,67 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>About | PERIC 2026</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link href="style.css" rel="stylesheet">
+    <link href="style.css?v=1.0" rel="stylesheet">
+    <style>
+        .committee-card { transition: 0.3s; border-left: 4px solid var(--secondary-blue); }
+        .committee-card:hover { transform: translateX(5px); box-shadow: 0 5px 15px rgba(0,0,0,0.08) !important; border-left-color: var(--primary-blue); }
+    </style>
 </head>
 <body>
+    
     <div id="navbar-placeholder"></div>
+
     <div class="container py-5">
-        <h2 class="section-title">About PERIC 2026</h2>
-        <div class="row justify-content-center mt-5">
-            <div class="col-lg-10" style="font-size: 1.1rem; line-height: 1.8; color: #444;">
-                <h4 class="fw-bold mb-3" style="color: var(--primary-blue);">Background & Vision</h4>
-                <p>Emergency Medical Services (EMS) rely heavily on systemic resilience and digital integration. PERIC 2026 focuses on the theme <strong>"Resilience and Technology in EMS"</strong> to address these pressing needs.</p>
-                <h4 class="fw-bold mt-5 mb-4" style="color: var(--primary-blue);">Conference Objectives</h4>
-                <div class="row g-4">
-                    <div class="col-md-6"><div class="objective-box fw-bold text-dark">Forge strategic global alliances among USA 🇺🇸, Australia 🇦🇺, Saudi Arabia 🇸🇦, Singapore 🇸🇬, and Taiwan 🇹🇼.</div></div>
-                    <div class="col-md-6"><div class="objective-box fw-bold text-dark">Explore the application of AI and smart technologies in clinical care and dispatch.</div></div>
-                    <div class="col-md-6"><div class="objective-box fw-bold text-dark">Enhance international perspectives for frontline paramedics and researchers.</div></div>
-                    <div class="col-md-6"><div class="objective-box fw-bold text-dark">Accelerate the practical implementation of smart EMS research.</div></div>
+        <h2 class="section-title">About the PERIC</h2>
+        
+        <div class="row justify-content-center mt-4">
+            <div class="col-lg-12">
+                <p class="fs-5 mb-5" style="line-height: 1.8; color: #444;">
+                    Hosted in Taipei, PERIC 2026 gathers global EMS leaders, medical directors, and frontline responders under the theme <strong>"Resilience and Technology in EMS"</strong>. Featuring a distinguished expert lineup from the USA, Australia, Saudi Arabia, Singapore, and Taiwan, the conference provides an unparalleled platform to exchange groundbreaking research, share cross-border operational strategies, and forge a stronger, borderless prehospital care network.
+                </p>
+
+                <h3 class="fw-bold mt-4 mb-4" style="color: var(--primary-blue); border-bottom: 2px solid var(--secondary-blue); padding-bottom: 10px; display: inline-block;">
+                    Organising Committee
+                </h3>
+                
+                <div class="row g-4 mt-2">
+                    <div class="col-md-6">
+                        <div class="p-4 bg-light border rounded h-100 shadow-sm committee-card">
+                            <h4 class="fw-bold mb-2" style="color: var(--primary-blue);">Dr. Chieh-Min Fan</h4>
+                            <p class="text-muted mb-0 fs-6">Chairman, Taiwan Society of Paramedicine (TSP)<br>Far Eastern Memorial Hospital</p>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="p-4 bg-light border rounded h-100 shadow-sm committee-card">
+                            <h4 class="fw-bold mb-2" style="color: var(--primary-blue);">Prof. Brett Williams</h4>
+                            <p class="text-muted mb-0 fs-6">Imam Abdulrahman Bin Faisal University<br>Saudi Arabia</p>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="p-4 bg-light border rounded h-100 shadow-sm committee-card">
+                            <h4 class="fw-bold mb-2" style="color: var(--primary-blue);">Prof. Lun-Ping Hung</h4>
+                            <p class="text-muted mb-0 fs-6">Dean, College of Health Technology<br>National Taipei University of Nursing and Health Sciences</p>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="p-4 bg-light border rounded h-100 shadow-sm committee-card">
+                            <h4 class="fw-bold mb-2" style="color: var(--primary-blue);">Asst. Prof. Jack Yu-Tung Chang</h4>
+                            <p class="text-muted mb-0 fs-6">College of Health Technology<br>National Taipei University of Nursing and Health Sciences</p>
+                        </div>
+                    </div>
                 </div>
+
             </div>
         </div>
     </div>
-   <div id="footer-placeholder"></div>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-<script src="main.js"></script>
-<script>
-    // 1. 自動載入共用 Navbar
-    fetch('navbar-zh.html')
-        .then(response => response.text())
-        .then(data => {
-            document.getElementById('navbar-placeholder').innerHTML = data;
-            
-            // 2. 自動判斷目前網址，將對應的選單加上 active (亮燈)
-            let currentPath = window.location.pathname.split('/').pop();
-            if (currentPath === '') currentPath = 'index-zh.html'; 
-            
-            const navLinks = document.querySelectorAll('.nav-link');
-            navLinks.forEach(link => {
-                if (link.getAttribute('href') === currentPath) {
-                    link.classList.add('active');
-                }
-            });
+    
+    <div id="footer-placeholder"></div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="main.js?v=1.0"></script>
 
-            // 3. 自動設定「語系切換按鈕」的正確網址 (把 -zh 拿掉就是英文版)
-            let enPath = currentPath.replace('-zh', '');
-            document.getElementById('lang-switch-en').setAttribute('href', enPath);
-        });
-</script>
 </body>
 </html>
