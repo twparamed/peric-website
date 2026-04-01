@@ -7,14 +7,14 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="style.css" rel="stylesheet">
     <style>
-        /* 🚀 修正：單張靜態大圖與加寬的間距 */
+        /* 單張大圖與濾鏡 */
         .hero-section { 
             background: linear-gradient(rgba(11, 25, 44, 0.75), rgba(11, 25, 44, 0.75)), url('cover0.png') center/cover no-repeat; 
             padding: 150px 0; 
         }
         .news-badge { background-color: var(--secondary-blue); color: #fff; font-weight: bold; font-size: 0.95rem; padding: 6px 12px; border-radius: 4px; }
-        .list-group-item { padding: 20px 25px; border-color: #f0f0f0; } /* 讓最新消息不擁擠 */
-        .card-custom { padding: 30px; margin-bottom: 25px; } /* 讓右側亮點卡片不擁擠 */
+        .list-group-item { padding: 20px 25px; border-color: #f0f0f0; transition: 0.3s; }
+        .list-group-item:hover { background-color: #f8f9fa; transform: translateX(5px); }
     </style>
 </head>
 <body>
@@ -26,35 +26,41 @@
             <span class="badge px-4 py-2 fs-6 mb-4" style="background-color: var(--secondary-blue);"><img src="https://flagcdn.com/w40/tw.png" width="24" alt="Taiwan"> 2026年10月02日 - 10月03日 | 台灣 北投會館</span>
             <h1 class="display-3 fw-bold mb-3 text-white">醫療救護與緊急應變國際研討會</h1>
             <p class="lead fw-bold fs-3 mt-4 text-light">大會主題：韌性與科技 (Resilience and Technology in EMS)</p>
-            <div class="mt-5"><a href="program-zh.html#registration" class="btn btn-register btn-lg shadow px-5">線上報名中心</a></div>
+            <div class="mt-5"><a href="program-zh.html#registration" class="btn btn-register btn-lg shadow px-5">線上報名</a></div>
         </div>
     </header>
 
     <div class="container py-5 mt-3">
-        <div class="row g-5">
-            <div class="col-lg-8">
-                <h2 class="section-title">最新消息 (Latest News)</h2>
-                <div class="list-group shadow-sm" id="news-container">
-                    </div>
+        <h2 class="section-title">最新消息 (Latest News)</h2>
+        <div class="list-group shadow-sm" id="news-container">
             </div>
+    </div>
 
-            <div class="col-lg-4">
-                <h2 class="section-title">大會亮點</h2>
-                <div class="card-custom">
-                    <h5 class="fw-bold mb-3" style="color: var(--primary-blue);">🌐 五國 EMS 戰略同盟</h5>
-                    <p class="text-muted mb-0" style="line-height: 1.8;">匯聚美國 <img src="https://flagcdn.com/w40/us.png" width="24" alt="USA">、澳洲 <img src="https://flagcdn.com/w40/au.png" width="24" alt="Australia">、沙烏地阿拉伯 <img src="https://flagcdn.com/w40/sa.png" width="24" alt="Saudi Arabia">、新加坡 <img src="https://flagcdn.com/w40/sg.png" width="24" alt="Singapore"> 與台灣 <img src="https://flagcdn.com/w40/tw.png" width="24" alt="Taiwan"> 頂尖學者。</p>
+    <section class="py-5 bg-light">
+        <div class="container py-4">
+            <h2 class="section-title">大會亮點 (Conference Highlights)</h2>
+            <div class="row g-4 mt-2">
+                <div class="col-md-4">
+                    <div class="card-custom">
+                        <h4 class="fw-bold mb-3" style="color: var(--primary-blue);">🌐 五國 EMS 戰略同盟</h4>
+                        <p class="text-muted mb-0" style="line-height: 1.8;">匯聚美國 <img src="https://flagcdn.com/w40/us.png" width="24" alt="USA">、澳洲 <img src="https://flagcdn.com/w40/au.png" width="24" alt="Australia">、沙烏地阿拉伯 <img src="https://flagcdn.com/w40/sa.png" width="24" alt="Saudi Arabia">、新加坡 <img src="https://flagcdn.com/w40/sg.png" width="24" alt="Singapore"> 與台灣 <img src="https://flagcdn.com/w40/tw.png" width="24" alt="Taiwan"> 頂尖學者。</p>
+                    </div>
                 </div>
-                <div class="card-custom">
-                    <h5 class="fw-bold mb-3" style="color: var(--primary-blue);">🤖 智慧 EMS 科技落地</h5>
-                    <p class="text-muted mb-0" style="line-height: 1.8;">聚焦智慧救護科技研發與實務落地，全面提升緊急醫療救護體系之韌性。</p>
+                <div class="col-md-4">
+                    <div class="card-custom">
+                        <h4 class="fw-bold mb-3" style="color: var(--primary-blue);">🤖 智慧 EMS 科技落地</h4>
+                        <p class="text-muted mb-0" style="line-height: 1.8;">聚焦智慧救護科技研發與實務落地，全面提升緊急醫療救護體系之韌性。</p>
+                    </div>
                 </div>
-                <div class="card-custom">
-                    <h5 class="fw-bold mb-3" style="color: var(--primary-blue);">🚑 臨床治理與大師課</h5>
-                    <p class="text-muted mb-0" style="line-height: 1.8;">邀請 Ambulance Victoria 醫務總監分享經驗，並舉辦 CRM 高階大師課程。</p>
+                <div class="col-md-4">
+                    <div class="card-custom">
+                        <h4 class="fw-bold mb-3" style="color: var(--primary-blue);">🚑 臨床治理與大師課</h4>
+                        <p class="text-muted mb-0" style="line-height: 1.8;">邀請 Ambulance Victoria 醫務總監分享經驗，並舉辦 CRM 高階大師課程。</p>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
+    </section>
 
     <div id="footer-placeholder"></div>
 
@@ -73,7 +79,7 @@
         newsData.forEach(item => {
             const href = item.link && item.link !== "#" ? `href="${item.link}"` : 'style="cursor: default;"';
             const html = `
-                <a ${href} class="list-group-item list-group-item-action d-flex align-items-center">
+                <a ${href} class="list-group-item list-group-item-action d-flex align-items-center text-decoration-none">
                     <span class="news-badge me-4">${item.date}</span>
                     <span class="fw-bold text-dark fs-6">${item.text}</span>
                 </a>

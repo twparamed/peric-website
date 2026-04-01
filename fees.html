@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registration Fees | PERIC 2026</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="style.css" rel="stylesheet">
+    <style>
+        .pricing-card { background: #fff; border: 1px solid #e0e0e0; border-radius: 12px; transition: 0.3s; box-shadow: 0 4px 15px rgba(0,0,0,0.05); overflow: hidden; height: 100%; }
+        .pricing-card:hover { transform: translateY(-5px); border-color: var(--secondary-blue); box-shadow: 0 10px 25px rgba(0,188,212,0.15); }
+        .pricing-header { background-color: var(--primary-blue); color: white; padding: 20px; text-align: center; }
+        .pricing-header.highlight { background-color: var(--secondary-blue); }
+        .early-bird-price { color: #d32f2f; font-weight: bold; font-size: 1.2rem; }
+        .old-price { text-decoration: line-through; color: #999; font-size: 1rem; }
+        .btn-register-card { background-color: var(--accent-green); color: #fff; padding: 12px 30px; font-weight: bold; border-radius: 5px; text-decoration: none; width: 100%; display: block; text-align: center; transition: 0.3s; }
+        .btn-register-card:hover { background-color: #1b5e20; color: #fff; }
+    </style>
+</head>
+<body>
+    <div id="navbar-placeholder"></div>
+
+    <div class="container py-5">
+        <div class="text-center mb-5">
+            <h2 class="fw-bold" style="color: var(--primary-blue);">Registration Fees</h2>
+            <p class="text-muted fs-5">Early Bird discount is valid until <strong class="text-danger">March 24, 2026</strong>. Don't miss out!</p>
+        </div>
+
+        <div class="row justify-content-center g-4">
+            <div class="col-lg-5">
+                <div class="pricing-card">
+                    <div class="pricing-header">
+                        <h4 class="mb-0 fw-bold">1-Day Pass</h4>
+                        <p class="mb-0 small text-light">Choose either Oct 02 or Oct 03</p>
+                    </div>
+                    <div class="p-4 d-flex flex-column h-100">
+                        <div class="mb-4 pb-3 border-bottom">
+                            <span class="badge bg-success mb-2">TSP Member</span>
+                            <div class="d-flex justify-content-between align-items-end">
+                                <div>
+                                    <span class="early-bird-price">Early Bird: NT$ 1,000</span><br>
+                                    <span class="old-price">Regular: NT$ 1,250</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="mb-4">
+                            <span class="badge bg-secondary mb-2">Non-Member / International</span>
+                            <div class="d-flex justify-content-between align-items-end">
+                                <div>
+                                    <span class="early-bird-price">Early Bird: NT$ 1,400</span><br>
+                                    <span class="old-price">Regular: NT$ 1,750</span>
+                                </div>
+                            </div>
+                        </div>
+                        <ul class="list-unstyled text-muted small mb-4 flex-grow-1">
+                            <li class="mb-2">✔️ Single day forum access</li>
+                            <li class="mb-2">✔️ Conference kit & souvenirs</li>
+                            <li class="mb-2">✔️ Single day lunch & coffee breaks</li>
+                            <li class="mb-2">❌ Excludes Gala Dinner (Oct 02)</li>
+                        </ul>
+                        <a href="program.html#registration" class="btn-register-card mt-auto">Select this plan</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-5">
+                <div class="pricing-card" style="transform: scale(1.05); border-color: var(--secondary-blue); z-index: 10;">
+                    <div class="pricing-header highlight">
+                        <h4 class="mb-0 fw-bold">2-Day Full Pass</h4>
+                        <p class="mb-0 small text-dark fw-bold">Highly Recommended!</p>
+                    </div>
+                    <div class="p-4 d-flex flex-column h-100">
+                        <div class="mb-4 pb-3 border-bottom">
+                            <span class="badge bg-success mb-2">TSP Member</span>
+                            <div class="d-flex justify-content-between align-items-end">
+                                <div>
+                                    <span class="early-bird-price">Early Bird: NT$ 2,400</span><br>
+                                    <span class="old-price">Regular: NT$ 3,000</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="mb-4">
+                            <span class="badge bg-secondary mb-2">Non-Member / International</span>
+                            <div class="d-flex justify-content-between align-items-end">
+                                <div>
+                                    <span class="early-bird-price">Early Bird: NT$ 2,800</span><br>
+                                    <span class="old-price">Regular: NT$ 3,500</span>
+                                </div>
+                            </div>
+                        </div>
+                        <ul class="list-unstyled text-muted small mb-4 flex-grow-1">
+                            <li class="mb-2"><strong class="text-dark">✔️ Full 2-day access to all keynotes & forums</strong></li>
+                            <li class="mb-2">✔️ Conference kit & souvenirs</li>
+                            <li class="mb-2">✔️ 2-day lunch & coffee breaks</li>
+                            <li class="mb-2">✔️ Priority waitlist for Gala Dinner</li>
+                        </ul>
+                        <a href="program.html#registration" class="btn-register-card mt-auto" style="background-color: var(--secondary-blue); color: #000;">Select this plan</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="mt-5 p-4 bg-white border rounded shadow-sm">
+            <h5 class="fw-bold text-danger mb-3">⚠️ Payment Information & Notes</h5>
+            <ol class="text-muted mb-0 small" style="line-height: 1.8;">
+                <li>The registration system is integrated with ECPay, supporting major credit cards securely.</li>
+                <li>The system will automatically verify your TSP membership status via your ID/Passport number and apply the corresponding discount.</li>
+                <li>Upon successful payment, a confirmation email and electronic receipt will be sent to your registered email address automatically.</li>
+            </ol>
+        </div>
+    </div>
+
+    <div id="footer-placeholder"></div>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+<script src="main.js"></script>
+</body>
+</html>
