@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>交通與住宿 | PERIC 2026</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="style.css?v=1.5" rel="stylesheet">
+    <style>
+        .venue-img { width: 100%; height: 300px; object-fit: cover; border-radius: 12px; box-shadow: 0 4px 15px rgba(0,0,0,0.1); }
+        .map-container { position: relative; padding-bottom: 75%; height: 0; overflow: hidden; border-radius: 12px; box-shadow: 0 4px 15px rgba(0,0,0,0.1); }
+        .map-container iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: 0; }
+        .nav-tabs .nav-link { color: #6c757d; font-weight: bold; border: none; border-bottom: 3px solid transparent; padding: 12px 20px; }
+        .nav-tabs .nav-link.active { color: var(--primary-blue); border-bottom-color: var(--primary-blue); background: transparent; }
+        .room-card { background: #fff; border: 1px solid #e0e0e0; border-radius: 12px; overflow: hidden; box-shadow: 0 4px 15px rgba(0,0,0,0.05); }
+        .room-img { width: 100%; height: 250px; object-fit: cover; }
+    </style>
+</head>
+<body>
+    <div id="navbar-placeholder"></div>
+
+    <header class="py-5" style="background-color: #f8f9fa;">
+        <div class="container text-center py-4">
+            <h1 class="fw-bold mb-3" style="color: var(--primary-blue);">交通與住宿 (Venue & Accommodation)</h1>
+            <p class="fs-5 text-muted">PERIC 2026 將於舒適便捷的「捷運北投會館」舉辦，期待您的蒞臨。</p>
+        </div>
+    </header>
+
+    <div class="container py-5">
+        <div class="row g-5 mb-5 align-items-center">
+            <div class="col-lg-6">
+                <span class="badge bg-primary mb-3 px-3 py-2 fs-6">大會主會場 Main Venue</span>
+                <h3 class="fw-bold mb-3">捷運北投會館 (2樓訓練教室)</h3>
+                <p class="text-muted fs-5 mb-4"><i class="text-danger">📍</i> 台北市北投區大業路527巷88號</p>
+                
+                <p style="line-height: 1.8;">北投會館擁有完善的國際級會議設施，緊鄰捷運站，並提供學員專屬的優質住宿與休閒環境，是舉辦大型醫學研討會的絕佳場地。</p>
+                
+                <a href="https://btresort.metro.taipei/" target="_blank" rel="noopener noreferrer" class="btn btn-outline-primary mt-3 fw-bold px-4 py-2">前往會場官方網站</a>
+            </div>
+            <div class="col-lg-6">
+                <div class="map-container">
+                    <iframe src="https://maps.google.com/maps?q=捷運北投會館&t=&z=15&ie=UTF8&iwloc=&output=embed" allowfullscreen></iframe>
+                </div>
+            </div>
+        </div>
+
+        <hr class="my-5 opacity-25">
+
+        <h3 class="fw-bold mb-4" style="color: var(--primary-blue);">交通指南 (Transportation)</h3>
+        <ul class="nav nav-tabs mb-4" id="transportTabs" role="tablist">
+            <li class="nav-item" role="presentation">
+                <button class="nav-link active fs-5" id="mrt-tab" data-bs-toggle="tab" data-bs-target="#mrt" type="button" role="tab">🚇 搭乘捷運 (建議)</button>
+            </li>
+            <li class="nav-item" role="presentation">
+                <button class="nav-link fs-5" id="drive-tab" data-bs-toggle="tab" data-bs-target="#drive" type="button" role="tab">🚗 自行開車與停車</button>
+            </li>
+        </ul>
+        <div class="tab-content" id="transportTabsContent">
+            <div class="tab-pane fade show active p-3" id="mrt" role="tabpanel">
+                <div class="row g-4 align-items-center">
+                    <div class="col-md-7">
+                        <h5 class="fw-bold text-dark">搭乘【捷運淡水信義線】(紅線)</h5>
+                        <p style="line-height: 1.8;">請於 <strong>復興崗站</strong> 下車後，由捷運站 2 樓 <strong>2 號出口「北投機廠」</strong>出站。<br>經過天橋後，依循指標步行即可抵達「北投會館」。</p>
+                    </div>
+                    <div class="col-md-5">
+                        <img src="https://www-ws.gov.taipei/001/Upload/619/relpic/23896/21148/35a4afc1-e91c-4262-9b74-2a6268fd8b39.jpg" alt="捷運路線指引" class="img-fluid rounded border shadow-sm">
+                    </div>
+                </div>
+            </div>
+            <div class="tab-pane fade p-3" id="drive" role="tabpanel">
+                <div class="row g-4">
+                    <div class="col-md-6">
+                        <h5 class="fw-bold text-dark mb-3">開車路線建議</h5>
+                        <ul class="text-muted" style="line-height: 1.8;">
+                            <li><strong>由臺北方向：</strong>承德路7段 → 右轉大業路 → 左轉527巷後直行。</li>
+                            <li><strong>由北投方向：</strong><br>(1) 北投路 → 過大業路口後直行大業路527巷。<br>(2) 中央北路1段 → 左轉大業路 → 右轉527巷後直行。</li>
+                            <li><strong>由淡水方向：</strong><br>(1) 大度路2段 → 左轉立德路 → 接大業路527巷直行至88號路口迴轉。<br>(2) 中央北路3段 → 右轉大業路 → 右轉527巷直行。</li>
+                        </ul>
+                    </div>
+                    <div class="col-md-6 border-start ps-md-4">
+                        <h5 class="fw-bold text-dark mb-3">🅿️ 停車資訊</h5>
+                        <ul class="text-muted" style="line-height: 1.8;">
+                            <li>會館採<strong>車牌辨識</strong>入場。離場可使用自動繳費機(現金/悠遊卡) 或直接於閘門感應悠遊卡。</li>
+                            <li><strong>汽車 / 紅黃牌重機：</strong>每次 40 元 (以次計費，隔日另計)。夜間 (00:00-05:00) 另加收每小時 20 元。</li>
+                            <li><strong>一般機車：</strong>暫不收費。</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <hr class="my-5 opacity-25">
+
+        <h3 class="fw-bold mb-4" style="color: var(--primary-blue);">大會專屬住宿 (Accommodation)</h3>
+        <div class="room-card mb-4">
+            <div class="row g-0">
+                <div class="col-md-5">
+                    <img src="https://www-ws.gov.taipei/001/Upload/619/relpic/23896/126001/26a24401-0537-4014-ac89-c8dfd694f6bd.jpg" alt="北投會館房型" class="room-img">
+                </div>
+                <div class="col-md-7">
+                    <div class="card-body p-4 p-md-5 d-flex flex-column h-100">
+                        <h4 class="fw-bold mb-3">北投會館 專屬房型優惠</h4>
+                        <p class="text-muted mb-4">大會特別為外縣市及國際學員爭取到北投會館內部住宿的特惠價格，讓您免去舟車勞頓，專心參與研討會。</p>
+                        
+                        <div class="row mb-4">
+                            <div class="col-6">
+                                <h6 class="fw-bold">標準 2 人房</h6>
+                                <p class="mb-1 text-muted">平日每晚：<strong class="text-danger">NT$ 1,680</strong></p>
+                                <p class="mb-0 text-muted">假日每晚：<strong>NT$ 2,280</strong></p>
+                            </div>
+                            <div class="col-6">
+                                <h6 class="fw-bold">標準 4 人房</h6>
+                                <p class="mb-1 text-muted">平日每晚：<strong class="text-danger">NT$ 2,180</strong></p>
+                                <p class="mb-0 text-muted">假日每晚：<strong>NT$ 2,780</strong></p>
+                            </div>
+                        </div>
+
+                        <div class="alert alert-warning border-0 mt-auto mb-0">
+                            <strong>📌 訂房方式：</strong><br>
+                            請於「大會線上報名表單」中勾選您的住宿需求，或直接 Email 聯繫大會秘書組：<a href="mailto:admin@twparamedicine.org">admin@twparamedicine.org</a>。<br>
+                            大會將協助統一訂房，後續繳費方式將另行通知。<br>
+                            <span class="text-danger fw-bold">⚠️ 提醒：房間數量有限，採「先登記者先保留」制，額滿即止，無法保證隨時有空房。</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <div id="footer-placeholder"></div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="main.js?v=1.5"></script>
+</body>
+</html>
