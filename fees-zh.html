@@ -2,18 +2,20 @@
 <html lang="zh-TW">
 <head>
     <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>報名費用 | PERIC 2026</title>
+    <title>報名費用與住宿優惠 | PERIC 2026</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link href="style.css?v=1.0" rel="stylesheet">
+    <link href="style.css?v=1.2" rel="stylesheet">
     <style>
         .pricing-card { background: #fff; border: 1px solid #e0e0e0; border-radius: 12px; transition: 0.3s; box-shadow: 0 4px 15px rgba(0,0,0,0.05); overflow: hidden; height: 100%; }
         .pricing-card:hover { transform: translateY(-5px); border-color: var(--secondary-blue); box-shadow: 0 10px 25px rgba(0,188,212,0.15); }
         .pricing-header { background-color: var(--primary-blue); color: white; padding: 20px; text-align: center; }
         .pricing-header.highlight { background-color: var(--secondary-blue); }
-        .early-bird-price { color: #d32f2f; font-weight: bold; font-size: 1.2rem; }
-        .old-price { text-decoration: line-through; color: #999; font-size: 1rem; }
+        .pricing-header.vip { background: linear-gradient(135deg, #FFD700 0%, #F5A623 100%); color: #000; }
+        .early-bird-price { color: #d32f2f; font-weight: bold; font-size: 1.25rem; }
+        .old-price { text-decoration: line-through; color: #999; font-size: 0.9rem; margin-left: 5px; }
         .btn-register-card { background-color: var(--accent-green); color: #fff; padding: 12px 30px; font-weight: bold; border-radius: 5px; text-decoration: none; width: 100%; display: block; text-align: center; transition: 0.3s; }
         .btn-register-card:hover { background-color: #1b5e20; color: #fff; }
+        .accommodation-box { background-color: #e3f2fd; border-radius: 12px; border: 1px solid #90caf9; }
     </style>
 </head>
 <body>
@@ -21,96 +23,104 @@
 
     <div class="container py-5">
         <div class="text-center mb-5">
-            <h2 class="fw-bold" style="color: var(--primary-blue);">大會報名費用</h2>
-            <p class="text-muted fs-5">早鳥優惠至 <strong class="text-danger">2026年03月24日</strong> 截止，敬請把握機會。</p>
+            <h2 class="fw-bold section-title" style="color: var(--primary-blue);">大會報名費用 (Registration)</h2>
+            <p class="text-muted fs-5">早鳥 8 折優惠 (Early Bird) 實施中，截止日期為 <strong class="text-danger">2026年07月31日</strong></p>
         </div>
 
-        <div class="row justify-content-center g-4">
-            <div class="col-lg-5">
+        <div class="row justify-content-center g-4 mb-5">
+            <div class="col-lg-4">
                 <div class="pricing-card">
                     <div class="pricing-header">
-                        <h4 class="mb-0 fw-bold">一日參加</h4>
-                        <p class="mb-0 small text-light">任選 10/02 或 10/03 單日議程</p>
+                        <h4 class="mb-0 fw-bold">一日票 (1-Day Pass)</h4>
+                        <p class="mb-0 small text-light">任選 10/02 或 10/03 單日</p>
                     </div>
                     <div class="p-4 d-flex flex-column h-100">
                         <div class="mb-4 pb-3 border-bottom">
                             <span class="badge bg-success mb-2">TSP 學會會員</span>
-                            <div class="d-flex justify-content-between align-items-end">
-                                <div>
-                                    <span class="early-bird-price">早鳥 8 折：NT$ 1,000</span><br>
-                                    <span class="old-price">原價：NT$ 1,250</span>
-                                </div>
-                            </div>
+                            <div><span class="early-bird-price">早鳥 NT$ 1,200</span><span class="old-price">原價 1,500</span></div>
                         </div>
                         <div class="mb-4">
-                            <span class="badge bg-secondary mb-2">非會員 (一般民眾/外賓)</span>
-                            <div class="d-flex justify-content-between align-items-end">
-                                <div>
-                                    <span class="early-bird-price">早鳥 8 折：NT$ 1,400</span><br>
-                                    <span class="old-price">原價：NT$ 1,750</span>
-                                </div>
-                            </div>
+                            <span class="badge bg-secondary mb-2">非會員 / 外賓</span>
+                            <div><span class="early-bird-price">早鳥 NT$ 1,600</span><span class="old-price">原價 2,000</span></div>
                         </div>
-                        <ul class="list-unstyled text-muted small mb-4 flex-grow-1">
-                            <li class="mb-2">✔️ 單日論壇入場資格</li>
-                            <li class="mb-2">✔️ 大會精美手冊與紀念品</li>
-                            <li class="mb-2">✔️ 單日午餐與茶點</li>
-                            <li class="mb-2">❌ 不含 10/02 大會晚宴</li>
+                        <ul class="list-unstyled text-muted small mb-4 flex-grow-1" style="line-height: 1.8;">
+                            <li>✔️ 僅參加會議內容</li>
+                            <li>✔️ 提供單日午餐與茶點</li>
+                            <li>❌ 不含紀念品、晚宴、EMS咖啡館</li>
                         </ul>
                         <a href="program-zh.html#registration" class="btn-register-card mt-auto">選擇此方案</a>
                     </div>
                 </div>
             </div>
 
-            <div class="col-lg-5">
-                <div class="pricing-card" style="transform: scale(1.05); border-color: var(--secondary-blue); z-index: 10;">
+            <div class="col-lg-4">
+                <div class="pricing-card" style="border-color: var(--secondary-blue); box-shadow: 0 4px 20px rgba(0,188,212,0.1);">
                     <div class="pricing-header highlight">
-                        <h4 class="mb-0 fw-bold">二日基本套票</h4>
-                        <p class="mb-0 small text-dark fw-bold">最推薦！完整參與國際盛會</p>
+                        <h4 class="mb-0 fw-bold">二日一般套票</h4>
+                        <p class="mb-0 small text-dark fw-bold">標準全程參與方案</p>
                     </div>
                     <div class="p-4 d-flex flex-column h-100">
                         <div class="mb-4 pb-3 border-bottom">
                             <span class="badge bg-success mb-2">TSP 學會會員</span>
-                            <div class="d-flex justify-content-between align-items-end">
-                                <div>
-                                    <span class="early-bird-price">早鳥 8 折：NT$ 2,400</span><br>
-                                    <span class="old-price">原價：NT$ 3,000</span>
-                                </div>
-                            </div>
+                            <div><span class="early-bird-price">早鳥 NT$ 2,000</span><span class="old-price">原價 2,500</span></div>
                         </div>
                         <div class="mb-4">
-                            <span class="badge bg-secondary mb-2">非會員 (一般民眾/外賓)</span>
-                            <div class="d-flex justify-content-between align-items-end">
-                                <div>
-                                    <span class="early-bird-price">早鳥 8 折：NT$ 2,800</span><br>
-                                    <span class="old-price">原價：NT$ 3,500</span>
-                                </div>
-                            </div>
+                            <span class="badge bg-secondary mb-2">非會員 / 外賓</span>
+                            <div><span class="early-bird-price">早鳥 NT$ 2,800</span><span class="old-price">原價 3,500</span></div>
                         </div>
-                        <ul class="list-unstyled text-muted small mb-4 flex-grow-1">
-                            <li class="mb-2"><strong class="text-dark">✔️ 完整兩日所有 Keynote 與論壇入場</strong></li>
-                            <li class="mb-2">✔️ 大會精美手冊與紀念品</li>
-                            <li class="mb-2">✔️ 兩日午餐與茶點</li>
-                            <li class="mb-2">✔️ 大會晚宴優先候補權</li>
+                        <ul class="list-unstyled text-muted small mb-4 flex-grow-1" style="line-height: 1.8;">
+                            <li>✔️ 完整參與兩日國際論壇</li>
+                            <li>✔️ 提供兩日午餐與茶點</li>
+                            <li>❌ 不含紀念品、晚宴、EMS咖啡館</li>
                         </ul>
                         <a href="program-zh.html#registration" class="btn-register-card mt-auto" style="background-color: var(--secondary-blue); color: #000;">選擇此方案</a>
                     </div>
                 </div>
             </div>
+
+            <div class="col-lg-4">
+                <div class="pricing-card" style="border-color: #F5A623;">
+                    <div class="pricing-header vip">
+                        <h4 class="mb-0 fw-bold">二日 VIP 套票</h4>
+                        <p class="mb-0 small fw-bold">尊榮禮遇與深度交流</p>
+                    </div>
+                    <div class="p-4 d-flex flex-column h-100">
+                        <div class="mb-4 pb-3 border-bottom">
+                            <span class="badge bg-success mb-2">TSP 學會會員</span>
+                            <div><span class="early-bird-price">早鳥 NT$ 2,800</span><span class="old-price">原價 3,500</span></div>
+                        </div>
+                        <div class="mb-4">
+                            <span class="badge bg-secondary mb-2">非會員 / 外賓</span>
+                            <div><span class="early-bird-price">早鳥 NT$ 3,600</span><span class="old-price">原價 4,500</span></div>
+                        </div>
+                        <ul class="list-unstyled text-muted small mb-4 flex-grow-1" style="line-height: 1.8;">
+                            <li><strong class="text-dark">✔️ 完整兩日會議入場</strong></li>
+                            <li><strong class="text-dark">✔️ PERIC 2026 專屬大會紀念品</strong></li>
+                            <li><strong class="text-dark">✔️ 10/02 大會晚宴 (Gala Dinner)</strong></li>
+                            <li><strong class="text-dark">✔️ 10/03 世界EMS咖啡館 (與講者交流)</strong></li>
+                            <li>✔️ 提供兩日午餐與茶點</li>
+                        </ul>
+                        <a href="program-zh.html#registration" class="btn-register-card mt-auto" style="background-color: #333; color: #fff;">選擇此方案</a>
+                    </div>
+                </div>
+            </div>
         </div>
-        
-        <div class="mt-5 p-4 bg-white border rounded shadow-sm">
-            <h5 class="fw-bold text-danger mb-3">⚠️ 繳費注意事項</h5>
-            <ol class="text-muted mb-0 small" style="line-height: 1.8;">
-                <li>本大會報名系統已串接綠界科技 (ECPay) 安全金流，支援各家信用卡線上刷卡。</li>
-                <li>系統將自動透過您的身分證字號/護照號碼，即時連線 TSP 學會資料庫驗證您的會員資格，並自動帶入優惠票價。</li>
-                <li>繳費完成後，系統將自動寄發「報名成功確認信與電子收據」至您的 Email 信箱，請妥善留存。</li>
-            </ol>
+
+        <div class="accommodation-box p-4 mb-5 shadow-sm">
+            <div class="row align-items-center">
+                <div class="col-md-8">
+                    <h4 class="fw-bold mb-2" style="color: var(--primary-blue);">🏨 大會專屬住宿優惠 (Accommodation)</h4>
+                    <p class="text-muted mb-0">PERIC 2026 與會人員入住 捷運北投會館 (Beitou Resort) 可享專屬特惠房價。房間數量有限，建議儘早訂購。</p>
+                </div>
+                <div class="col-md-4 text-md-end mt-3 mt-md-0">
+                    <a href="about-zh.html#venue" class="btn btn-outline-primary px-4 fw-bold">查看訂房詳細流程</a>
+                </div>
+            </div>
         </div>
     </div>
 
     <div id="footer-placeholder"></div>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-<script src="main.js?v=1.0"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="main.js?v=1.2"></script>
 </body>
 </html>
