@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Online Registration | PERIC 2026</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="style.css?v=1.7" rel="stylesheet">
+</head>
+<body class="bg-light">
+    <div id="navbar-placeholder"></div>
+
+    <div class="container py-5">
+        <div class="row justify-content-center">
+            <div class="col-lg-8 bg-white p-5 rounded shadow-sm">
+                <h2 class="fw-bold mb-4 text-center" style="color: var(--primary-blue);">PERIC 2026 Registration</h2>
+                
+                <form id="regForm">
+                    <div class="p-4 rounded mb-4" style="background-color: #f0f7ff; border: 1px solid #cce5ff;">
+                        <label class="form-label fw-bold">TSP Member Verification</label>
+                        <div class="input-group">
+                            <input type="text" id="verifyID" class="form-control" placeholder="Enter ID Number">
+                            <button type="button" class="btn btn-primary" onclick="checkMember()">Verify</button>
+                        </div>
+                        <div id="verifyMsg" class="mt-2 small"></div>
+                        <input type="hidden" id="isMember" value="false">
+                    </div>
+
+                    <div class="row g-3">
+                        <div class="col-md-6"><label class="form-label fw-bold">Full Name</label><input type="text" name="name" class="form-control" required></div>
+                        <div class="col-md-6"><label class="form-label fw-bold">Email Address</label><input type="email" name="email" class="form-control" required></div>
+                        <div class="col-md-6"><label class="form-label fw-bold">Phone Number</label><input type="tel" name="phone" class="form-control" placeholder="e.g., 0912345678" required></div>
+                        <div class="col-md-6"><label class="form-label fw-bold">Organization / Affiliation</label><input type="text" name="org" class="form-control" required></div>
+                        
+                        <div class="col-md-6">
+                            <label class="form-label fw-bold">Professional Role</label>
+                            <select name="role" class="form-select" required>
+                                <option value="">Please select...</option>
+                                <option value="Paramedic">Paramedic</option>
+                                <option value="EMT">EMT</option>
+                                <option value="Physician">Physician</option>
+                                <option value="Nurse">Nurse</option>
+                                <option value="Other">Other</option>
+                            </select>
+                        </div>
+                        <div class="col-md-6">
+                            <label class="form-label fw-bold">Dietary Requirements</label>
+                            <select name="diet" class="form-select" required>
+                                <option value="">Please select...</option>
+                                <option value="Regular">Regular (Meat)</option>
+                                <option value="Vegetarian">Vegetarian</option>
+                                <option value="Vegan">Vegan</option>
+                                <option value="No Meal">No Meal Required</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="mt-4">
+                        <label class="form-label fw-bold">Receipt Information (Optional)</label>
+                        <div class="row g-3">
+                            <div class="col-md-6"><input type="text" name="invoiceTitle" class="form-control" placeholder="Company/Institution Name"></div>
+                            <div class="col-md-6"><input type="text" name="taxId" class="form-control" placeholder="Tax ID / VAT Number"></div>
+                        </div>
+                    </div>
+
+                    <div class="mt-4">
+                        <label class="form-label fw-bold">Select Ticket Type</label>
+                        <select name="ticketType" id="ticketType" class="form-select" onchange="calculatePrice(); toggleSingleDay();" required>
+                            <option value="">Please select...</option>
+                            <option value="1day">1-Day Pass</option>
+                            <option value="2dayGen">2-Day General Pass</option>
+                            <option value="2dayVIP">2-Day VIP Pass</option>
+                        </select>
+                    </div>
+
+                    <div id="singleDaySection" class="mt-3 p-3 border rounded" style="display:none; background-color: #fff3cd; border-color: #ffeeba;">
+                        <label class="form-label fw-bold text-dark">📌 Select attendance date</label>
+                        <select name="attendDay" id="attendDay" class="form-select">
+                            <option value="">Please select...</option>
+                            <option value="10/02">October 02 (Day 1)</option>
+                            <option value="10/03">October 03 (Day 2)</option>
+                        </select>
+                    </div>
+
+                    <div class="mt-4">
+                        <div class="form-check form-switch">
+                            <input class="form-check-input" type="checkbox" id="needRoom" name="needRoom" value="Yes" onchange="toggleRoom()">
+                            <label class="form-check-label fw-bold">I need official accommodation at Beitou Resort</label>
+                        </div>
+                        <div id="roomSection" class="mt-3 p-3 border rounded bg-light" style="display:none;">
+                            <label class="form-label">Room Type</label>
+                            <select name="roomType" class="form-select">
+                                <option value="2person">Standard Double Room</option>
+                                <option value="4person">Standard Quad Room</option>
+                            </select>
+                            <p class="small text-danger mt-2">※ Accommodation fees will be billed separately later.</p>
+                        </div>
+                    </div>
+
+                    <div class="mt-5 p-4 rounded text-center" style="background-color: var(--primary-blue); color: white;">
+                        <h4 class="mb-1">Total Amount (Excl. Accommodation)</h4>
+                        <div class="display-5 fw-bold">NT$ <span id="displayTotal">0</span></div>
+                        <input type="hidden" id="finalAmount" name="amount" value="0">
+                    </div>
+
+                    <button type="submit" class="btn btn-success btn-lg w-100 mt-4 shadow" id="submitBtn">Submit Registration</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <div id="footer-placeholder"></div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="main.js?v=1.7"></script>
+    
+    <script>
+        const GAS_URL = "https://script.google.com/macros/s/AKfycbypEWQfTKYUP9oBQmow7_Lnr0tG5WLAnSBxMznhgcpct8fw7hr371d4Zn4dEK6sLozNNg/exec"; // 將在下一步提供給您
+
+        const prices = {
+            member: { "1day": 1500, "2dayGen": 2500, "2dayVIP": 3500 },
+            nonMember: { "1day": 2000, "2dayGen": 3500, "2dayVIP": 4500 }
+        };
+
+        function checkMember() {
+            const id = document.getElementById('verifyID').value;
+            const msg = document.getElementById('verifyMsg');
+            if(!id) return alert("Please enter ID Number");
+            msg.innerHTML = "Verifying...";
+            fetch(`${GAS_URL}?action=verify&id=${id}`)
+                .then(res => res.json())
+                .then(data => {
+                    if(data.success) {
+                        msg.innerHTML = `<span class="text-success fw-bold">✅ Verified! Welcome, ${data.name}</span>`;
+                        document.getElementById('isMember').value = "true";
+                    } else {
+                        msg.innerHTML = `<span class="text-danger">❌ ID not found. Standard rates apply.</span>`;
+                        document.getElementById('isMember').value = "false";
+                    }
+                    calculatePrice();
+                }).catch(e => {
+                    msg.innerHTML = `<span class="text-danger">Network error. Please try again.</span>`;
+                });
+        }
+
+        function calculatePrice() {
+            const isMember = document.getElementById('isMember').value === "true";
+            const ticket = document.getElementById('ticketType').value;
+            if(!ticket) { document.getElementById('displayTotal').innerText = "0"; return; }
+            let price = isMember ? prices.member[ticket] : prices.nonMember[ticket];
+            if(new Date() <= new Date("2026-07-31T23:59:59")) { price = Math.round(price * 0.8); }
+            document.getElementById('displayTotal').innerText = price.toLocaleString();
+            document.getElementById('finalAmount').value = price;
+        }
+
+        function toggleSingleDay() {
+            const ticket = document.getElementById('ticketType').value;
+            const daySection = document.getElementById('singleDaySection');
+            const dayInput = document.getElementById('attendDay');
+            if (ticket === '1day') {
+                daySection.style.display = 'block'; dayInput.required = true;
+            } else {
+                daySection.style.display = 'none'; dayInput.required = false; dayInput.value = "";
+            }
+        }
+
+        function toggleRoom() {
+            document.getElementById('roomSection').style.display = document.getElementById('needRoom').checked ? 'block' : 'none';
+        }
+
+        document.getElementById('regForm').onsubmit = function(e) {
+    e.preventDefault();
+    const amount = document.getElementById('finalAmount').value;
+    if (amount <= 0) { alert("Please select a valid ticket."); return; }
+
+    const btn = document.getElementById('submitBtn');
+    btn.disabled = true; btn.innerText = "Processing Your Registration...";
+    
+    const formData = new FormData(this);
+    const data = Object.fromEntries(formData.entries());
+    data.action = "register_onsite"; // ⭐️ 關鍵：告訴 GAS 這是海外現場繳費流程
+    data.isMember = document.getElementById('isMember').value;
+    data.language = "en"; // 標記為英文版，方便寄送英文信件
+
+    fetch(GAS_URL, {
+        method: "POST",
+        body: JSON.stringify(data)
+    })
+    .then(res => res.json())
+    .then(res => {
+        if(res.success) {
+            alert("Registration Successful! A confirmation email has been sent to you. Please pay the registration fee on-site.");
+            window.location.reload(); // 報名成功後重整頁面
+        } else {
+            alert("Registration Error: " + (res.message || "Please contact admin."));
+            btn.disabled = false; btn.innerText = "Submit Registration";
+        }
+    }).catch(err => {
+        alert("Network Error. Please try again.");
+        btn.disabled = false; btn.innerText = "Submit Registration";
+    });
+};
+    </script>
+</body>
+</html>
