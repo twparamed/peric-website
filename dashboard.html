@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <title>大會報名控制台 | PERIC 2026</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body { background-color: #f4f6f9; }
+        .stat-card { background: white; border-radius: 10px; padding: 20px; box-shadow: 0 2px 10px rgba(0,0,0,0.05); text-align: center; }
+        .stat-val { font-size: 2rem; font-weight: bold; color: var(--bs-primary); }
+    </style>
+</head>
+<body>
+    <div class="container py-5">
+        <h2 class="fw-bold mb-4">PERIC 2026 報名狀態儀表板</h2>
+        <div class="row g-4 mb-5">
+            <div class="col-md-3">
+                <div class="stat-card"><div class="text-muted">總報名人數</div><div class="stat-val" id="totalCount">-</div></div>
+            </div>
+            <div class="col-md-3">
+                <div class="stat-card"><div class="text-muted">已繳費人數</div><div class="stat-val text-success" id="paidCount">-</div></div>
+            </div>
+            <div class="col-md-3">
+                <div class="stat-card"><div class="text-muted">現場繳費 (外賓)</div><div class="stat-val text-warning" id="onsiteCount">-</div></div>
+            </div>
+            <div class="col-md-3">
+                <div class="stat-card"><div class="text-muted">目前總收入</div><div class="stat-val text-danger" id="totalRev">-</div></div>
+            </div>
+        </div>
+
+        <div class="bg-white p-4 rounded shadow-sm">
+            <h5 class="fw-bold mb-3">最新報名清單</h5>
+            <table class="table table-hover">
+                <thead class="table-light">
+                    <tr>
+                        <th>訂單編號</th><th>姓名</th><th>身分</th><th>票種</th><th>金額</th><th>狀態</th>
+                    </tr>
+                </thead>
+                <tbody id="listBody">
+                    <tr><td colspan="6" class="text-center text-muted">資料載入中...</td></tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <script>
+        const GAS_URL = "您的_GAS_網頁應用程式網址"; // 填入部署網址
+        
+        fetch(`${GAS_URL}?action=dashboard`)
+            .then(res => res.json())
+            .then(data => {
+                if(data.success) {
+                    document.getElementById('totalCount').innerText = data.stats.total;
+                    document.getElementById('paidCount').innerText = data.stats.paid;
+                    document.getElementById('onsiteCount').innerText = data.stats.onsite;
+                    document.getElementById('totalRev').innerText = "NT$ " + data.stats.revenue.toLocaleString();
+                    
+                    const tbody = document.getElementById('listBody');
+                    tbody.innerHTML = "";
+                    // 倒序顯示最新報名
+                    data.data.reverse().forEach(row => {
+                        let statusBadge = row[5] === "已繳費" ? "bg-success" : (row[5] === "現場繳費" ? "bg-warning text-dark" : "bg-secondary");
+                        tbody.innerHTML += `
+                            <tr>
+                                <td>${row[0]}</td><td>${row[1]}</td><td>${row[2]}</td>
+                                <td>${row[3]}</td><td>NT$ ${row[4]}</td>
+                                <td><span class="badge ${statusBadge}">${row[5]}</span></td>
+                            </tr>
+                        `;
+                    });
+                }
+            });
+    </script>
+</body>
+</html>
