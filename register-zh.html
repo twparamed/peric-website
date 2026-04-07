@@ -185,40 +185,27 @@
             data.action = "register";
             data.isMember = document.getElementById('isMember').value;
 
-// 尋找類似這樣的程式碼區塊並修改
 fetch(GAS_URL, {
     method: "POST",
     redirect: "follow",
-    headers: {
-        "Content-Type": "text/plain;charset=utf-8"
-    },
+    headers: { "Content-Type": "text/plain;charset=utf-8" },
     body: JSON.stringify(data)
 })
 .then(response => response.json())
 .then(result => {
-    if (result.success && result.ecpayData) {
-        console.log("成功取得綠界表單，準備跳轉！");
-        // 🚀 終極跳轉法：在背景建立一個隱藏的 div，把表單塞進去並強制送出
-        const tempDiv = document.createElement('div');
-        tempDiv.innerHTML = result.ecpayData;
-        document.body.appendChild(tempDiv);
-        
-        // 確保抓到表單並送出
-        const ecpayForm = document.getElementById("ecpay-form");
-        if (ecpayForm) {
-            ecpayForm.submit();
-        } else {
-            alert("找不到綠界表單，請聯絡秘書處！");
-        }
+    if (result.success) {
+        alert("✅ 報名資料已成功送出！\n\n系統已將【專屬繳費連結】寄至您的電子信箱。\n請前往信箱收信並完成繳費手續。");
+        window.location.reload(); // 報名成功後重整頁面
     } else {
         alert("報名失敗：" + (result.message || "未知錯誤"));
     }
 })
 .catch(error => {
-    // 這裡會把真實的錯誤原因印在 F12，不會只有不明不白的連線異常
-    console.error("【跳轉失敗的真正原因】:", error); 
-    alert("跳轉綠界時發生錯誤，請按 F12 查看主控台紅字！");
-});        };
+    console.error("【錯誤訊息】:", error); 
+    // 即使有 CORS 報錯，只要資料有進試算表，我們就可以當作成功
+    alert("您的資料我們可能已經收到！請檢查信箱是否收到繳費信件。若無，請聯絡秘書處。");
+});
+       };
     </script>
 </body>
 </html>
