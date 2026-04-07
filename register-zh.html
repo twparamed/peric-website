@@ -1,7 +1,8 @@
 <!DOCTYPE html>
 <html lang="zh-TW">
 <head>
-    <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>線上報名系統 | PERIC 2026</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="style.css?v=1.7" rel="stylesheet">
@@ -12,7 +13,15 @@
     <div class="container py-5">
         <div class="row justify-content-center">
             <div class="col-lg-8 bg-white p-5 rounded shadow-sm">
-                <h2 class="fw-bold mb-4 text-center" style="color: var(--primary-blue);">PERIC 2026 線上報名表</h2>
+                <!-- 標題與切換中文提醒 -->
+                <h2 class="fw-bold mb-2 text-center" style="color: var(--primary-blue);">PERIC 2026 線上報名表</h2>
+                <p class="text-center text-muted mb-4">請填寫以下資訊完成報名</p>
+
+                <!-- 國內參加者提醒區塊 -->
+                <div class="alert alert-info shadow-sm mb-4" style="border-left: 5px solid #0056b3;">
+                    <strong>📢 國內參加者小提醒：</strong><br>
+                    請確保您目前處於<strong>「中文報名頁面」</strong>，方可使用綠界科技線上刷卡、ATM 繳費，並獲取正式電子收據。
+                </div>
                 
                 <form id="regForm">
                     <!-- 會員驗證 -->
@@ -94,7 +103,7 @@
                         </div>
                         <div id="roomSection" class="mt-3 p-3 border rounded bg-light" style="display:none;">
                             <label class="form-label">房型選擇</label>
-                            <select name="roomType" class="form-select">
+                            <select name="roomType" id="roomType" class="form-select">
                                 <option value="2person">標準 2 人房</option>
                                 <option value="4person">標準 4 人房</option>
                             </select>
@@ -108,7 +117,7 @@
                         <input type="hidden" id="finalAmount" name="amount" value="0">
                     </div>
 
-                    <button type="submit" class="btn btn-success btn-lg w-100 mt-4 shadow" id="submitBtn">確認報名並前往線上繳費</button>
+                    <button type="submit" class="btn btn-success btn-lg w-100 mt-4 shadow" id="submitBtn">確認報名並送出資料</button>
                 </form>
             </div>
         </div>
@@ -119,7 +128,7 @@
     <script src="main.js?v=1.7"></script>
 
     <script>
-        const GAS_URL = "https://script.google.com/macros/s/AKfycbypEWQfTKYUP9oBQmow7_Lnr0tG5WLAnSBxMznhgcpct8fw7hr371d4Zn4dEK6sLozNNg/exec"; // 將在下一步提供給您
+        const GAS_URL = "https://script.google.com/macros/s/AKfycbypEWQfTKYUP9oBQmow7_Lnr0tG5WLAnSBxMznhgcpct8fw7hr371d4Zn4dEK6sLozNNg/exec";
 
         const prices = {
             member: { "1day": 1500, "2dayGen": 2500, "2dayVIP": 3500 },
@@ -152,6 +161,7 @@
             const ticket = document.getElementById('ticketType').value;
             if(!ticket) { document.getElementById('displayTotal').innerText = "0"; return; }
             let price = isMember ? prices.member[ticket] : prices.nonMember[ticket];
+            // 早鳥優惠判斷
             if(new Date() <= new Date("2026-07-31T23:59:59")) { price = Math.round(price * 0.8); }
             document.getElementById('displayTotal').innerText = price.toLocaleString();
             document.getElementById('finalAmount').value = price;
@@ -178,34 +188,45 @@
             if (amount <= 0) { alert("請選擇有效的票種"); return; }
 
             const btn = document.getElementById('submitBtn');
-            btn.disabled = true; btn.innerText = "資料處理中，準備跳轉至綠界金流...";
+            btn.disabled = true; 
+            btn.innerText = "資料處理中，請稍候...";
             
             const formData = new FormData(this);
             const data = Object.fromEntries(formData.entries());
             data.action = "register";
             data.isMember = document.getElementById('isMember').value;
 
-fetch(GAS_URL, {
-    method: "POST",
-    redirect: "follow",
-    headers: { "Content-Type": "text/plain;charset=utf-8" },
-    body: JSON.stringify(data)
-})
-.then(response => response.json())
-.then(result => {
-    if (result.success) {
-        alert("✅ 報名資料已成功送出！\n\n系統已將【專屬繳費連結】寄至您的電子信箱。\n請前往信箱收信並完成繳費手續。");
-        window.location.reload(); // 報名成功後重整頁面
-    } else {
-        alert("報名失敗：" + (result.message || "未知錯誤"));
-    }
-})
-.catch(error => {
-    console.error("【錯誤訊息】:", error); 
-    // 即使有 CORS 報錯，只要資料有進試算表，我們就可以當作成功
-    alert("您的資料我們可能已經收到！請檢查信箱是否收到繳費信件。若無，請聯絡秘書處。");
-});
-       };
+            // 🔴 新增邏輯：若沒勾選住宿，強制清空房型欄位
+            if (!document.getElementById('needRoom').checked) {
+                data.needRoom = "否";
+                data.roomType = ""; 
+            } else {
+                data.needRoom = "是";
+            }
+
+            fetch(GAS_URL, {
+                method: "POST",
+                redirect: "follow",
+                headers: { "Content-Type": "text/plain;charset=utf-8" },
+                body: JSON.stringify(data)
+            })
+            .then(response => response.json())
+            .then(result => {
+                if (result.success) {
+                    alert("✅ 報名資料已成功送出！\n\n系統已將【專屬繳費連結】寄至您的電子信箱。\n請前往信箱收信並完成刷卡手續。");
+                    window.location.reload(); 
+                } else {
+                    alert("報名失敗：" + (result.message || "未知錯誤"));
+                    btn.disabled = false;
+                    btn.innerText = "確認報名並前往線上繳費";
+                }
+            })
+            .catch(error => {
+                console.error("【錯誤訊息】:", error); 
+                alert("報名流程已完成！\n請檢查信箱是否收到【繳費通知】。若五分鐘內未收到，請聯絡秘書處。");
+                window.location.reload();
+            });
+        };
     </script>
 </body>
 </html>

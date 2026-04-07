@@ -1,7 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Online Registration | PERIC 2026</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="style.css?v=1.7" rel="stylesheet">
@@ -13,12 +14,15 @@
         <div class="row justify-content-center">
             <div class="col-lg-8 bg-white p-5 rounded shadow-sm">
                 <h2 class="fw-bold mb-4 text-center" style="color: var(--primary-blue);">PERIC 2026 Registration</h2>
-                <!-- 在 <h2> 下方加入這段 -->
-<div class="alert alert-info shadow-sm mb-4" style="border-left: 5px solid #0056b3;">
-    <strong>📢 Notice for Domestic Attendees:</strong> <br>
-    如果您是國內參加者，請點擊右上角切換至<strong>「中文報名」</strong>，方可使用綠界科技線上刷卡及獲取正式收據。
-</div>
+                
+                <!-- Notice for Domestic Attendees -->
+                <div class="alert alert-info shadow-sm mb-4" style="border-left: 5px solid #0056b3;">
+                    <strong>📢 Notice for Domestic Attendees:</strong> <br>
+                    如果您是國內參加者，請點擊右上角切換至<strong>「中文報名」</strong>，方可使用綠界科技線上刷卡及獲取正式收據。
+                </div>
+
                 <form id="regForm">
+                    <!-- Membership Verification -->
                     <div class="p-4 rounded mb-4" style="background-color: #f0f7ff; border: 1px solid #cce5ff;">
                         <label class="form-label fw-bold">TSP Member Verification</label>
                         <div class="input-group">
@@ -29,6 +33,7 @@
                         <input type="hidden" id="isMember" value="false">
                     </div>
 
+                    <!-- Personal Information -->
                     <div class="row g-3">
                         <div class="col-md-6"><label class="form-label fw-bold">Full Name</label><input type="text" name="name" class="form-control" required></div>
                         <div class="col-md-6"><label class="form-label fw-bold">Email Address</label><input type="email" name="email" class="form-control" required></div>
@@ -58,6 +63,7 @@
                         </div>
                     </div>
 
+                    <!-- Receipt Information -->
                     <div class="mt-4">
                         <label class="form-label fw-bold">Receipt Information (Optional)</label>
                         <div class="row g-3">
@@ -66,6 +72,7 @@
                         </div>
                     </div>
 
+                    <!-- Ticket Selection -->
                     <div class="mt-4">
                         <label class="form-label fw-bold">Select Ticket Type</label>
                         <select name="ticketType" id="ticketType" class="form-select" onchange="calculatePrice(); toggleSingleDay();" required>
@@ -85,6 +92,7 @@
                         </select>
                     </div>
 
+                    <!-- Accommodation -->
                     <div class="mt-4">
                         <div class="form-check form-switch">
                             <input class="form-check-input" type="checkbox" id="needRoom" name="needRoom" value="Yes" onchange="toggleRoom()">
@@ -92,7 +100,7 @@
                         </div>
                         <div id="roomSection" class="mt-3 p-3 border rounded bg-light" style="display:none;">
                             <label class="form-label">Room Type</label>
-                            <select name="roomType" class="form-select">
+                            <select name="roomType" id="roomType" class="form-select">
                                 <option value="2person">Standard Double Room</option>
                                 <option value="4person">Standard Quad Room</option>
                             </select>
@@ -100,6 +108,7 @@
                         </div>
                     </div>
 
+                    <!-- Total Amount Display -->
                     <div class="mt-5 p-4 rounded text-center" style="background-color: var(--primary-blue); color: white;">
                         <h4 class="mb-1">Total Amount (Excl. Accommodation)</h4>
                         <div class="display-5 fw-bold">NT$ <span id="displayTotal">0</span></div>
@@ -117,7 +126,7 @@
     <script src="main.js?v=1.7"></script>
     
     <script>
-        const GAS_URL = "https://script.google.com/macros/s/AKfycbypEWQfTKYUP9oBQmow7_Lnr0tG5WLAnSBxMznhgcpct8fw7hr371d4Zn4dEK6sLozNNg/exec"; // 將在下一步提供給您
+        const GAS_URL = "https://script.google.com/macros/s/AKfycbypEWQfTKYUP9oBQmow7_Lnr0tG5WLAnSBxMznhgcpct8fw7hr371d4Zn4dEK6sLozNNg/exec";
 
         const prices = {
             member: { "1day": 1500, "2dayGen": 2500, "2dayVIP": 3500 },
@@ -150,6 +159,7 @@
             const ticket = document.getElementById('ticketType').value;
             if(!ticket) { document.getElementById('displayTotal').innerText = "0"; return; }
             let price = isMember ? prices.member[ticket] : prices.nonMember[ticket];
+            // Early Bird Discount
             if(new Date() <= new Date("2026-07-31T23:59:59")) { price = Math.round(price * 0.8); }
             document.getElementById('displayTotal').innerText = price.toLocaleString();
             document.getElementById('finalAmount').value = price;
@@ -171,37 +181,47 @@
         }
 
         document.getElementById('regForm').onsubmit = function(e) {
-    e.preventDefault();
-    const amount = document.getElementById('finalAmount').value;
-    if (amount <= 0) { alert("Please select a valid ticket."); return; }
+            e.preventDefault();
+            const amount = document.getElementById('finalAmount').value;
+            if (amount <= 0) { alert("Please select a valid ticket."); return; }
 
-    const btn = document.getElementById('submitBtn');
-    btn.disabled = true; btn.innerText = "Processing Your Registration...";
-    
-    const formData = new FormData(this);
-    const data = Object.fromEntries(formData.entries());
-    data.action = "register_onsite"; // ⭐️ 關鍵：告訴 GAS 這是海外現場繳費流程
-    data.isMember = document.getElementById('isMember').value;
-    data.language = "en"; // 標記為英文版，方便寄送英文信件
+            const btn = document.getElementById('submitBtn');
+            btn.disabled = true; 
+            btn.innerText = "Processing Your Registration...";
+            
+            const formData = new FormData(this);
+            const data = Object.fromEntries(formData.entries());
+            data.action = "register_onsite"; // International pay on-site flow
+            data.isMember = document.getElementById('isMember').value;
+            data.language = "en"; 
 
-    fetch(GAS_URL, {
-        method: "POST",
-        body: JSON.stringify(data)
-    })
-    .then(res => res.json())
-    .then(res => {
-        if(res.success) {
-            alert("Registration Successful! A confirmation email has been sent to you. Please pay the registration fee on-site.");
-            window.location.reload(); // 報名成功後重整頁面
-        } else {
-            alert("Registration Error: " + (res.message || "Please contact admin."));
-            btn.disabled = false; btn.innerText = "Submit Registration";
-        }
-    }).catch(err => {
-        alert("Network Error. Please try again.");
-        btn.disabled = false; btn.innerText = "Submit Registration";
-    });
-};
+            // 🔴 Logic: Clear room information if accommodation is not selected
+            if (!document.getElementById('needRoom').checked) {
+                data.needRoom = "No";
+                data.roomType = ""; 
+            } else {
+                data.needRoom = "Yes";
+            }
+
+            fetch(GAS_URL, {
+                method: "POST",
+                body: JSON.stringify(data)
+            })
+            .then(res => res.json())
+            .then(res => {
+                if(res.success) {
+                    alert("Registration Successful! A confirmation email has been sent to you. Please pay the registration fee on-site.");
+                    window.location.reload();
+                } else {
+                    alert("Registration Error: " + (res.message || "Please contact admin."));
+                    btn.disabled = false; btn.innerText = "Submit Registration";
+                }
+            }).catch(err => {
+                console.error("Error:", err);
+                alert("The system might have received your data. Please check your email for confirmation. If not received, contact the secretariat.");
+                window.location.reload();
+            });
+        };
     </script>
 </body>
 </html>
