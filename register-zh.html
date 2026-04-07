@@ -185,34 +185,23 @@
             data.action = "register";
             data.isMember = document.getElementById('isMember').value;
 
-            fetch(GAS_URL, {
-                method: "POST",
-                body: JSON.stringify(data)
-            })
-            .then(res => res.json())
-            .then(res => {
-                if(res.success && res.ecpayData) {
-                    // 自動產生綠界表單並送出跳轉
-                    const form = document.createElement('form');
-                    form.method = 'POST';
-                    form.action = 'https://payment.ecpay.com.tw/Cashier/AioCheckOut/V5';
-                    for (const key in res.ecpayData) {
-                        const hiddenField = document.createElement('input');
-                        hiddenField.type = 'hidden';
-                        hiddenField.name = key;
-                        hiddenField.value = res.ecpayData[key];
-                        form.appendChild(hiddenField);
-                    }
-                    document.body.appendChild(form);
-                    form.submit();
-                } else {
-                    alert("報名發生錯誤：" + (res.message || "請聯繫大會秘書處"));
-                    btn.disabled = false; btn.innerText = "確認報名並前往線上繳費";
-                }
-            }).catch(err => {
-                alert("網路連線異常，請稍後再試。");
-                btn.disabled = false; btn.innerText = "確認報名並前往線上繳費";
-            });
+// 尋找類似這樣的程式碼區塊並修改
+fetch(GAS_URL, {
+    method: "POST",
+    redirect: "follow", // 🔴 這行最重要！沒有它絕對會報網路異常
+    headers: {
+        "Content-Type": "text/plain;charset=utf-8" // 🔴 建議加上這行，避免 CORS 擋人
+    },
+    body: JSON.stringify(submitData)
+})
+.then(response => response.json())
+.then(data => {
+    // 處理成功後跳轉綠界的邏輯...
+})
+.catch(error => {
+    console.error("報名錯誤:", error);
+    alert("網路連線異常，請稍後再試！");
+});
         };
     </script>
 </body>
