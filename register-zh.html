@@ -192,7 +192,7 @@ fetch(GAS_URL, {
     headers: {
         "Content-Type": "text/plain;charset=utf-8" // 🔴 建議加上這行，避免 CORS 擋人
     },
-    body: JSON.stringify(submitData)
+    body: JSON.stringify(data)
 })
 .then(response => response.json())
 .then(data => {
