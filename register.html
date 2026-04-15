@@ -205,6 +205,10 @@
 
             fetch(GAS_URL, {
                 method: "POST",
+                redirect: "follow",
+                headers: {
+        "Content-Type": "text/plain;charset=utf-8" // 👈 加上這行，避免 CORS 預檢失敗
+    },
                 body: JSON.stringify(data)
             })
             .then(res => res.json())
