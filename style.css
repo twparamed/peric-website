@@ -12,9 +12,17 @@ body {
     display: flex; 
     flex-direction: column; 
     min-height: 100vh; /* 確保內容太少時，Footer 也能在最底端 */
+    padding-top: 80px; /* 👈 新增這行：預留導覽列的高度，避免內容被遮擋 */
 }
 
 /* 導覽列 */
+/* 將導覽列容器固定在最上方 */
+#navbar-placeholder {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1030; /* 確保導覽列永遠浮在最上層，不會被圖片或卡片蓋過 */
+}
 .navbar { border-bottom: 1px solid #e0e0e0; background-color: #ffffff !important; padding: 15px 0; }
 .navbar-brand { color: var(--primary-blue) !important; font-weight: 800; font-size: 1.5rem; }
 .nav-link { color: #555 !important; font-weight: 600; font-size: 1.05rem; }
