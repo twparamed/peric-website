@@ -1,0 +1,467 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>PERIC 2026 發表評分 | Presentation Judging</title>
+<meta name="robots" content="noindex, nofollow">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow+Semi+Condensed:wght@500;600;700&family=Noto+Sans+TC:wght@400;500;700&display=swap">
+<style>html{color-scheme:light}body{margin:0;-webkit-text-size-adjust:100%}[hidden]{display:none!important}</style>
+<style>
+:root{
+  --bg:#F3F5F4; --surface:#FFFFFF; --surface-2:#E9EEEC; --ink:#16212B; --ink-2:#4A5862; --ink-3:#7A878F;
+  --line:#D5DDDA; --accent:#0E6B73; --accent-ink:#FFFFFF; --accent-soft:#D8ECEC;
+  --ok:#2E7A4C; --ok-soft:#DDF0E3; --warn:#A8671B; --warn-soft:#F7E9D5; --bad:#B0372D; --bad-soft:#F6DEDB;
+  --focus:#0E6B73;
+  --f-disp:"Barlow Semi Condensed","Noto Sans TC",system-ui,sans-serif;
+  --f-body:"Noto Sans TC",system-ui,-apple-system,"PingFang TC","Microsoft JhengHei",sans-serif;
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  color-scheme:dark;
+  --bg:#0F1519; --surface:#172026; --surface-2:#1F2A31; --ink:#E6ECEE; --ink-2:#AAB7BD; --ink-3:#7D8B92;
+  --line:#2A363D; --accent:#4FB3BB; --accent-ink:#08272A; --accent-soft:#16373A;
+  --ok:#6CC08C; --ok-soft:#18342A; --warn:#E0A55A; --warn-soft:#3A2C18; --bad:#EE8277; --bad-soft:#3D1F1C; --focus:#4FB3BB;
+}}
+:root[data-theme="dark"]{
+  color-scheme:dark;
+  --bg:#0F1519; --surface:#172026; --surface-2:#1F2A31; --ink:#E6ECEE; --ink-2:#AAB7BD; --ink-3:#7D8B92;
+  --line:#2A363D; --accent:#4FB3BB; --accent-ink:#08272A; --accent-soft:#16373A;
+  --ok:#6CC08C; --ok-soft:#18342A; --warn:#E0A55A; --warn-soft:#3A2C18; --bad:#EE8277; --bad-soft:#3D1F1C; --focus:#4FB3BB;
+}
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--ink);font-family:var(--f-body);font-size:15px;line-height:1.55}
+.wrap{max-width:980px;margin:0 auto;padding-inline:16px;padding-block:20px 60px}
+.en{color:var(--ink-3);font-weight:400}
+header.top{display:flex;flex-wrap:wrap;gap:12px 24px;align-items:flex-end;justify-content:space-between;padding-bottom:16px;border-bottom:2px solid var(--ink)}
+.eyebrow{font-family:var(--f-disp);font-weight:600;letter-spacing:.12em;text-transform:uppercase;font-size:13px;color:var(--accent)}
+h1{font-family:var(--f-disp);font-weight:700;font-size:clamp(24px,5vw,34px);line-height:1.15;margin:4px 0 0;text-wrap:balance}
+h1 small{display:block;font-size:.55em;font-weight:500;color:var(--ink-2);letter-spacing:.01em}
+.meta{font-size:13px;color:var(--ink-2);text-align:right}
+.meta b{font-family:var(--f-disp);font-size:15px;color:var(--ink)}
+.notice{margin-top:14px;padding:10px 14px;border-radius:8px;font-size:13.5px;background:var(--warn-soft);color:var(--ink)}
+.notice[data-kind="ok"]{background:var(--ok-soft)}
+.notice[data-kind="bad"]{background:var(--bad-soft)}
+
+.judge{display:grid;grid-template-columns:1fr auto;gap:12px 20px;align-items:end;margin-top:18px;padding:14px 16px;background:var(--surface);border:1px solid var(--line);border-radius:10px}
+.judge label{font-size:13px;color:var(--ink-2);display:block;margin-bottom:4px}
+.judge input{width:100%;max-width:340px;font:inherit;font-size:16px;padding:8px 10px;border:1px solid var(--line);border-radius:6px;background:var(--bg);color:var(--ink)}
+.prog{display:flex;gap:18px;font-variant-numeric:tabular-nums}
+.prog div{text-align:right}
+.prog .n{font-family:var(--f-disp);font-weight:700;font-size:24px;line-height:1}
+.prog .l{font-size:12px;color:var(--ink-3)}
+@media (max-width:560px){.judge{grid-template-columns:1fr}.prog div{text-align:left}}
+
+.tabs{display:flex;gap:4px;margin-top:22px;border-bottom:1px solid var(--line);overflow-x:auto}
+.tab{appearance:none;border:0;background:none;font:inherit;padding:10px 14px;color:var(--ink-2);border-bottom:3px solid transparent;cursor:pointer;white-space:nowrap}
+.tab[aria-selected="true"]{color:var(--ink);border-bottom-color:var(--accent);font-weight:700}
+.tab .c{font-family:var(--f-disp);font-size:13px;color:var(--ink-3);margin-left:4px}
+.tab:focus-visible,button:focus-visible,input:focus-visible,textarea:focus-visible{outline:2px solid var(--focus);outline-offset:2px}
+
+.guide{font-size:13px;color:var(--ink-2);margin:14px 0 6px}
+.list{display:flex;flex-direction:column;margin-top:8px}
+.item{border-bottom:1px solid var(--line)}
+.row{display:grid;grid-template-columns:56px 1fr auto;gap:12px;align-items:center;width:100%;padding:12px 4px;background:none;border:0;font:inherit;color:inherit;text-align:left;cursor:pointer}
+.row:hover{background:var(--surface-2)}
+.code{font-family:var(--f-disp);font-weight:700;font-size:18px;color:var(--accent);font-variant-numeric:tabular-nums}
+.ttl{font-size:14.5px;line-height:1.4}
+.ttl .time{display:block;font-size:12px;color:var(--ink-3);margin-top:2px;font-variant-numeric:tabular-nums}
+.chip{font-size:12px;padding:3px 9px;border-radius:99px;white-space:nowrap;font-variant-numeric:tabular-nums;background:var(--surface-2);color:var(--ink-2)}
+.chip.done{background:var(--ok-soft);color:var(--ok);font-weight:700}
+.chip.coi{background:var(--bad-soft);color:var(--bad)}
+.chip.part{background:var(--warn-soft);color:var(--warn)}
+
+.panel{padding:6px 4px 22px 68px}
+@media (max-width:560px){.panel{padding-left:4px}.row{grid-template-columns:44px 1fr;}.row .chip{grid-column:2;justify-self:start}}
+.crit{display:grid;grid-template-columns:1fr 200px 64px;gap:6px 16px;align-items:center;padding:10px 0;border-top:1px dashed var(--line)}
+.crit:first-of-type{border-top:0}
+.crit .nm{font-weight:500;font-size:14px}
+.crit .nm .en{display:block;font-size:12.5px}
+.crit .kp{grid-column:1/-1;font-size:12.5px;color:var(--ink-3);margin-top:-4px;order:3}
+.crit input[type=range]{width:100%;accent-color:var(--accent)}
+.crit input[type=range].unset{opacity:.45}
+.crit output{font-family:var(--f-disp);font-weight:700;font-size:20px;text-align:right;font-variant-numeric:tabular-nums}
+.crit output small{font-size:13px;color:var(--ink-3);font-weight:500}
+@media (max-width:560px){.crit{grid-template-columns:1fr 64px}.crit input[type=range]{grid-column:1/-1;order:4}}
+.crit.dis{opacity:.4}
+.sumline{display:flex;flex-wrap:wrap;gap:10px 20px;align-items:center;justify-content:space-between;padding:12px 0;border-top:2px solid var(--ink);margin-top:4px}
+.total{font-family:var(--f-disp);font-size:28px;font-weight:700;font-variant-numeric:tabular-nums}
+.total small{font-size:14px;color:var(--ink-3);font-weight:500}
+.grade{font-size:13px;color:var(--ink-2)}
+.checks{display:flex;flex-direction:column;gap:8px;margin:6px 0 10px;font-size:13.5px}
+.checks label{display:block;position:relative;padding-left:26px;cursor:pointer}
+.checks input{position:absolute;left:0;top:4px;margin:0;accent-color:var(--accent)}
+textarea{width:100%;min-height:72px;font:inherit;font-size:14px;padding:8px 10px;border:1px solid var(--line);border-radius:6px;background:var(--surface);color:var(--ink);resize:vertical}
+.actions{display:flex;flex-wrap:wrap;gap:10px;align-items:center;margin-top:10px}
+.btn{appearance:none;font:inherit;font-weight:700;font-size:14px;padding:9px 18px;border-radius:6px;border:1px solid var(--accent);background:var(--accent);color:var(--accent-ink);cursor:pointer}
+.btn.ghost{background:none;color:var(--accent)}
+.btn:disabled{opacity:.45;cursor:not-allowed}
+.status{font-size:13px;color:var(--ink-3)}
+.status.ok{color:var(--ok)} .status.bad{color:var(--bad)}
+
+.adm h2{font-family:var(--f-disp);font-size:20px;margin:24px 0 6px}
+.adm p{font-size:13.5px;color:var(--ink-2);margin:4px 0 10px;max-width:68ch}
+.tw{overflow-x:auto;border:1px solid var(--line);border-radius:8px;background:var(--surface)}
+table{border-collapse:collapse;width:100%;font-size:13.5px;font-variant-numeric:tabular-nums}
+th,td{padding:8px 10px;border-bottom:1px solid var(--line);text-align:left;vertical-align:top}
+th{font-size:12px;font-weight:500;color:var(--ink-3);background:var(--surface-2);white-space:nowrap}
+td.num,th.num{text-align:right;white-space:nowrap}
+tr:last-child td{border-bottom:0}
+tr.top3 td{background:var(--accent-soft)}
+.rank{font-family:var(--f-disp);font-weight:700;font-size:17px}
+.flag{color:var(--warn);font-size:12px}
+.judges-line{font-size:12px;color:var(--ink-3)}
+.bar{display:inline-block;height:8px;border-radius:4px;background:var(--accent);vertical-align:middle}
+.stamp{font-size:13px;color:var(--ink-2)}
+@media (prefers-reduced-motion:reduce){*{transition:none!important}}
+</style>
+<script>
+/* ===== 設定 Settings ===== */
+window.PERIC_CFG = (() => {
+  // Apps Script 網頁應用程式網址（部署 → 管理部署作業）
+  const API_URL = "https://script.google.com/macros/s/AKfycbz1M2TZ5-QOHv2E2jng92A8QOkHjQN3kcV11KU-qZE4-wNq9vXIa5xpX-JP69w6qpaA/exec";
+  // 評審通行碼：須與 Apps Script「指令碼屬性」JUDGE_CODE 相同。委員點開連結即可評分，不必輸入。
+  const JUDGE_CODE = "peric2026";
+  // 學術小組通行碼：須與指令碼屬性 ADMIN_CODE 相同。學術小組開啟 review.html#admin 進入成績計算。
+  // 留空 "" 則開啟 #admin 時需手動輸入（較安全：網頁原始碼看不到管理碼）。
+  const ADMIN_CODE = "";
+
+  return {
+    judgeCode: JUDGE_CODE,
+    adminCode: ADMIN_CODE,
+    call: async (action, ...args) => {
+      let r;
+      try {
+        r = await fetch(API_URL, { method: "POST", redirect: "follow",
+          headers: { "Content-Type": "text/plain;charset=utf-8" },
+          body: JSON.stringify({ action, args }) });
+      } catch (e) { throw new Error("無法連線到評分伺服器，請檢查網路 Cannot reach the scoring server"); }
+      if (!r.ok) throw new Error("評分伺服器錯誤 Server error (" + r.status + ")");
+      const j = await r.json();
+      if (!j.ok) throw new Error(j.error || "Unknown error");
+      return j.data;
+    }
+  };
+})();
+</script>
+</head>
+<body>
+<style>
+.login{max-width:440px;margin:28px auto 0;padding:22px 20px;background:var(--surface);border:1px solid var(--line);border-radius:12px;display:flex;flex-direction:column;gap:14px}
+.login h2{font-family:var(--f-disp);font-size:20px;margin:0}
+.login p{margin:0;font-size:13.5px;color:var(--ink-2)}
+.fld label{display:block;font-size:13px;color:var(--ink-2);margin-bottom:4px}
+.fld input{width:100%;font:inherit;font-size:16px;padding:9px 11px;border:1px solid var(--line);border-radius:6px;background:var(--bg);color:var(--ink)}
+.err{color:var(--bad);font-size:13.5px;min-height:1.2em}
+.who{font-size:16px;font-weight:700}
+.linkbtn{appearance:none;background:none;border:0;padding:0;font:inherit;font-size:13px;color:var(--accent);text-decoration:underline;cursor:pointer}
+.adminbar{display:flex;flex-wrap:wrap;gap:10px;align-items:center;margin-top:10px}
+.pill{font-size:12px;padding:3px 10px;border-radius:99px;background:var(--ok-soft);color:var(--ok);font-weight:700}
+@media (max-width:560px){.meta{text-align:left}.login{margin-top:18px;padding:18px 16px}.adminbar{gap:8px 14px}}
+.pill.lock{background:var(--bad-soft);color:var(--bad)}
+</style>
+
+<div class="wrap">
+  <header class="top">
+    <div>
+      <div class="eyebrow">PERIC 2026 · Resilience and Technology in EMS</div>
+      <h1>學術發表評分<small>Scientific Presentation Judging</small></h1>
+    </div>
+    <div class="meta">10/3 (Sat) 14:30–16:00 · 北投麗禧 Beitou Resort<br><b>口頭 12 篇 · 海報 19 篇</b></div>
+  </header>
+
+  <div id="notice" class="notice" hidden></div>
+
+  <!-- login -->
+  <section id="loginView" class="login" aria-label="評審登入 Judge sign-in">
+    <h2>評審登入 <span class="en">Judge sign-in</span></h2>
+    <p>輸入您的姓名與大會提供的評審通行碼。之後用同一個姓名登入，就能看到並修改自己的評分。Use the same name each time to see and edit your scores.</p>
+    <div class="fld"><label for="inName">姓名 Name（作為電子簽名 used as signature）</label><input id="inName" autocomplete="name" placeholder="例：王大明"></div>
+    <div class="fld" id="codeFld"><label for="inCode">評審通行碼 Judge access code</label><input id="inCode" autocomplete="off" autocapitalize="off"></div>
+    <div class="actions"><button class="btn" id="btnLogin">開始評分 Start</button><span class="err" id="loginErr"></span></div>
+    <p id="adminEntry" style="border-top:1px dashed var(--line);padding-top:12px">學術小組代表 <span class="en">Committee lead</span>：<button class="linkbtn" id="btnShowAdmin">輸入小組通行碼 Enter committee code</button></p>
+    <div id="adminLogin" hidden>
+      <div class="fld"><label for="inAdmin">學術小組通行碼 Committee code</label><input id="inAdmin" autocomplete="off" autocapitalize="off"></div>
+      <div class="actions"><button class="btn ghost" id="btnAdmin">進入成績計算 Open results</button><span class="err" id="adminErr"></span></div>
+    </div>
+  </section>
+
+  <!-- judge -->
+  <div id="judgeView" hidden>
+    <section class="judge" aria-label="評審資訊 Judge">
+      <div>
+        <div class="status">評審 Judge</div>
+        <div class="who" id="whoName"></div>
+        <button class="linkbtn" id="btnLogout">換人登入 Sign out</button>
+      </div>
+      <div class="prog">
+        <div><div class="n" id="pOral">0/12</div><div class="l">口頭已評 Oral</div></div>
+        <div><div class="n" id="pPoster">0/19</div><div class="l">海報已評 Poster</div></div>
+      </div>
+    </section>
+    <nav class="tabs" role="tablist">
+      <button class="tab" role="tab" aria-selected="true" data-tab="oral">口頭發表 <span class="en">Oral</span><span class="c">12</span></button>
+      <button class="tab" role="tab" aria-selected="false" data-tab="poster">海報發表 <span class="en">Poster</span><span class="c">19</span></button>
+    </nav>
+    <main id="view"></main>
+  </div>
+
+  <!-- committee -->
+  <div id="adminView" hidden>
+    <div class="adminbar"><span class="who">學術小組 <span class="en">Committee</span></span><button class="linkbtn" id="btnAdminOut">登出 Sign out</button><button class="linkbtn" id="btnRefresh">重新整理進度 Refresh</button></div>
+    <main id="adminMain"></main>
+  </div>
+</div>
+
+<script>
+(() => {
+"use strict";
+const $ = s => document.querySelector(s);
+const esc = s => String(s ?? "").replace(/[&<>"']/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
+const CFG = window.PERIC_CFG || {};
+const call = CFG.call || ((fn, ...args) => new Promise((res, rej) => google.script.run.withSuccessHandler(res).withFailureHandler(e => rej(e && e.message ? e : new Error(String(e))))[fn](...args)));
+const errMsg = e => String(e && e.message || e).replace(/^Exception:\s*/, "");
+const store = { get(k){ try{ return localStorage.getItem(k); }catch(e){ return null; } }, set(k,v){ try{ v==null?localStorage.removeItem(k):localStorage.setItem(k,v); }catch(e){} } };
+const grade = t => t>=90?"優異 Outstanding":t>=80?"優良 Very good":t>=70?"良好 Good":t>=60?"尚可 Fair":"待加強 Needs improvement";
+const hm = d => new Date(d).toLocaleString("zh-TW",{hour12:false,month:"numeric",day:"numeric",hour:"2-digit",minute:"2-digit"});
+
+let C = null; // config from server
+const S = { tab:"oral", open:null, name:"", code:"", admin:"", entries:{}, drafts:{}, savedAt:{}, locked:false, admData:null, results:null };
+function notice(msg, kind){ const n=$("#notice"); if(!msg){ n.hidden=true; return; } n.hidden=false; n.dataset.kind=kind||""; n.innerHTML=msg; }
+const byKey = k => [...C.ITEMS.oral, ...C.ITEMS.poster].find(i => i.key===k);
+const maxOf = type => type==="poster" ? `100 ＋ ${C.BONUS}` : "100";
+
+function entryState(e, type){
+  if(!e) return "none"; if(e.coi) return "coi";
+  const base = (e.s||[]).filter(v => typeof v==="number").length===C.CRIT[type].length;
+  const bonusOk = !(type==="poster" && e.present) || typeof e.b==="number";
+  return base && bonusOk ? "done" : "part";
+}
+const baseOf = e => (e.s||[]).reduce((a,v)=>a+(typeof v==="number"?v:0),0);
+const bonusOf = e => (e && e.present && typeof e.b==="number") ? e.b : 0;
+const totalOf = e => baseOf(e) + bonusOf(e);
+function draftFor(it){
+  if(!S.drafts[it.key]){
+    const e = S.entries[it.key];
+    S.drafts[it.key] = e ? {s:e.s.slice(), comment:e.comment||"", coi:!!e.coi, present:!!e.present, b:e.b??null}
+                         : {s:C.CRIT[it.type].map(()=>null), comment:"", coi:false, present:false, b:null};
+  }
+  return S.drafts[it.key];
+}
+function sumInfo(it, d){ let left = d.s.filter(v=>typeof v!=="number").length; if(it.type==="poster" && d.present && typeof d.b!=="number") left++; return {left, t: totalOf(d)}; }
+
+// ---------- judge render ----------
+function renderProgress(){
+  for(const t of ["oral","poster"]){
+    const done = C.ITEMS[t].filter(i => ["done","coi"].includes(entryState(S.entries[i.key], t))).length;
+    $(t==="oral"?"#pOral":"#pPoster").textContent = done+"/"+C.ITEMS[t].length;
+  }
+}
+function chipFor(it){
+  const e = S.entries[it.key], st = entryState(e, it.type);
+  if(st==="done") return `<span class="chip done">${totalOf(e)} 分</span>`;
+  if(st==="coi") return `<span class="chip coi">迴避 COI</span>`;
+  if(st==="part") return `<span class="chip part">未完成 Incomplete</span>`;
+  return `<span class="chip">未評 Not scored</span>`;
+}
+function renderList(type){
+  const guide = type==="oral"
+    ? "每篇報告 10 分鐘（含問答）。點選題目展開評分，六項給分後按「儲存」。Tap a title to score it, then Save."
+    : `海報內容五項共 100 分，可於任何時間評分。若您評分時作者在場並完成解說，勾選「作者在場」即可另給 0–${C.BONUS} 分加分；之後再回來補加分也可以。Score the poster any time; add a 0–${C.BONUS} bonus when the presenter explains it to you.`;
+  return `<p class="guide">${guide}</p><div class="list">${C.ITEMS[type].map(it => `
+    <div class="item" data-key="${it.key}">
+      <button class="row" aria-expanded="${S.open===it.key}" data-open="${it.key}">
+        <span class="code">${it.code}</span>
+        <span class="ttl">${esc(it.title)}${it.time?`<span class="time">${it.time}</span>`:""}</span>
+        ${chipFor(it)}
+      </button>
+      ${S.open===it.key ? renderPanel(it) : ""}
+    </div>`).join("")}</div>`;
+}
+function renderPanel(it){
+  const d = draftFor(it), crit = C.CRIT[it.type], lk = S.locked;
+  const slider = (i,zh,en,max,kp,v,locked,num) => `<div class="crit${locked?" dis":""}">
+      <div class="nm">${num}${zh}<span class="en">${en}</span></div>
+      <input type="range" id="r-${it.key}-${i}" min="0" max="${max}" step="1" value="${v??Math.round(max*0.75)}" class="${v==null?"unset":""}" data-i="${i}" ${locked?"disabled":""} aria-label="${zh} ${en}，滿分 ${max}">
+      <output id="o-${it.key}-${i}">${v==null?"—":v}<small>/${max}</small></output>
+      <div class="kp">${kp}</div>
+    </div>`;
+  const rows = crit.map(([zh,en,max,kp],i) => slider(i,zh,en,max,kp,d.s[i],d.coi||lk,(i+1)+". ")).join("");
+  const bonusRow = it.type==="poster" ? `
+    <div class="checks" style="margin-top:12px">
+      <label><input type="checkbox" id="pr-${it.key}" data-f="present" ${d.present?"checked":""} ${d.coi||lk?"disabled":""}> 我評分時作者在場並完成解說 <span class="en">The presenter was at the poster and explained it to me</span></label>
+    </div>
+    ${d.present && !d.coi ? slider("b",C.BONUS_LBL[0],C.BONUS_LBL[1],C.BONUS,C.BONUS_LBL[2],d.b,lk,"＋ ") : ""}` : "";
+  const {left, t} = sumInfo(it, d), ready = (d.coi || left===0) && !lk, saved = S.savedAt[it.key];
+  return `<div class="panel" data-panel="${it.key}">
+    ${rows}${bonusRow}
+    <div class="sumline">
+      <div><div class="total" id="tot-${it.key}">${d.coi?"—":t}<small> / ${maxOf(it.type)}</small></div>
+      <div class="grade" id="grd-${it.key}">${d.coi?"已迴避 Recused":left===0?grade(baseOf(d))+(bonusOf(d)?` ＋ 加分 ${bonusOf(d)}`:""):`尚有 ${left} 項未評 · ${left} left`}</div></div>
+    </div>
+    <div class="checks">
+      <label><input type="checkbox" id="coi-${it.key}" data-f="coi" ${d.coi?"checked":""} ${lk?"disabled":""}> 我與此篇有利益衝突（共同作者、指導或同單位），迴避評分 <span class="en">I have a conflict of interest and recuse myself</span></label>
+    </div>
+    <label for="cm-${it.key}" class="status">評語 Comments（優點與建議 strengths and suggestions）</label>
+    <textarea id="cm-${it.key}" data-f="comment" ${lk?"disabled":""}>${esc(d.comment)}</textarea>
+    <div class="actions">
+      <button class="btn" data-save="${it.key}" ${ready?"":"disabled"}>儲存 Save</button>
+      <button class="btn ghost" data-close="1">收合 Close</button>
+      <span class="status${saved?" ok":""}" id="st-${it.key}">${lk?"評分已截止 Scoring is closed":saved?`已儲存 Saved ${saved}`:(ready?"":"每項皆給分後可儲存 Score every item to save")}</span>
+    </div>
+  </div>`;
+}
+function render(){
+  document.querySelectorAll(".tab").forEach(t => t.setAttribute("aria-selected", String(t.dataset.tab===S.tab)));
+  $("#view").innerHTML = renderList(S.tab);
+  renderProgress();
+}
+function updateSum(it){
+  const d=S.drafts[it.key], {left,t}=sumInfo(it,d);
+  $("#tot-"+it.key).innerHTML = `${t}<small> / ${maxOf(it.type)}</small>`;
+  $("#grd-"+it.key).textContent = left===0 ? grade(baseOf(d))+(bonusOf(d)?` ＋ 加分 ${bonusOf(d)}`:"") : `尚有 ${left} 項未評 · ${left} left`;
+  const btn=document.querySelector(`[data-save="${it.key}"]`); if(btn) btn.disabled = (left!==0 && !d.coi) || S.locked;
+  if(left===0){ const st=$("#st-"+it.key); if(st && !S.savedAt[it.key] && st.textContent.startsWith("每項")) st.textContent=""; }
+}
+
+// ---------- judge actions ----------
+async function doLogin(){
+  const name = $("#inName").value.trim(), code = CFG.judgeCode || $("#inCode").value.trim(), er = $("#loginErr"), btn = $("#btnLogin");
+  if(!name){ er.textContent="請輸入姓名 Enter your name"; return; }
+  btn.disabled=true; er.textContent="登入中 Signing in…";
+  try{
+    const r = await call("login", name, code);
+    C = r.config; S.name = r.name; S.code = code; S.entries = r.entries || {}; S.drafts = {}; S.savedAt = {}; S.locked = !!r.locked; S.open = null;
+    store.set("peric_name", S.name); store.set("peric_code", code);
+    $("#whoName").textContent = S.name;
+    $("#loginView").hidden = true; $("#judgeView").hidden = false; er.textContent = "";
+    notice(S.locked ? "評分已截止，您只能查看自己的評分。Scoring is closed; you can view your scores only." :
+      "分數會存到大會評分表；用同一個姓名再次登入即可修改或補加分。Scores are saved centrally; sign in with the same name to edit or add a bonus later.", S.locked?"bad":"ok");
+    render();
+  }catch(e){ er.textContent = errMsg(e); }
+  finally{ btn.disabled=false; }
+}
+async function save(key){
+  const it = byKey(key), d = S.drafts[key], st = $("#st-"+key), btn = document.querySelector(`[data-save="${key}"]`);
+  if(!d) return;
+  const payload = {s:d.s.slice(), comment:d.comment||"", coi:!!d.coi, present:!!d.present, b:d.b};
+  btn.disabled = true; st.textContent="儲存中 Saving…"; st.className="status";
+  try{
+    const r = await call("saveEntry", S.name, S.code, key, payload);
+    const present = it.type==="poster" && !payload.coi && payload.present;
+    S.entries[key] = {key, type:it.type, s: payload.coi ? payload.s.map(()=>null) : payload.s, comment:payload.comment, coi:payload.coi, present, b: present?payload.b:null, t:r.savedAt};
+    S.savedAt[key] = new Date(r.savedAt).toLocaleTimeString("zh-TW",{hour12:false,hour:"2-digit",minute:"2-digit"});
+    const x=$("#st-"+key); if(x){ x.textContent="已儲存 Saved "+S.savedAt[key]; x.className="status ok"; }
+    renderProgress(); const chip=document.querySelector(`.item[data-key="${key}"] .chip`); if(chip) chip.outerHTML=chipFor(it);
+  }catch(e){
+    const x=$("#st-"+key); if(x){ x.textContent = "儲存失敗 Save failed：" + errMsg(e); x.className="status bad"; }
+    if(/截止|closed/.test(errMsg(e))){ S.locked=true; }
+  }finally{ const b=document.querySelector(`[data-save="${key}"]`); if(b) b.disabled = S.locked; }
+}
+
+// ---------- committee ----------
+async function doAdminLogin(){
+  const code = $("#inAdmin").value.trim() || CFG.adminCode || "", er = $("#adminErr");
+  er.textContent = "驗證中 Checking…";
+  try{
+    const r = await call("adminData", code);
+    S.admin = code; S.admData = r; C = r.config; er.textContent = "";
+    $("#loginView").hidden = true; $("#adminView").hidden = false; notice("");
+    renderAdmin();
+  }catch(e){ er.textContent = errMsg(e); }
+}
+async function refreshAdmin(){
+  try{ S.admData = await call("adminData", S.admin); renderAdmin(); }catch(e){ notice(errMsg(e),"bad"); }
+}
+function renderAdmin(){
+  const A = S.admData, all = [...C.ITEMS.oral, ...C.ITEMS.poster];
+  const low = all.filter(i => (A.counts[i.key]?.done||0) < 2).map(i => i.code);
+  const judgeRows = A.judges.length ? A.judges.map(j => `<tr><td>${esc(j.name)}</td><td class="num">${j.oral}/12</td><td class="num">${j.poster}/19</td><td class="num">${j.updatedAt?hm(j.updatedAt):"—"}</td></tr>`).join("")
+    : `<tr><td colspan="4">尚無評審送出分數 No scores submitted yet.</td></tr>`;
+  const R = S.results;
+  const resTable = (type, label) => !R ? "" : `<h2>${label}</h2><div class="tw"><table>
+      <thead><tr><th class="num">名次 Rank</th><th>編號 No.</th><th>題目 Title</th><th class="num">評審數 n</th><th class="num">平均 Mean</th><th class="num">SD</th><th class="num">方法 Meth.</th><th class="num">結果 Res.</th>${type==="poster"?`<th class="num">加分 Bonus</th>`:""}</tr></thead>
+      <tbody>${R[type].map(r => `<tr class="${r.rank && r.rank<=3?"top3":""}">
+        <td class="num rank">${r.rank??"—"}</td><td>${r.code}</td>
+        <td>${esc(r.title)}<div class="judges-line">${r.judges.map(j=>`${esc(j.name)} ${j.total}`).join(" · ")||"無有效評分 no valid scores"}${r.n>0&&r.n<2?` <span class="flag">· 評審少於 2 位 fewer than 2 judges</span>`:""}</div></td>
+        <td class="num">${r.n}</td><td class="num"><b>${r.mean==null?"—":r.mean.toFixed(2)}</b></td><td class="num">${r.sd==null?"—":r.sd.toFixed(2)}</td>
+        <td class="num">${r.m2==null?"—":r.m2.toFixed(2)}</td><td class="num">${r.m3==null?"—":r.m3.toFixed(2)}</td>${type==="poster"?`<td class="num">${r.mb==null?"—":r.mb.toFixed(1)}</td>`:""}</tr>`).join("")}</tbody></table></div>`;
+  $("#adminMain").innerHTML = `<div class="adm">
+    <h2>評分進度 Judging progress</h2>
+    <p>${low.length?`<span class="flag">尚未達 2 位有效評分的篇目 Fewer than 2 valid scores: ${low.join("、")}</span>`:"每篇皆已有 2 位以上評審。All items have at least 2 judges."}</p>
+    <div class="tw"><table><thead><tr><th>評審 Judge</th><th class="num">口頭 Oral</th><th class="num">海報 Poster</th><th class="num">最後更新 Updated</th></tr></thead><tbody>${judgeRows}</tbody></table></div>
+
+    <h2>評分開放狀態 Scoring status</h2>
+    <div class="actions"><span class="pill${A.locked?" lock":""}">${A.locked?"已截止 Closed":"開放中 Open"}</span>
+      <button class="btn ghost" id="btnLock">${A.locked?"重新開放評分 Reopen scoring":"截止評分（委員不能再改）Close scoring"}</button></div>
+
+    <h2>計算成績 Compute results</h2>
+    <p>平均各評審總分（排除迴避與未完成的評分）後排序；海報總分含作者在場加分（最高 ${C.BONUS} 分）。同分依「研究方法」平均、再依「結果」平均。結果同時寫入試算表的 Results 工作表。Mean of judges' totals, excluding recusals and incomplete forms; also written to the Results sheet.</p>
+    <div class="actions"><button class="btn" id="btnCompute">計算成績 Compute results</button>
+      <span class="stamp" id="cstat">${R?`最近計算 Last computed ${hm(R.computedAt)}`:A.computedAt?`上次計算 ${hm(A.computedAt)}（按下以重新計算 press to recompute）`:"尚未計算 Not computed yet"}</span></div>
+    ${resTable("oral","口頭發表排名 Oral ranking")}
+    ${resTable("poster","海報發表排名 Poster ranking")}
+  </div>`;
+}
+async function doCompute(){
+  const b=$("#btnCompute"), st=$("#cstat"); b.disabled=true; st.textContent="計算中 Computing…";
+  try{ S.results = await call("computeResults", S.admin); S.admData = await call("adminData", S.admin); renderAdmin(); }
+  catch(e){ st.textContent = "計算失敗 Compute failed：" + errMsg(e); st.className="stamp status bad"; b.disabled=false; }
+}
+async function toggleLock(){
+  const b=$("#btnLock"); b.disabled=true;
+  try{ await call("setLocked", S.admin, !S.admData.locked); await refreshAdmin(); }catch(e){ notice(errMsg(e),"bad"); b.disabled=false; }
+}
+
+// ---------- events ----------
+document.addEventListener("click", e => {
+  const t = e.target.closest("button"); if(!t) return;
+  if(t.id==="btnLogin") return doLogin();
+  if(t.id==="btnShowAdmin"){ $("#adminLogin").hidden = !$("#adminLogin").hidden; return; }
+  if(t.id==="btnAdmin") return doAdminLogin();
+  if(t.id==="btnLogout"){ store.set("peric_code", null); store.set("peric_name", null); location.reload(); return; }
+  if(t.id==="btnAdminOut"){ location.reload(); return; }
+  if(t.id==="btnRefresh") return refreshAdmin();
+  if(t.id==="btnCompute") return doCompute();
+  if(t.id==="btnLock") return toggleLock();
+  if(t.dataset.tab){ S.tab=t.dataset.tab; S.open=null; render(); return; }
+  if(t.dataset.open){ S.open = S.open===t.dataset.open?null:t.dataset.open; render();
+    if(S.open){ const el=document.querySelector(`.item[data-key="${S.open}"]`); el&&el.scrollIntoView({block:"nearest"}); } return; }
+  if(t.dataset.save) return save(t.dataset.save);
+  if(t.dataset.close){ S.open=null; render(); }
+});
+document.addEventListener("keydown", e => {
+  if(e.key!=="Enter") return;
+  if(e.target.id==="inName"||e.target.id==="inCode") doLogin();
+  if(e.target.id==="inAdmin") doAdminLogin();
+});
+document.addEventListener("input", e => {
+  const p = e.target.closest("[data-panel]"); if(!p) return;
+  const key=p.dataset.panel, it=byKey(key), d=draftFor(it), el=e.target;
+  if(el.type==="range"){ const i=el.dataset.i, max = i==="b" ? C.BONUS : C.CRIT[it.type][+i][2];
+    if(i==="b") d.b=+el.value; else d.s[+i]=+el.value; el.classList.remove("unset");
+    $(`#o-${key}-${i}`).innerHTML = `${el.value}<small>/${max}</small>`; updateSum(it); }
+  else if(el.dataset.f==="comment"){ d.comment=el.value; }
+  else if(el.dataset.f==="coi"||el.dataset.f==="present"){ d[el.dataset.f]=el.checked; if(el.dataset.f==="present"&&!el.checked) d.b=null; S.open=key; render(); return; }
+  if(S.savedAt[key]){ delete S.savedAt[key]; const st=$("#st-"+key); if(st){ st.textContent="有未儲存的變更 Unsaved changes"; st.className="status"; } }
+});
+
+// remember name/code on this device
+const nm = store.get("peric_name"), cd = store.get("peric_code");
+if(nm) $("#inName").value = nm;
+if(cd) $("#inCode").value = cd;
+window.addEventListener("hashchange", () => location.reload());
+if(CFG.judgeCode){
+  $("#codeFld").hidden = true;
+  const isAdmin = location.hash === "#admin";
+  $("#adminEntry").hidden = !isAdmin;
+  if(isAdmin && CFG.adminCode){ doAdminLogin(); }
+  else if(isAdmin){ $("#adminLogin").hidden = false; }
+  else if(nm){ doLogin(); }
+} else if(nm && cd) doLogin();
+})();
+</script>
+
+</body>
+</html>
