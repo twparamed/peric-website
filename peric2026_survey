@@ -1,0 +1,445 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>PERIC 2026 滿意度調查 | Satisfaction Survey</title>
+<meta name="description" content="PERIC 2026 Paramedicine and Emergency Response International Conference — participant satisfaction survey">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow+Semi+Condensed:wght@500;600;700&family=Noto+Sans+TC:wght@400;500;700&display=swap">
+<script>
+/* ===== 設定 Settings =====
+   部署 Apps Script 後，把網頁應用程式網址貼在這裡（結尾是 /exec）。 */
+const API_URL = "https://script.google.com/macros/s/AKfycbxemC7nXHY7x6L-Kshd1qCcOC5GY1Qm_Ud5xrPgCHVmWdnyUBKAfxt-vOCUH9LJeRTs/exec";
+</script>
+<style>
+:root{
+  --bg:#F3F5F4; --surface:#FFFFFF; --surface-2:#E9EEEC; --ink:#16212B; --ink-2:#4A5862; --ink-3:#6F7D86;
+  --line:#D5DDDA; --accent:#0E6B73; --accent-ink:#FFFFFF; --accent-soft:#D8ECEC;
+  --ok:#2E7A4C; --ok-soft:#DDF0E3; --bad:#B0372D; --bad-soft:#F6DEDB; --focus:#0E6B73;
+  --f-disp:"Barlow Semi Condensed","Noto Sans TC",system-ui,sans-serif;
+  --f-body:"Noto Sans TC",system-ui,-apple-system,"PingFang TC","Microsoft JhengHei",sans-serif;
+  color-scheme:light;
+}
+@media (prefers-color-scheme:dark){:root{
+  color-scheme:dark;
+  --bg:#0F1519; --surface:#172026; --surface-2:#1F2A31; --ink:#E6ECEE; --ink-2:#AAB7BD; --ink-3:#8796A0;
+  --line:#2A363D; --accent:#4FB3BB; --accent-ink:#08272A; --accent-soft:#16373A;
+  --ok:#6CC08C; --ok-soft:#18342A; --bad:#EE8277; --bad-soft:#3D1F1C; --focus:#4FB3BB;
+}}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--f-body);font-size:15.5px;line-height:1.6}
+[hidden]{display:none!important}
+.wrap{max-width:760px;margin:0 auto;padding-inline:16px;padding-block:20px 80px}
+.top{display:flex;justify-content:space-between;align-items:flex-start;gap:12px;padding-bottom:14px;border-bottom:2px solid var(--ink)}
+.eyebrow{font-family:var(--f-disp);font-weight:600;letter-spacing:.12em;text-transform:uppercase;font-size:13px;color:var(--accent)}
+h1{font-family:var(--f-disp);font-weight:700;font-size:clamp(26px,6vw,36px);line-height:1.15;margin:4px 0 2px;text-wrap:balance}
+.sub{font-size:13.5px;color:var(--ink-2)}
+.lang{display:flex;border:1px solid var(--line);border-radius:99px;overflow:hidden;flex-shrink:0;background:var(--surface)}
+.lang button{appearance:none;border:0;background:none;font:inherit;font-size:13px;padding:6px 12px;color:var(--ink-2);cursor:pointer}
+.lang button[aria-pressed="true"]{background:var(--accent);color:var(--accent-ink);font-weight:700}
+.intro{margin:16px 0 4px;font-size:14.5px;color:var(--ink-2);max-width:62ch}
+.prog{position:sticky;top:env(safe-area-inset-top,0px);z-index:5;background:var(--bg);padding:10px 0 8px;margin-top:8px}
+.bar{height:6px;background:var(--surface-2);border-radius:3px;overflow:hidden}
+.bar i{display:block;height:100%;width:0;background:var(--accent);transition:width .25s}
+.prog small{display:block;font-size:12px;color:var(--ink-3);margin-top:4px;font-variant-numeric:tabular-nums}
+
+section.blk{margin-top:26px}
+.blk h2{font-family:var(--f-disp);font-size:22px;line-height:1.2;margin:0 0 4px;display:flex;gap:10px;align-items:baseline}
+.blk h2 .n{font-size:15px;color:var(--accent)}
+.blk > p{margin:0 0 12px;font-size:13.5px;color:var(--ink-2)}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:4px 16px}
+.q{padding:14px 0;border-top:1px solid var(--line)}
+.q:first-child{border-top:0}
+.ql{font-weight:500;font-size:15px;display:block;margin-bottom:8px}
+.ql .req{color:var(--bad);margin-left:2px}
+.qh{display:block;font-size:12.5px;color:var(--ink-3);margin:-4px 0 8px}
+.day{font-family:var(--f-disp);font-weight:700;font-size:13px;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-2);margin:14px 0 0;padding-top:12px}
+.day:first-child{margin-top:4px}
+.sess .meta{font-size:12.5px;color:var(--ink-3);display:block;margin:-6px 0 8px;font-variant-numeric:tabular-nums}
+
+/* rating scale */
+.scale{display:grid;grid-template-columns:repeat(5,minmax(0,1fr)) minmax(0,1.25fr);gap:6px}
+.scale label{position:relative;cursor:pointer}
+.scale input{position:absolute;opacity:0;inset:0;margin:0;cursor:pointer}
+.scale span{display:flex;align-items:center;justify-content:center;height:40px;border:1px solid var(--line);border-radius:8px;background:var(--bg);font-family:var(--f-disp);font-weight:600;font-size:17px;color:var(--ink-2);font-variant-numeric:tabular-nums;transition:background .12s}
+.scale .na span{font-family:var(--f-body);font-size:12.5px;font-weight:500}
+.scale input:checked + span{background:var(--accent);border-color:var(--accent);color:var(--accent-ink)}
+.scale .na input:checked + span{background:var(--ink-3);border-color:var(--ink-3);color:var(--surface)}
+.scale input:focus-visible + span{outline:2px solid var(--focus);outline-offset:2px}
+.anchors{display:grid;grid-template-columns:repeat(5,minmax(0,1fr)) minmax(0,1.25fr);gap:6px;font-size:11.5px;color:var(--ink-3);margin-top:4px;line-height:1.3}
+.anchors span:first-child{grid-column:1/3}
+.anchors span:last-child{grid-column:4/6;text-align:right}
+.cmt-t{appearance:none;background:none;border:0;padding:0;margin-top:8px;font:inherit;font-size:12.5px;color:var(--accent);cursor:pointer;text-decoration:underline}
+
+/* nps */
+.nps{display:grid;grid-template-columns:repeat(11,minmax(0,1fr));gap:4px}
+.nps label{position:relative;cursor:pointer}
+.nps input{position:absolute;opacity:0;inset:0;margin:0}
+.nps span{display:flex;align-items:center;justify-content:center;height:38px;border:1px solid var(--line);border-radius:6px;background:var(--bg);font-family:var(--f-disp);font-weight:600;font-size:15px;color:var(--ink-2)}
+.nps input:checked + span{background:var(--accent);border-color:var(--accent);color:var(--accent-ink)}
+.nps input:focus-visible + span{outline:2px solid var(--focus);outline-offset:2px}
+.npsa{display:flex;justify-content:space-between;font-size:11.5px;color:var(--ink-3);margin-top:4px}
+
+/* choices */
+.opts{display:flex;flex-wrap:wrap;gap:8px}
+.opts label{position:relative;cursor:pointer}
+.opts input{position:absolute;opacity:0;inset:0;margin:0}
+.opts span{display:inline-block;padding:7px 13px;border:1px solid var(--line);border-radius:99px;background:var(--bg);font-size:14px;color:var(--ink);line-height:1.35}
+.opts input:checked + span{background:var(--accent-soft);border-color:var(--accent);color:var(--ink);font-weight:500;box-shadow:inset 0 0 0 1px var(--accent)}
+.opts input:focus-visible + span{outline:2px solid var(--focus);outline-offset:2px}
+.opts.multi span::before{content:"";display:inline-block;width:11px;height:11px;border:1.5px solid var(--ink-3);border-radius:3px;margin-right:7px;vertical-align:-1px}
+.opts.multi input:checked + span::before{background:var(--accent);border-color:var(--accent)}
+textarea,input[type=text],input[type=email]{width:100%;font:inherit;font-size:16px;padding:9px 11px;border:1px solid var(--line);border-radius:8px;background:var(--bg);color:var(--ink)}
+textarea{min-height:84px;resize:vertical}
+textarea:focus-visible,input:focus-visible,button:focus-visible{outline:2px solid var(--focus);outline-offset:2px}
+.other{margin-top:8px}
+.consent{display:flex;gap:8px;align-items:flex-start;margin-top:10px;font-size:13.5px;color:var(--ink-2)}
+.consent input{margin-top:5px;accent-color:var(--accent)}
+.err-q{background:var(--bad-soft);margin-inline:-16px;padding-inline:16px}
+.err-msg{color:var(--bad);font-size:13px;margin-top:6px}
+
+.submit{margin-top:28px;display:flex;flex-direction:column;gap:10px;align-items:flex-start}
+.btn{appearance:none;font:inherit;font-weight:700;font-size:16px;padding:12px 28px;border-radius:8px;border:1px solid var(--accent);background:var(--accent);color:var(--accent-ink);cursor:pointer}
+.btn:disabled{opacity:.5;cursor:wait}
+.status{font-size:14px;color:var(--ink-2)}
+.status.bad{color:var(--bad)}
+.done{margin-top:40px;background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:28px 20px}
+.done h2{font-family:var(--f-disp);font-size:28px;margin:0 0 8px}
+.done p{margin:6px 0;color:var(--ink-2)}
+footer{margin-top:40px;font-size:12.5px;color:var(--ink-3)}
+@media (max-width:420px){
+  .scale span{height:42px;font-size:16px}
+  .nps{grid-template-columns:repeat(6,minmax(0,1fr))}
+  .nps span{height:40px}
+  .top{flex-direction:column-reverse}
+  .lang{align-self:flex-end}
+}
+@media (prefers-reduced-motion:reduce){*{transition:none!important}}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header class="top">
+    <div>
+      <div class="eyebrow">PERIC 2026 · Oct 2–3 · Beitou</div>
+      <h1 data-i18n="title"></h1>
+      <div class="sub" data-i18n="subtitle"></div>
+    </div>
+    <div class="lang" role="group" aria-label="Language">
+      <button type="button" data-lang="zh" aria-pressed="true">中文</button>
+      <button type="button" data-lang="en" aria-pressed="false">English</button>
+    </div>
+  </header>
+
+  <form id="f" novalidate>
+    <p class="intro" data-i18n="intro"></p>
+    <div class="prog" aria-hidden="true"><div class="bar"><i id="barFill"></i></div><small id="progTxt"></small></div>
+    <div id="sections"></div>
+    <!-- honeypot -->
+    <div hidden><label>Website <input type="text" id="hp" tabindex="-1" autocomplete="off"></label></div>
+    <div class="submit">
+      <button class="btn" type="submit" id="send" data-i18n="submit"></button>
+      <span class="status" id="status" role="status"></span>
+    </div>
+  </form>
+
+  <section class="done" id="done" hidden>
+    <h2 data-i18n="thanksT"></h2>
+    <p data-i18n="thanks1"></p>
+    <p data-i18n="thanks2"></p>
+  </section>
+
+  <footer data-i18n="footer"></footer>
+</div>
+
+<script>
+(() => {
+"use strict";
+// ---------- text ----------
+const T = {
+  zh:{
+    title:"會後滿意度調查", subtitle:"Paramedicine and Emergency Response International Conference",
+    intro:"感謝您參加 PERIC 2026。這份問卷約需 5–8 分鐘，以匿名方式填寫，結果將用於改善明年的大會。沒有參加的場次請選「未參加」。",
+    submit:"送出問卷", sending:"送出中…", sendErr:"送出失敗，請檢查網路後再按一次。", needFix:"還有必填題未完成，請查看標示紅色的題目。",
+    notReady:"問卷尚未開放（尚未設定伺服器網址）。",
+    thanksT:"感謝您的回饋！", thanks1:"您的意見已送出，我們會用來規劃 PERIC 2027。", thanks2:"期待明年再見。",
+    footer:"主辦：國立臺北護理健康大學 · 台灣醫療救護學會（TSP）。問卷資料僅供大會改善使用。",
+    na:"未參加", lo:"非常不滿意", hi:"非常滿意", addC:"＋ 補充意見", cmtPh:"這個場次的意見（選填）",
+    npsLo:"完全不會", npsHi:"一定會", other:"其他（請說明）", req:"必填", sec:"第 {a} / {b} 部分",
+    day1:"第一天 10/2（五）", day2:"第二天 10/3（六）", emailPh:"name@example.com"
+  },
+  en:{
+    title:"Post-Conference Survey", subtitle:"Paramedicine and Emergency Response International Conference",
+    intro:"Thank you for attending PERIC 2026. This anonymous survey takes about 5–8 minutes and will shape next year’s conference. Choose “N/A” for sessions you did not attend.",
+    submit:"Submit", sending:"Sending…", sendErr:"Could not send. Check your connection and try again.", needFix:"Some required questions are missing; see the ones marked in red.",
+    notReady:"The survey is not open yet (server address not set).",
+    thanksT:"Thank you!", thanks1:"Your feedback has been received and will help us plan PERIC 2027.", thanks2:"We hope to see you next year.",
+    footer:"Hosted by National Taipei University of Nursing and Health Sciences and the Taiwan Society of Paramedicine (TSP). Responses are used only to improve the conference.",
+    na:"N/A", lo:"Very dissatisfied", hi:"Very satisfied", addC:"+ Add a comment", cmtPh:"Comments on this session (optional)",
+    npsLo:"Not at all likely", npsHi:"Extremely likely", other:"Other (please specify)", req:"required", sec:"Part {a} of {b}",
+    day1:"Day 1 · Fri 2 Oct", day2:"Day 2 · Sat 3 Oct", emailPh:"name@example.com"
+  }
+};
+
+// ---------- schema ----------
+const L = (zh,en) => ({zh,en});
+const SESSIONS = [
+  {d:1,k:"d1_reg",t:"08:30",n:L("報到與入場","Registration & check-in")},
+  {d:1,k:"d1_open",t:"09:30",n:L("開幕致詞","Opening remarks"),s:"Dr Chieh-Ming Fan"},
+  {d:1,k:"d1_anderson",t:"10:00",n:L("專題演講：2026 心臟照護科技進展","Keynote: Rise of the Machines — technological advances in cardiac care in 2026"),s:"Dr David Anderson (AU)"},
+  {d:1,k:"d1_hsiao",t:"11:10",n:L("專題演講：建構具韌性的 EMS 體系——現況整備與未來策略","Keynote: Building a Resilient EMS System — current preparedness and future strategies"),s:"Director General Huan-Chang Hsiao, National Fire Agency (TW)"},
+  {d:1,k:"d1_cafe",t:"12:00",n:L("午餐／世界 EMS 咖啡館","Lunch / World EMS Café")},
+  {d:1,k:"d1_williams",t:"14:00",n:L("專題演講：從日常 EMS 實務找到研究題目","Keynote: From EMS daily practice to research topics"),s:"Prof Brett Williams (AU)"},
+  {d:1,k:"d1_hunter",t:"15:40",n:L("專題演講：EMS 團隊資源管理（CRM，線上）","Keynote: EMS Crew Resource Management (online)"),s:"Assoc Prof Justin Hunter (US)"},
+  {d:2,k:"d2_anderson",t:"09:40",n:L("專題演講：EMS 醫療指導醫師與臨床教師的角色與能力","Keynote: Roles and competencies of EMS Medical Directors and Clinical Instructors"),s:"Dr David Anderson (AU)"},
+  {d:2,k:"d2_hunter",t:"10:00",n:L("專題演講：美國空中救護與到院前輸血（線上）","Keynote: US HEMS and prehospital blood transfusion practice (online)"),s:"Assoc Prof Justin Hunter (US)"},
+  {d:2,k:"d2_williams",t:"10:40",n:L("專題演講：從共識到課程——推動亞洲 EMS 非技術性技能","Keynote: From Consensus to Curriculum — non-technical skills in EMS across Asian systems"),s:"Prof Brett Williams (AU)"},
+  {d:2,k:"d2_foong",t:"11:00",n:L("專題演講：智慧 EMS 科技與 EMS ASIA 2026","Keynote: Smart EMS Technologies and the Road to EMS ASIA 2026"),s:"Mr Kenneth Foong (SG)"},
+  {d:2,k:"d2_chang",t:"11:20",n:L("保護救護者：EMS 職業健康與心理韌性","Protecting the Protectors: EMS Occupational Health and Resilience"),s:"Assist Prof Jack Yu-Tung Chang (TW)"},
+  {d:2,k:"d2_panel",t:"11:40",n:L("全球 EMS 座談","Global EMS Panel Discussion"),s:"All speakers"},
+  {d:2,k:"d2_cafe",t:"12:00",n:L("午餐／世界 EMS 咖啡館","Lunch / World EMS Café")},
+  {d:2,k:"d2_foong2",t:"14:00",n:L("學術發表開場：為什麼研究對救護很重要？","Academic session opening: Why is research important in paramedicine?"),s:"Mr Kenneth Foong (SG)"},
+  {d:2,k:"d2_academic",t:"14:30",n:L("學術口頭與海報發表","Oral and poster presentations")}
+];
+const LOGISTICS = [
+  ["venue",L("會場環境與動線指引","Venue and wayfinding")],
+  ["av",L("影音設備與網路","Audio-visual equipment and Wi-Fi")],
+  ["online",L("線上講者連線品質","Connection quality for online speakers")],
+  ["wordly",L("Wordly AI 即時翻譯字幕","Wordly AI live translation captions")],
+  ["food",L("午餐與茶敘","Lunch and refreshments")],
+  ["time",L("議程時間掌控","Timekeeping of the program")],
+  ["info",L("報名流程與官網資訊","Registration process and website information")],
+  ["staff",L("工作人員服務","Helpfulness of staff and volunteers")],
+  ["ce",L("繼續教育積分登錄","Continuing-education credit process")]
+];
+const ROLE = [L("EMT-1 初級救護技術員","EMT-1"),L("EMT-2 中級救護技術員","EMT-2"),L("EMT-P 高級救護技術員","EMT-P / Paramedic"),L("消防人員（非救護專責）","Firefighter (non-EMS)"),L("護理師","Nurse"),L("醫師","Physician"),L("教師／研究人員","Educator / researcher"),L("學生","Student"),L("行政／管理人員","Administrator / manager")];
+const YEARS = [L("未滿 2 年","< 2 years"),L("2–5 年","2–5 years"),L("6–10 年","6–10 years"),L("11–20 年","11–20 years"),L("20 年以上","> 20 years"),L("非 EMS 相關","Not in EMS")];
+const SOURCE = [L("大會官網","Conference website"),L("Facebook／Instagram","Facebook / Instagram"),L("台灣醫療救護學會（TSP）通知","TSP announcement"),L("單位公文或主管推薦","Official notice / supervisor"),L("同事或朋友","Colleague or friend"),L("學校或老師","School or teacher")];
+const TYPES = [L("國際專題演講","International keynotes"),L("臨床大師班","Clinical master classes"),L("實作工作坊／技能站","Hands-on workshops / skills stations"),L("模擬情境競賽","Simulation competition"),L("學術口頭與海報發表","Oral and poster research presentations"),L("座談與辯論","Panels and debates"),L("世界 EMS 咖啡館交流","World EMS Café networking"),L("參訪（消防局、醫院、訓練中心）","Site visits (fire stations, hospitals, training centres)"),L("線上預錄課程（會後可回看）","Recorded sessions available after the event")];
+const TOPICS = [L("創傷照護與止血","Trauma care and haemorrhage control"),L("心臟停止與復甦","Cardiac arrest and resuscitation"),L("災難與大量傷患","Disaster and mass-casualty response"),L("教育訓練與模擬","Education and simulation"),L("AI 與智慧救護科技","AI and smart EMS technology"),L("職業健康、同儕支持與心理韌性","Occupational health, peer support and resilience"),L("研究方法與論文發表","Research methods and publishing"),L("醫療指導與品質管理","Medical direction and quality improvement"),L("空中救護與轉送","Air medical and interfacility transport"),L("兒童與高齡等特殊族群","Paediatric, geriatric and other special populations")];
+
+const SECTIONS = [
+  {id:"about", h:L("關於您","About you"), p:L("協助我們了解參加者的背景。","Helps us understand who attended."), qs:[
+    {k:"p_days",type:"multi",req:true,q:L("您參加了哪幾天？","Which days did you attend?"),o:[L("10/2（五）第一天","Day 1 · Fri 2 Oct"),L("10/3（六）第二天","Day 2 · Sat 3 Oct")],onChange:"days"},
+    {k:"p_role",type:"single",q:L("您的身分","Your role"),o:ROLE,other:true},
+    {k:"p_years",type:"single",q:L("EMS 相關年資","Years of EMS experience"),o:YEARS},
+    {k:"p_country",type:"single",q:L("您來自","Where are you based?"),o:[L("台灣","Taiwan")],other:true},
+    {k:"p_source",type:"multi",q:L("您從哪裡得知這場大會？（可複選）","How did you hear about PERIC? (select all that apply)"),o:SOURCE,other:true}
+  ]},
+  {id:"sessions", h:L("各場次評價","Session ratings"), p:L("1 = 非常不滿意，5 = 非常滿意。只會顯示您參加日期的場次。","1 = very dissatisfied, 5 = very satisfied. Only sessions on the days you attended are shown."), sessions:true},
+  {id:"logistics", h:L("會務與整體","Logistics and overall"), p:L("1 = 非常不滿意，5 = 非常滿意。","1 = very dissatisfied, 5 = very satisfied."), qs:[
+    ...LOGISTICS.map(([k,n]) => ({k:"r_log_"+k,type:"rate",q:n})),
+    {k:"r_relevance",type:"rate",q:L("內容與您工作實務的相關程度","Relevance of the content to your practice"),noNA:true},
+    {k:"r_overall",type:"rate",req:true,q:L("整體而言，您對 PERIC 2026 的滿意度","Overall satisfaction with PERIC 2026"),noNA:true},
+    {k:"nps",type:"nps",q:L("您有多大可能推薦同事參加下一屆 PERIC？","How likely are you to recommend the next PERIC to a colleague?")}
+  ]},
+  {id:"future", h:L("未來的大會","Future conferences"), p:L("您的偏好會直接用來規劃 PERIC 2027。","Your preferences will directly shape PERIC 2027."), qs:[
+    {k:"f_attend",type:"single",q:L("明年您還會參加嗎？","Would you attend PERIC next year?"),o:[L("會","Yes"),L("可能","Maybe"),L("不會","No")]},
+    {k:"f_format",type:"single",q:L("希望的辦理方式","Preferred format"),o:[L("全實體","Fully in person"),L("實體＋線上同步","In person with live online access"),L("全線上","Fully online")]},
+    {k:"f_length",type:"single",q:L("希望的會期長度","Preferred length"),o:[L("1 天","1 day"),L("2 天","2 days"),L("3 天","3 days"),L("分次半天系列","A series of half-day sessions")]},
+    {k:"f_days",type:"single",q:L("希望的舉辦日","Preferred days"),o:[L("平日","Weekdays"),L("週末","Weekend"),L("平日＋週末","Weekday + weekend")]},
+    {k:"f_season",type:"single",q:L("希望的舉辦季節","Preferred time of year"),o:[L("春季（3–5 月）","Spring (Mar–May)"),L("夏季（6–8 月）","Summer (Jun–Aug)"),L("秋季（9–11 月）","Autumn (Sep–Nov)"),L("冬季（12–2 月）","Winter (Dec–Feb)")]},
+    {k:"f_types",type:"multi",max:3,q:L("最希望增加的活動形式（最多選 3 項）","Formats you most want to see (choose up to 3)"),o:TYPES,other:true},
+    {k:"f_topics",type:"multi",max:3,q:L("最感興趣的主題（最多選 3 項）","Topics of most interest (choose up to 3)"),o:TOPICS,other:true},
+    {k:"f_lang",type:"single",q:L("希望的語言安排","Preferred language arrangement"),o:[L("英文演講＋即時中文字幕","English talks with live Chinese captions"),L("英文演講＋專業口譯","English talks with professional interpretation"),L("以中文為主","Mainly Chinese"),L("中英文場次並行","Parallel Chinese and English sessions")]},
+    {k:"f_fee",type:"single",q:L("可接受的報名費（兩天）","Acceptable registration fee (two days)"),o:[L("NT$1,000 以下","Under NT$1,000"),L("NT$1,000–2,000","NT$1,000–2,000"),L("NT$2,001–3,500","NT$2,001–3,500"),L("NT$3,501–5,000","NT$3,501–5,000"),L("NT$5,000 以上","Over NT$5,000")]},
+    {k:"f_present",type:"single",q:L("明年有興趣投稿學術發表嗎？","Would you consider submitting an abstract next year?"),o:[L("有","Yes"),L("可能","Maybe"),L("沒有","No")]},
+    {k:"f_speakers",type:"text",q:L("希望邀請的講者、國家或單位","Speakers, countries or organisations you would like us to invite"),ph:L("例如：日本 DMAT、某位學者","e.g. Japan DMAT, a specific researcher")}
+  ]},
+  {id:"open", h:L("您的意見","Your comments"), qs:[
+    {k:"o_best",type:"text",long:true,q:L("這次大會最有收穫的部分","What was most valuable to you?")},
+    {k:"o_improve",type:"text",long:true,q:L("最需要改進的地方","What should we improve most?")},
+    {k:"o_other",type:"text",long:true,q:L("其他建議","Any other suggestions")},
+    {k:"c_email",type:"email",q:L("想收到 PERIC 2027 消息？留下 Email（選填）","Want news about PERIC 2027? Leave your email (optional)"),hint:L("Email 只用於通知下一屆大會，不會與問卷分析連結或對外提供。","Used only to notify you about the next conference; never shared or used in the analysis.")}
+  ]}
+];
+
+// ---------- state ----------
+let lang = "zh", saved = null;
+try { saved = localStorage.getItem("peric_survey_lang"); } catch(e){}
+if(saved==="en"||saved==="zh") lang = saved;
+else if(navigator.language && !/^zh/i.test(navigator.language)) lang = "en";
+const A = {};   // answers: key -> value (string | string[])
+const tx = o => (o && typeof o==="object") ? o[lang] : o;
+const t = k => T[lang][k];
+const esc = s => String(s ?? "").replace(/[&<>"']/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
+
+function daysAttended(){
+  const v = A.p_days || [];
+  return {d1: v.includes("0"), d2: v.includes("1"), any: v.length>0};
+}
+
+// ---------- render ----------
+function rateHTML(k, noNA){
+  const v = A[k];
+  const cells = [1,2,3,4,5].map(n => `<label><input type="radio" name="${k}" value="${n}" ${v==String(n)?"checked":""}><span>${n}</span></label>`).join("");
+  const na = noNA ? `<i aria-hidden="true"></i>` : `<label class="na"><input type="radio" name="${k}" value="NA" ${v==="NA"?"checked":""}><span>${t("na")}</span></label>`;
+  return `<div class="scale" role="radiogroup">${cells}${na}</div><div class="anchors"><span>1 ${t("lo")}</span><span>5 ${t("hi")}</span></div>`;
+}
+function optsHTML(q){
+  const multi = q.type==="multi", v = A[q.k] || (multi?[]:"");
+  const items = q.o.map((o,i) => {
+    const on = multi ? v.includes(String(i)) : v===String(i);
+    return `<label><input type="${multi?"checkbox":"radio"}" name="${q.k}" value="${i}" ${on?"checked":""}><span>${esc(tx(o))}</span></label>`;
+  }).join("");
+  const oi = "other";
+  const otherOn = multi ? v.includes(oi) : v===oi;
+  const other = q.other ? `<label><input type="${multi?"checkbox":"radio"}" name="${q.k}" value="${oi}" ${otherOn?"checked":""}><span>${t("other")}</span></label>` : "";
+  const otherBox = q.other ? `<input type="text" class="other" id="${q.k}_other" data-k="${q.k}_other" value="${esc(A[q.k+"_other"]||"")}" ${otherOn?"":"hidden"} aria-label="${t("other")}">` : "";
+  return `<div class="opts${multi?" multi":""}">${items}${other}</div>${otherBox}`;
+}
+function qHTML(q){
+  const req = q.req ? `<span class="req" title="${t("req")}">*</span>` : "";
+  const hint = q.hint ? `<span class="qh">${esc(tx(q.hint))}</span>` : "";
+  let body = "";
+  if(q.type==="rate") body = rateHTML(q.k, q.noNA);
+  else if(q.type==="nps") body = `<div class="nps" role="radiogroup">${[...Array(11).keys()].map(n=>`<label><input type="radio" name="${q.k}" value="${n}" ${A[q.k]===String(n)?"checked":""}><span>${n}</span></label>`).join("")}</div><div class="npsa"><span>0 ${t("npsLo")}</span><span>10 ${t("npsHi")}</span></div>`;
+  else if(q.type==="single"||q.type==="multi") body = optsHTML(q);
+  else if(q.type==="text") body = q.long ? `<textarea id="${q.k}" data-k="${q.k}">${esc(A[q.k]||"")}</textarea>` : `<input type="text" id="${q.k}" data-k="${q.k}" value="${esc(A[q.k]||"")}" placeholder="${esc(tx(q.ph)||"")}">`;
+  else if(q.type==="email") body = `<input type="email" id="${q.k}" data-k="${q.k}" value="${esc(A[q.k]||"")}" placeholder="${t("emailPh")}" autocomplete="email">`;
+  return `<div class="q" id="q-${q.k}"><span class="ql">${esc(tx(q.q))}${req}</span>${hint}${body}<div class="err-msg" hidden></div></div>`;
+}
+function sessionsHTML(){
+  const da = daysAttended();
+  const show = d => !da.any || (d===1 ? da.d1 : da.d2);
+  let html = "";
+  for(const d of [1,2]){
+    if(!show(d)) continue;
+    html += `<div class="day">${t("day"+d)}</div>`;
+    html += SESSIONS.filter(s=>s.d===d).map(s => {
+      const k = "r_"+s.k, ck = "c_"+s.k, open = !!A[ck] || A["_open_"+ck];
+      return `<div class="q sess" id="q-${k}"><span class="ql">${esc(tx(s.n))}</span>
+        <span class="meta">${s.t}${s.s?` · ${esc(s.s)}`:""}</span>
+        ${rateHTML(k,false)}
+        ${open ? `<textarea id="${ck}" data-k="${ck}" placeholder="${t("cmtPh")}" style="margin-top:8px;min-height:64px">${esc(A[ck]||"")}</textarea>`
+               : `<button type="button" class="cmt-t" data-cmt="${ck}">${t("addC")}</button>`}
+      </div>`;
+    }).join("");
+  }
+  return html;
+}
+function render(){
+  document.documentElement.lang = lang==="zh" ? "zh-Hant" : "en";
+  document.querySelectorAll("[data-i18n]").forEach(el => el.textContent = t(el.dataset.i18n));
+  document.querySelectorAll("[data-lang]").forEach(b => b.setAttribute("aria-pressed", String(b.dataset.lang===lang)));
+  $("#sections").innerHTML = SECTIONS.map((s,i) => `
+    <section class="blk" id="sec-${s.id}">
+      <h2><span class="n">${String(i+1).padStart(2,"0")}</span>${esc(tx(s.h))}</h2>
+      ${s.p?`<p>${esc(tx(s.p))}</p>`:""}
+      <div class="card" id="card-${s.id}">${s.sessions ? sessionsHTML() : s.qs.map(qHTML).join("")}</div>
+    </section>`).join("");
+  progress();
+}
+function rerenderSessions(){ $("#card-sessions").innerHTML = sessionsHTML(); progress(); }
+const $ = s => document.querySelector(s);
+
+// ---------- progress ----------
+function allKeys(){
+  const da = daysAttended(), keys = [];
+  SECTIONS.forEach(s => {
+    if(s.sessions) SESSIONS.forEach(x => { if(!da.any || (x.d===1?da.d1:da.d2)) keys.push("r_"+x.k); });
+    else s.qs.forEach(q => { if(!["text","email"].includes(q.type)) keys.push(q.k); });
+  });
+  return keys;
+}
+function progress(){
+  const ks = allKeys(), done = ks.filter(k => A[k] && (!Array.isArray(A[k]) || A[k].length)).length;
+  $("#barFill").style.width = (ks.length ? done/ks.length*100 : 0) + "%";
+  $("#progTxt").textContent = lang==="zh" ? `已回答 ${done} / ${ks.length} 題` : `${done} of ${ks.length} answered`;
+}
+
+// ---------- events ----------
+document.addEventListener("change", e => {
+  const el = e.target; if(!el.name && !el.dataset.k) return;
+  if(el.dataset.k){ A[el.dataset.k] = el.value; return; }
+  const k = el.name;
+  if(el.type==="checkbox"){
+    const q = findQ(k), cur = new Set(A[k]||[]);
+    el.checked ? cur.add(el.value) : cur.delete(el.value);
+    if(q && q.max && cur.size > q.max){ el.checked = false; cur.delete(el.value); flash(k, lang==="zh"?`最多選 ${q.max} 項`:`Choose up to ${q.max}`); }
+    A[k] = [...cur];
+    const ob = document.getElementById(k+"_other"); if(ob) ob.hidden = !cur.has("other");
+    if(k==="p_days") rerenderSessions();
+  } else {
+    A[k] = el.value;
+    const ob = document.getElementById(k+"_other"); if(ob) ob.hidden = el.value!=="other";
+  }
+  clearErr(k); progress();
+});
+document.addEventListener("input", e => { const k = e.target.dataset && e.target.dataset.k; if(k) A[k] = e.target.value; });
+document.addEventListener("click", e => {
+  const b = e.target.closest("button"); if(!b) return;
+  if(b.dataset.lang){ if(b.dataset.lang!==lang){ lang=b.dataset.lang; try{localStorage.setItem("peric_survey_lang",lang);}catch(x){} render(); } return; }
+  if(b.dataset.cmt){ A["_open_"+b.dataset.cmt]=true; const box=document.createElement("textarea"); box.id=b.dataset.cmt; box.dataset.k=b.dataset.cmt; box.placeholder=t("cmtPh"); box.style.cssText="margin-top:8px;min-height:64px"; b.replaceWith(box); box.focus(); }
+});
+function findQ(k){ for(const s of SECTIONS) for(const q of (s.qs||[])) if(q.k===k) return q; return null; }
+function flash(k,msg){ const q=document.getElementById("q-"+k); if(!q) return; const m=q.querySelector(".err-msg"); if(m){ m.textContent=msg; m.hidden=false; setTimeout(()=>{ m.hidden=true; },2500); } }
+function clearErr(k){ const q=document.getElementById("q-"+k); if(q){ q.classList.remove("err-q"); const m=q.querySelector(".err-msg"); if(m) m.hidden=true; } }
+
+// ---------- submit ----------
+function labelZh(k){
+  for(const s of SESSIONS){ if("r_"+s.k===k) return s.n.zh; if("c_"+s.k===k) return s.n.zh+"（意見）"; }
+  for(const s of SECTIONS) for(const q of (s.qs||[])){ if(q.k===k) return q.q.zh; if(q.k+"_other"===k) return q.q.zh+"（其他）"; }
+  return k;
+}
+function valueOut(k){
+  const q = findQ(k), v = A[k];
+  if(v==null || v==="") return "";
+  if(q && (q.type==="single"||q.type==="multi")){
+    const map = x => x==="other" ? "其他 Other" : (q.o[+x] ? `${q.o[+x].zh} / ${q.o[+x].en}` : x);
+    return Array.isArray(v) ? v.map(map) : map(v);
+  }
+  if(/^r_|^nps$/.test(k)) return v==="NA" ? "NA" : Number(v);
+  return v;
+}
+function buildFields(){
+  const da = daysAttended(), keys = [];
+  SECTIONS.forEach(s => {
+    if(s.sessions){ SESSIONS.forEach(x => { keys.push("r_"+x.k, "c_"+x.k); }); return; }
+    s.qs.forEach(q => { keys.push(q.k); if(q.other) keys.push(q.k+"_other"); });
+  });
+  return keys.map(k => {
+    let v = valueOut(k);
+    const sess = SESSIONS.find(x => "r_"+x.k===k);
+    if(sess && v==="" && da.any && !(sess.d===1?da.d1:da.d2)) v = "NA";   // day not attended
+    return {k, label: labelZh(k), v};
+  });
+}
+function validate(){
+  let first = null;
+  SECTIONS.forEach(s => (s.qs||[]).forEach(q => {
+    if(!q.req) return;
+    const v = A[q.k], miss = !v || (Array.isArray(v) && !v.length);
+    const el = document.getElementById("q-"+q.k);
+    if(miss && el){ el.classList.add("err-q"); const m=el.querySelector(".err-msg"); m.textContent = lang==="zh"?"此題必填":"This question is required"; m.hidden=false; first = first || el; }
+  }));
+  const em = (A.c_email||"").trim();
+  if(em && !/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(em)){ const el=document.getElementById("q-c_email"); el.classList.add("err-q"); const m=el.querySelector(".err-msg"); m.textContent= lang==="zh"?"Email 格式不正確":"Please check the email address"; m.hidden=false; first = first || el; }
+  if(first) first.scrollIntoView({behavior:"smooth", block:"center"});
+  return !first;
+}
+$("#f").addEventListener("submit", async e => {
+  e.preventDefault();
+  const st = $("#status"), btn = $("#send");
+  if(!/^https:\/\/script\.google\.com\//.test(API_URL)){ st.textContent = t("notReady"); st.className="status bad"; return; }
+  if(!validate()){ st.textContent = t("needFix"); st.className="status bad"; return; }
+  btn.disabled = true; btn.textContent = t("sending"); st.textContent=""; st.className="status";
+  try{
+    const r = await fetch(API_URL, {method:"POST", redirect:"follow", headers:{"Content-Type":"text/plain;charset=utf-8"},
+      body: JSON.stringify({lang, fields: buildFields(), _hp: $("#hp").value})});
+    const j = await r.json();
+    if(!j.ok) throw new Error(j.error||"error");
+    $("#f").hidden = true; $("#done").hidden = false; window.scrollTo({top:0, behavior:"smooth"});
+  }catch(err){
+    st.textContent = t("sendErr"); st.className = "status bad";
+  }finally{ btn.disabled = false; btn.textContent = t("submit"); }
+});
+
+render();
+})();
+</script>
+</body>
+</html>
